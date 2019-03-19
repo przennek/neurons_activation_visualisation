@@ -1,0 +1,12 @@
+- visualisation
+https://distill.pub/2018/differentiable-parameterizations://distill.pub/2018/differentiable-parameterizations/
+https://distill.pub/2017/feature-visualization/
+https://distill.pub/2018/building-blocks/
+
+- pretrained models
+http://www.vlfeat.org/matconvnet/pretrained/
+
+- neural style transfer (?)
+http://www.chioka.in/tensorflow-implementation-neural-algorithm-of-artistic-style
+https://harishnarayanan.org/writing/artistic-style-transfer/
+https://arxiv.org/abs/1508.06576
