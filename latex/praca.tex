@@ -1,0 +1,104 @@
+\documentclass[12pt, left=2.5cm, top=2.5cm, bottom=2.5cm, right=2.5cm oneside]{aghdpl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{polski}
+\usepackage[polish]{babel}
+\usepackage{hyperref}
+\usepackage{amsmath}
+
+% dodatkowe pakiety
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{multirow}
+\lstloadlanguages{TeX}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstset{
+  literate={ą}{{\k{a}}}1
+           {ć}{{\'c}}1
+           {ę}{{\k{e}}}1
+           {ó}{{\'o}}1
+           {ń}{{\'n}}1
+           {ł}{{\l{}}}1
+           {ś}{{\'s}}1
+           {ź}{{\'z}}1
+           {ż}{{\.z}}1
+           {Ą}{{\k{A}}}1
+           {Ć}{{\'C}}1
+           {Ę}{{\k{E}}}1
+           {Ó}{{\'O}}1
+           {Ń}{{\'N}}1
+           {Ł}{{\L{}}}1
+           {Ś}{{\'S}}1
+           {Ź}{{\'Z}}1
+           {Ż}{{\.Z}}1
+}
+
+%---------------------------------------------------------------------------
+\author{Przemysław Chlipała}
+\shortauthor{Przemysław Chlipała}
+
+\titlePL{Metody wizualizacji optymalizacji aktywacji neuronów sieci konwolucyjnych}
+\shorttitlePL{Metody wizualizacji optymalizacji aktywacji neuronów sieci konwolucyjnych}
+\thesistype{Praca dyplomowa magisterska}
+\supervisor{dr hab. Tomasz Kawalec}
+\degreeprogramme{Informatyka Stosowana}
+\date{2019}
+
+%---------------------------------------------------------------------------
+
+\usepackage[%
+  backend=bibtex      % biber or bibtex
+ ,style=numeric-comp  % numerical-compressed
+ ,sorting=none        % no sorting
+ ,sortcites=true      % some other example options ...
+ ,block=none
+ ,indexing=false
+ ,citereset=none
+ ,isbn=true
+ ,url=true
+ ,doi=true            % prints doi
+ ,natbib=true         % if you need natbib functions
+]{biblatex}
+\addbibresource{bibliografia.bib}  % better than \bibliography
+
+%---------------------------------------------------------------------------
+\begin{document}  
+
+\include{tytul}
+\tableofcontents
+\setcounter{tocdepth}{3}
+\include{wstep}
+\include{siecifc}
+\include{cnn}
+
+%\bibliographystyle{alpha}
+%\bibliography{bibliografia}
+\printbibliography
+
+\end{document}

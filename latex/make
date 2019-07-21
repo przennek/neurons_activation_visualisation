@@ -1,0 +1,15 @@
+#!/bin/bash
+rm *.pdf
+rm *.bib 
+rm *.aux
+rm *.out
+rm *.xml
+rm *.log
+pdflatex praca.tex
+pdflatex praca.tex
+rm *.bib 
+rm *.aux
+rm *.out
+rm *.xml
+rm *.log
+open -a preview praca.pdf
