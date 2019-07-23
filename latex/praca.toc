@@ -34,3 +34,9 @@
 \contentsline {subsection}{\numberline {3.3.2}Implementacja sieci LeNet-5}{18}{subsection.3.3.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.3}Implementacja modelu przy pomocy Keras}{19}{subsection.3.3.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.4}Wizualizacja neuron\IeC {\'o}w warstw konwolucyjnych sieci LeNet-5.}{21}{subsection.3.3.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Wizualizacja poprzez wy\IeC {\'s}wietlenie wag warstw konwolucyjnych.}{22}{subsubsection*.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Wizualizacja poprzez mapy cech.}{23}{subsubsection*.2}% 
