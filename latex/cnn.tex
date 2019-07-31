@@ -62,7 +62,7 @@ Uzyskane tym sposobem macierze wynikowe oraz wagowe są wielokrotnie mniejsze, k
 wymiar trójwymiarowej macierzy wynikowej wynosi wtedy:
 \[n_{x} \times n_{y} \times n_{z}\]
 Gdzie \(n_{x}\) = ­­\(n_{y}\)=
-\(\left\lfloor \frac{n + 2p - n_{f}}{s} \right\rfloor\), \(n,\ p,\ s\)
+\(\left\lfloor \frac{n + 2p - n_{f}}{s} \right\rfloor + 1\), \(n,\ p,\ s\)
 są zgodne z opisem wyżej, \(n_{f}\ \)to wymiar macierzy kwadratowej
 filtra a \(n_{z}\) -- to ilość użytych filtrów wielkości
 \(n_{f} \times n_{f} \times n_{z}\).
@@ -99,7 +99,7 @@ Przy użyciu splotu, warstw łączących i sieci gęsto połączonych, można za
 Przyjmuje ona wejściu obrazki o wymiarach 32\(\times\)32 pikseli z trzema kanałami (RGB), stosuje operacje splotu przy użyciu 6 filtrów o wymiarach 5\(\times\)5\(\times\)3 dając, zgodnie ze wzorem, wynik o wymiarach 28\(\times\)28\(\times\)6. Do tak uzyskanych macierzy wprowadzany jest element nieliniowości przy pomocy funkcji aktywacji, w tym przypadku tangens hiperboliczny. Następnie stosowana jest warstwa maxpool o wymiarze filtra 2\(\times\)2\(\times\)6. Tak uzyskany wynik, trafia na splot
 tym razem 16 filtrów 5\(\times\)5\(\times\)6 i maxpool 2\(\times\)2\(\times\)16. Następnie przekazywany jest do w pełni połączonej sieci neuronowej, trójwarstwowej, posiadającej 400, 120 i 84 węzły na kolejnych warstwach. W wersji, którą chce zaprezentować wynik uzyskam przy pomocy softmax i będzie to 10 elementowy wektor.
 
-\subsection{Implementacja sieci LeNet-5}
+\subsection{Opis implementacji sieci LeNet-5}
 
 By zaimplementować zaproponowany model, posłużę się biblioteką do
 głębokiego uczenia maszynowego -- Keras. Model będzie zaimplementowany w
@@ -271,4 +271,4 @@ Sytuacja robi się jeszcze ciekawsza w przypadku warstwy drugiej. Tam jest już 
 Uzyskane aktywacje wciąż przypominają oryginalną szóstkę, lecz tym razem, zgodnie z oczekiwaniami, cechy są bardziej zgeneralizowane.
 Wyraźnie widać skupienie filtrów na dolnej ''pętli'' szóstki oraz na tym, by posiadała odpowiednie łuki na brzegach (wyraźnie zarysowany jest tam gradient, widoczny szczególnie na filtrach w ostatnim rzędzie).
 
-Niestety sieć LeNet-5 jest na tyle płytka a zestaw odręcznie pisanych cyfr na tyle mało skomplikowany, że nie uda mi się przy ich pomocy wyekstrahować bardziej złożonych wzorów. W tym celu będę musiał posłużyć się bardziej złożonym modelem. Siecią VGG-16. 
+Niestety sieć LeNet-5 jest na tyle płytka a zestaw odręcznie pisanych cyfr na tyle mało skomplikowany, że nie uda mi się przy ich pomocy wyekstrahować bardziej złożonych wzorów. W tym celu będę musiał posłużyć się bardziej złożonym modelem. Siecią VGG-19. 

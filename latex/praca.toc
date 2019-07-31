@@ -31,7 +31,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}Schemat sieci LeNet-5}{18}{subsection.3.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Implementacja sieci LeNet-5}{18}{subsection.3.3.2}% 
+\contentsline {subsection}{\numberline {3.3.2}Opis implementacji sieci LeNet-5}{18}{subsection.3.3.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.3}Implementacja modelu przy pomocy Keras}{19}{subsection.3.3.3}% 
 \defcounter {refsection}{0}\relax 
@@ -40,3 +40,9 @@
 \contentsline {subsubsection}{Wizualizacja poprzez wy\IeC {\'s}wietlenie wag warstw konwolucyjnych.}{22}{subsubsection*.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Wizualizacja poprzez mapy cech.}{23}{subsubsection*.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Wizualizacja przy pomocy warstw ukrytych sieci VGG-19}{25}{chapter.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Model sieci VGG-19}{25}{section.4.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}Wizualizacja sieci VGG poprzez rekonstrukcj\IeC {\k e} obrazu przy pomocy maksymalizacji aktywacji neuronu.}{26}{subsection.4.1.1}% 

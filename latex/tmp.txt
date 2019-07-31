@@ -1,0 +1,15 @@
+%@online{vggpaper,
+%    author =       "Karen Simonyan and Andrew Zisserman",
+%   title =        "{Very deep convolutional network for large-scale image recognition}. ({ENG})
+%   [Rozpoznawanie obrazów na szeroką skalę przy pomocy bardzo głębokich sieci konwolucyjnych]",
+%   url =        "https://arxiv.org/pdf/1409.1556.pdf",
+%   keywords =     "vggcnn"
+%}
+
+%@online{ImageNet-dataset,
+%    title =        "Zbiór danych ImageNet."
+%    url = "http://www.image-net.org/",
+%    keywords =     "zbiór danych"
+%}
+% przykłady
+

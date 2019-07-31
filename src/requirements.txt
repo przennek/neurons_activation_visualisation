@@ -2,3 +2,6 @@ tensorflow
 keras
 matplotlib
 numpy
+opencv-python
+Pillow
+scipy

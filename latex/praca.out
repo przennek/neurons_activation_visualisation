@@ -1,0 +1,23 @@
+\BOOKMARK [0][-]{chapter.1}{Wstep}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Geste sieci neuronowe}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Algorytmy uczace sie}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Gesta siec neuronowa}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Neuron gestej sieci neuronowej}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.4}{Propagacja wprz\363d}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.5}{Funkcja kosztu}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.6}{Propagacja wstecz}{chapter.2}% 8
+\BOOKMARK [0][-]{chapter.3}{Neuronowa siec konwolucyjna}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Wstep}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.2}{Opis element\363w sk\233adajacych sie na CNN}{chapter.3}% 11
+\BOOKMARK [2][-]{subsection.3.2.1}{Filtry i splot w CNN}{section.3.2}% 12
+\BOOKMARK [2][-]{subsection.3.2.2}{Warstwy \233aczace}{section.3.2}% 13
+\BOOKMARK [1][-]{section.3.3}{Przyk\233ad sieci konwolucyjnej - LeNet-5}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.3.1}{Schemat sieci LeNet-5}{section.3.3}% 15
+\BOOKMARK [2][-]{subsection.3.3.2}{Opis implementacji sieci LeNet-5}{section.3.3}% 16
+\BOOKMARK [2][-]{subsection.3.3.3}{Implementacja modelu przy pomocy Keras}{section.3.3}% 17
+\BOOKMARK [2][-]{subsection.3.3.4}{Wizualizacja neuron\363w warstw konwolucyjnych sieci LeNet-5.}{section.3.3}% 18
+\BOOKMARK [3][-]{subsubsection*.1}{Wizualizacja poprzez wyswietlenie wag warstw konwolucyjnych.}{subsection.3.3.4}% 19
+\BOOKMARK [3][-]{subsubsection*.2}{Wizualizacja poprzez mapy cech.}{subsection.3.3.4}% 20
+\BOOKMARK [0][-]{chapter.4}{Wizualizacja przy pomocy warstw ukrytych sieci VGG-19}{}% 21
+\BOOKMARK [1][-]{section.4.1}{Model sieci VGG-19}{chapter.4}% 22
+\BOOKMARK [2][-]{subsection.4.1.1}{Wizualizacja sieci VGG poprzez rekonstrukcje obrazu przy pomocy maksymalizacji aktywacji neuronu.}{section.4.1}% 23
