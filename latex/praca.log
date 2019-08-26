@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.19)  30 JUL 2019 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.19)  20 AUG 2019 22:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -357,29 +357,63 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
 )
+(/usr/local/texlive/2019basic/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count118
+\float@exts=\toks24
+\float@box=\box30
+\@float@everytoks=\toks25
+\@floatcapt=\box31
+)
+(/usr/local/texlive/2019basic/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/local/texlive/2019basic/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen136
+\captionmargin@=\dimen137
+\captionwidth=\dimen138
+\caption@tempdima=\dimen139
+\caption@indent=\dimen140
+\caption@parindent=\dimen141
+\caption@hangindent=\dimen142
+)
+\c@KVtest=\count119
+\sf@farskip=\skip92
+\sf@captopadj=\dimen143
+\sf@capskip=\skip93
+\sf@nearskip=\skip94
+\c@subfigure=\count120
+\c@subfigure@save=\count121
+\c@subtable=\count122
+\c@subtable@save=\count123
+\sf@top=\skip95
+\sf@bottom=\skip96
+)
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks24
+\@enLab=\toks26
 )
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count118
-\lst@gtempboxa=\box30
-\lst@token=\toks25
-\lst@length=\count119
-\lst@currlwidth=\dimen136
-\lst@column=\count120
-\lst@pos=\count121
-\lst@lostspace=\dimen137
-\lst@width=\dimen138
-\lst@newlines=\count122
-\lst@lineno=\count123
-\lst@maxwidth=\dimen139
+\lst@mode=\count124
+\lst@gtempboxa=\box32
+\lst@token=\toks27
+\lst@length=\count125
+\lst@currlwidth=\dimen144
+\lst@column=\count126
+\lst@pos=\count127
+\lst@lostspace=\dimen145
+\lst@width=\dimen146
+\lst@newlines=\count128
+\lst@lineno=\count129
+\lst@maxwidth=\dimen147
 
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/02/27 1.8b (Carsten Heinz)
-\c@lstnumber=\count124
-\lst@skipnumbers=\count125
-\lst@framebox=\box31
+\c@lstnumber=\count130
+\lst@skipnumbers=\count131
+\lst@framebox=\box33
 )
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2019/02/27 1.8b listings configuration
@@ -388,10 +422,10 @@ Package: listings 2019/02/27 1.8b (Carsten Heinz)
 
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
-\multirow@colwidth=\skip92
-\multirow@cntb=\count126
-\multirow@dima=\skip93
-\bigstrutjot=\dimen140
+\multirow@colwidth=\skip97
+\multirow@cntb=\count132
+\multirow@dima=\skip98
+\bigstrutjot=\dimen148
 )
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
@@ -407,11 +441,11 @@ Package: biblatex 2018/11/02 v3.12 programmable bibliographies (PK/MW)
 
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count127
+\etb@tempcnta=\count133
 )
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count128
+\lrq@indent=\count134
 
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -419,60 +453,60 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@tabx@nest=\count129
-\c@listtotal=\count130
-\c@listcount=\count131
-\c@liststart=\count132
-\c@liststop=\count133
-\c@citecount=\count134
-\c@citetotal=\count135
-\c@multicitecount=\count136
-\c@multicitetotal=\count137
-\c@instcount=\count138
-\c@maxnames=\count139
-\c@minnames=\count140
-\c@maxitems=\count141
-\c@minitems=\count142
-\c@citecounter=\count143
-\c@maxcitecounter=\count144
-\c@savedcitecounter=\count145
-\c@uniquelist=\count146
-\c@uniquename=\count147
-\c@refsection=\count148
-\c@refsegment=\count149
-\c@maxextratitle=\count150
-\c@maxextratitleyear=\count151
-\c@maxextraname=\count152
-\c@maxextradate=\count153
-\c@maxextraalpha=\count154
-\c@abbrvpenalty=\count155
-\c@highnamepenalty=\count156
-\c@lownamepenalty=\count157
-\c@maxparens=\count158
-\c@parenlevel=\count159
-\blx@tempcnta=\count160
-\blx@tempcntb=\count161
-\blx@tempcntc=\count162
-\blx@maxsection=\count163
-\blx@maxsegment@0=\count164
-\blx@notetype=\count165
-\blx@parenlevel@text=\count166
-\blx@parenlevel@foot=\count167
-\blx@sectionciteorder@0=\count168
-\blx@entrysetcounter=\count169
-\labelnumberwidth=\skip94
-\labelalphawidth=\skip95
-\biblabelsep=\skip96
-\bibitemsep=\skip97
-\bibnamesep=\skip98
-\bibinitsep=\skip99
-\bibparsep=\skip100
-\bibhang=\skip101
+\c@tabx@nest=\count135
+\c@listtotal=\count136
+\c@listcount=\count137
+\c@liststart=\count138
+\c@liststop=\count139
+\c@citecount=\count140
+\c@citetotal=\count141
+\c@multicitecount=\count142
+\c@multicitetotal=\count143
+\c@instcount=\count144
+\c@maxnames=\count145
+\c@minnames=\count146
+\c@maxitems=\count147
+\c@minitems=\count148
+\c@citecounter=\count149
+\c@maxcitecounter=\count150
+\c@savedcitecounter=\count151
+\c@uniquelist=\count152
+\c@uniquename=\count153
+\c@refsection=\count154
+\c@refsegment=\count155
+\c@maxextratitle=\count156
+\c@maxextratitleyear=\count157
+\c@maxextraname=\count158
+\c@maxextradate=\count159
+\c@maxextraalpha=\count160
+\c@abbrvpenalty=\count161
+\c@highnamepenalty=\count162
+\c@lownamepenalty=\count163
+\c@maxparens=\count164
+\c@parenlevel=\count165
+\blx@tempcnta=\count166
+\blx@tempcntb=\count167
+\blx@tempcntc=\count168
+\blx@maxsection=\count169
+\blx@maxsegment@0=\count170
+\blx@notetype=\count171
+\blx@parenlevel@text=\count172
+\blx@parenlevel@foot=\count173
+\blx@sectionciteorder@0=\count174
+\blx@entrysetcounter=\count175
+\labelnumberwidth=\skip99
+\labelalphawidth=\skip100
+\biblabelsep=\skip101
+\bibitemsep=\skip102
+\bibnamesep=\skip103
+\bibinitsep=\skip104
+\bibparsep=\skip105
+\bibhang=\skip106
 \blx@bcfin=\read1
 \blx@bcfout=\write3
-\c@mincomprange=\count170
-\c@maxcomprange=\count171
-\c@mincompwidth=\count172
+\c@mincomprange=\count176
+\c@maxcomprange=\count177
+\c@mincompwidth=\count178
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -483,88 +517,88 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric-comp.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count173
-\c@savedafterword=\count174
-\c@annotator=\count175
-\c@savedannotator=\count176
-\c@author=\count177
-\c@savedauthor=\count178
-\c@bookauthor=\count179
-\c@savedbookauthor=\count180
-\c@commentator=\count181
-\c@savedcommentator=\count182
-\c@editor=\count183
-\c@savededitor=\count184
-\c@editora=\count185
-\c@savededitora=\count186
-\c@editorb=\count187
-\c@savededitorb=\count188
-\c@editorc=\count189
-\c@savededitorc=\count190
-\c@foreword=\count191
-\c@savedforeword=\count192
-\c@holder=\count193
-\c@savedholder=\count194
-\c@introduction=\count195
-\c@savedintroduction=\count196
-\c@namea=\count197
-\c@savednamea=\count198
-\c@nameb=\count199
-\c@savednameb=\count266
-\c@namec=\count267
-\c@savednamec=\count268
-\c@translator=\count269
-\c@savedtranslator=\count270
-\c@shortauthor=\count271
-\c@savedshortauthor=\count272
-\c@shorteditor=\count273
-\c@savedshorteditor=\count274
-\c@labelname=\count275
-\c@savedlabelname=\count276
-\c@institution=\count277
-\c@savedinstitution=\count278
-\c@lista=\count279
-\c@savedlista=\count280
-\c@listb=\count281
-\c@savedlistb=\count282
-\c@listc=\count283
-\c@savedlistc=\count284
-\c@listd=\count285
-\c@savedlistd=\count286
-\c@liste=\count287
-\c@savedliste=\count288
-\c@listf=\count289
-\c@savedlistf=\count290
-\c@location=\count291
-\c@savedlocation=\count292
-\c@organization=\count293
-\c@savedorganization=\count294
-\c@origlocation=\count295
-\c@savedoriglocation=\count296
-\c@origpublisher=\count297
-\c@savedorigpublisher=\count298
-\c@publisher=\count299
-\c@savedpublisher=\count300
-\c@language=\count301
-\c@savedlanguage=\count302
-\c@origlanguage=\count303
-\c@savedoriglanguage=\count304
-\c@pageref=\count305
-\c@savedpageref=\count306
-\shorthandwidth=\skip102
-\shortjournalwidth=\skip103
-\shortserieswidth=\skip104
-\shorttitlewidth=\skip105
-\shortauthorwidth=\skip106
-\shorteditorwidth=\skip107
-\locallabelnumberwidth=\skip108
-\locallabelalphawidth=\skip109
-\localshorthandwidth=\skip110
-\localshortjournalwidth=\skip111
-\localshortserieswidth=\skip112
-\localshorttitlewidth=\skip113
-\localshortauthorwidth=\skip114
-\localshorteditorwidth=\skip115
+\c@afterword=\count179
+\c@savedafterword=\count180
+\c@annotator=\count181
+\c@savedannotator=\count182
+\c@author=\count183
+\c@savedauthor=\count184
+\c@bookauthor=\count185
+\c@savedbookauthor=\count186
+\c@commentator=\count187
+\c@savedcommentator=\count188
+\c@editor=\count189
+\c@savededitor=\count190
+\c@editora=\count191
+\c@savededitora=\count192
+\c@editorb=\count193
+\c@savededitorb=\count194
+\c@editorc=\count195
+\c@savededitorc=\count196
+\c@foreword=\count197
+\c@savedforeword=\count198
+\c@holder=\count199
+\c@savedholder=\count266
+\c@introduction=\count267
+\c@savedintroduction=\count268
+\c@namea=\count269
+\c@savednamea=\count270
+\c@nameb=\count271
+\c@savednameb=\count272
+\c@namec=\count273
+\c@savednamec=\count274
+\c@translator=\count275
+\c@savedtranslator=\count276
+\c@shortauthor=\count277
+\c@savedshortauthor=\count278
+\c@shorteditor=\count279
+\c@savedshorteditor=\count280
+\c@labelname=\count281
+\c@savedlabelname=\count282
+\c@institution=\count283
+\c@savedinstitution=\count284
+\c@lista=\count285
+\c@savedlista=\count286
+\c@listb=\count287
+\c@savedlistb=\count288
+\c@listc=\count289
+\c@savedlistc=\count290
+\c@listd=\count291
+\c@savedlistd=\count292
+\c@liste=\count293
+\c@savedliste=\count294
+\c@listf=\count295
+\c@savedlistf=\count296
+\c@location=\count297
+\c@savedlocation=\count298
+\c@organization=\count299
+\c@savedorganization=\count300
+\c@origlocation=\count301
+\c@savedoriglocation=\count302
+\c@origpublisher=\count303
+\c@savedorigpublisher=\count304
+\c@publisher=\count305
+\c@savedpublisher=\count306
+\c@language=\count307
+\c@savedlanguage=\count308
+\c@origlanguage=\count309
+\c@savedoriglanguage=\count310
+\c@pageref=\count311
+\c@savedpageref=\count312
+\shorthandwidth=\skip107
+\shortjournalwidth=\skip108
+\shortserieswidth=\skip109
+\shorttitlewidth=\skip110
+\shortauthorwidth=\skip111
+\shorteditorwidth=\skip112
+\locallabelnumberwidth=\skip113
+\locallabelalphawidth=\skip114
+\localshorthandwidth=\skip115
+\localshortjournalwidth=\skip116
+\localshortserieswidth=\skip117
+\localshorttitlewidth=\skip118
+\localshortauthorwidth=\skip119
+\localshorteditorwidth=\skip120
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -576,13 +610,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2018/11/02 v3.12 biblatex compatibility (PK/MW)
-\c@textcitecount=\count307
-\c@textcitetotal=\count308
-\c@textcitemaxnames=\count309
-\c@biburlnumpenalty=\count310
-\c@biburlucpenalty=\count311
-\c@biburllcpenalty=\count312
-\c@smartand=\count313
+\c@textcitecount=\count313
+\c@textcitetotal=\count314
+\c@textcitemaxnames=\count315
+\c@biburlnumpenalty=\count316
+\c@biburlucpenalty=\count317
+\c@biburllcpenalty=\count318
+\c@smartand=\count319
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
@@ -607,8 +641,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2018/11/02 v3.12 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count314
-\c@bbx:relatedtotal=\count315
+\c@bbx:relatedcount=\count320
+\c@bbx:relatedtotal=\count321
 )))
 Package biblatex Info: Trying to load citation style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.cbx' found.
@@ -616,8 +650,8 @@ Package biblatex Info: ... file 'numeric-comp.cbx' found.
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cb
 x
 File: numeric-comp.cbx 2018/11/02 v3.12 biblatex citation style (PK/MW)
-\c@cbx@tempcnta=\count316
-\c@cbx@tempcntb=\count317
+\c@cbx@tempcnta=\count322
+\c@cbx@tempcntb=\count323
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -645,8 +679,8 @@ File: polish.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count318
-\@quotereset=\count319
+\@quotelevel=\count324
+\@quotereset=\count325
 
 LaTeX Warning: Unused global option(s):
     [12pt,left=2.5cm,top=2.5cm,bottom=2.5cm,right=2.5cmoneside].
@@ -655,41 +689,44 @@ LaTeX Warning: Unused global option(s):
 
 LaTeX Warning: Label `fig:lenet5-response' multiply defined.
 
-) (./vgg.aux))
+) (./vgg.aux
+
+LaTeX Warning: Label `mean-vgg-vis-c1bx' multiply defined.
+
+))
 \openout1 = `praca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 91.
-
-(/usr/local/texlive/2019basic/texmf-dist/tex/latex/psnfss/t1ptm.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 95.
+ (/usr/local/texlive/2019basic/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (/usr/local/texlive/2019basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count320
-\scratchdimen=\dimen141
-\scratchbox=\box32
-\nofMPsegments=\count321
-\nofMParguments=\count322
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count323
-\MPscratchDim=\dimen142
-\MPnumerator=\count324
-\makeMPintoPDFobject=\count325
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count326
+\scratchdimen=\dimen149
+\scratchbox=\box34
+\nofMPsegments=\count327
+\nofMParguments=\count328
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count329
+\MPscratchDim=\dimen150
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
+\everyMPtoPDFconversion=\toks29
 ) (/usr/local/texlive/2019basic/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -740,8 +777,8 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring OFF on input line 91.
+\AtBeginShipoutBox=\box35
+Package hyperref Info: Link coloring OFF on input line 95.
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -749,16 +786,19 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 y
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count326
+\c@section@level=\count332
 )
-LaTeX Info: Redefining \ref on input line 91.
-LaTeX Info: Redefining \pageref on input line 91.
-LaTeX Info: Redefining \nameref on input line 91.
+LaTeX Info: Redefining \ref on input line 95.
+LaTeX Info: Redefining \pageref on input line 95.
+LaTeX Info: Redefining \nameref on input line 95.
  (./praca.out) (./praca.out)
 \@outlinefile=\write4
 \openout4 = `praca.out'.
 
-\c@lstlisting=\count327
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count333
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -767,8 +807,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'praca.bbl' found.
  (./praca.bbl)
-Package biblatex Info: Reference section=0 on input line 91.
-Package biblatex Info: Reference segment=0 on input line 91.
+Package biblatex Info: Reference section=0 on input line 95.
+Package biblatex Info: Reference segment=0 on input line 95.
 \openout2 = `tytul.aux'.
 
  (./tytul.tex
@@ -789,7 +829,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
 ) [2]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 94.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 98.
  (./praca.toc)
 \tf@toc=\write5
 \openout5 = `praca.toc'.
@@ -835,8 +875,29 @@ File: resources/activations.png Graphic file (type png)
 <use resources/activations.png>
 Package pdftex.def Info: resources/activations.png  used on input line 38.
 (pdftex.def)             Requested size: 441.9481pt x 103.28516pt.
- [8 <./resources/schemat_fc.png> <./resources/neuron_fc.png>] [9 <./resources/a
-ctivations.png>]
+ [8pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.47 \[
+       z_{n}^{\lbrack l\rbrack}=\sum_{i=1}^{j}{w_{\text{ni}}^{\lbrack l\rbra...
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.47 \[
+       z_{n}^{\lbrack l\rbrack}=\sum_{i=1}^{j}{w_{\text{ni}}^{\lbrack l\rbra...
+ <./resources/schemat_fc.png> <./resources/neuron_fc.png>] [9pdfTeX warning (ex
+t4): destination with the same identifier (name{figure.2.3}) has been already u
+sed, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.67 N
+      a przykładzie klasyfikacji, by uzyskać wynik, który można zinterpr...
+ <./resources/activations.png>]
 <resources/1v_all.png, id=178, 148.3944pt x 141.1674pt>
 File: resources/1v_all.png Graphic file (type png)
 <use resources/1v_all.png>
@@ -850,13 +911,32 @@ Package pdftex.def Info: resources/softmax.png  used on input line 80.
 
 Underfull \vbox (badness 7030) has occurred while \output is active []
 
- [10 <./resources/1v_all.png>] [11 <./resources/softmax.png>] [12]
+ [10pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+4}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.90 
+      <./resources/1v_all.png>] [11pdfTeX warning (ext4): destination with the 
+same identifier (name{figure.2.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.112 
+       <./resources/softmax.png>] [12]
 <resources/backprop_fc.png, id=201, 481.3182pt x 117.0774pt>
 File: resources/backprop_fc.png Graphic file (type png)
 <use resources/backprop_fc.png>
 Package pdftex.def Info: resources/backprop_fc.png  used on input line 163.
 (pdftex.def)             Requested size: 481.31703pt x 117.0771pt.
- [13 <./resources/backprop_fc.png>]) [14]
+ [13pdfTeX warning (ext4): destination with the same identifier (name{figure.2.
+6}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.204   \(
+          \frac{dJ}{db^{\lbrack 2\rbrack}} = \ \frac{dJ}{dz^{\left\lbrack 2 ...
+ <./resources/backprop_fc.png>]) [14]
 \openout2 = `cnn.aux'.
 
  (./cnn.tex
@@ -870,7 +950,13 @@ Package pdftex.def Info: resources/splot.png  used on input line 17.
 
 
 
-] [16 <./resources/splot.png>]
+] [16pdfTeX warning (ext4): destination with the same identifier (name{figure.3
+.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.63 \[n_{x} \times n_{y} \times n_{z}\]
+                                         <./resources/splot.png>]
 <resources/maxpool.png, id=236, 212.4738pt x 92.9874pt>
 File: resources/maxpool.png Graphic file (type png)
 <use resources/maxpool.png>
@@ -879,13 +965,25 @@ Package pdftex.def Info: resources/maxpool.png  used on input line 77.
 
 Underfull \vbox (badness 3838) has occurred while \output is active []
 
- [17 <./resources/maxpool.png>]
+ [17pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.92 
+      <./resources/maxpool.png>]
 <resources/lenet5.png, id=243, 452.4102pt x 181.6386pt>
 File: resources/lenet5.png Graphic file (type png)
 <use resources/lenet5.png>
 Package pdftex.def Info: resources/lenet5.png  used on input line 94.
 (pdftex.def)             Requested size: 452.40909pt x 181.63814pt.
- [18 <./resources/lenet5.png>] [19]
+ [18pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+3}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.115 
+       <./resources/lenet5.png>] [19]
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 )
@@ -916,14 +1014,38 @@ Package pdftex.def Info: resources/example_digit_lenet5_response.png  used on i
 nput line 217.
 (pdftex.def)             Requested size: 128.98155pt x 54.20236pt.
 
-[21 <./resources/training_lenet5.png> <./resources/example_digit_lenet5.png> <.
-/resources/example_digit_lenet5_response.png>]
+[21pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.228 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3.5}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.228 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+3.6}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.228 
+       <./resources/training_lenet5.png> <./resources/example_digit_lenet5.png>
+ <./resources/example_digit_lenet5_response.png>]
 <resources/plot_filtry.png, id=307, 674.52pt x 400.49625pt>
 File: resources/plot_filtry.png Graphic file (type png)
 <use resources/plot_filtry.png>
 Package pdftex.def Info: resources/plot_filtry.png  used on input line 230.
 (pdftex.def)             Requested size: 337.25917pt x 200.24763pt.
- [22 <./resources/plot_filtry.png>]
+ [22pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+7}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.245 
+       <./resources/plot_filtry.png>]
 <resources/first_layer_gd_lenet.png, id=314, 1284.8pt x 806.01125pt>
 File: resources/first_layer_gd_lenet.png Graphic file (type png)
 <use resources/first_layer_gd_lenet.png>
@@ -936,8 +1058,20 @@ File: resources/second_layer_gd_lenet.png Graphic file (type png)
 Package pdftex.def Info: resources/second_layer_gd_lenet.png  used on input lin
 e 266.
 (pdftex.def)             Requested size: 346.89514pt x 260.17136pt.
- [23 <./resources/first_layer_gd_lenet.png>]) [24 <./resources/second_layer_gd_
-lenet.png>]
+ [23pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+8}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.273 
+       <./resources/first_layer_gd_lenet.png>]) [24pdfTeX warning (ext4): desti
+nation with the same identifier (name{figure.3.9}) has been already used, dupli
+cate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.102 \include{cnn}
+                    <./resources/second_layer_gd_lenet.png>]
 \openout2 = `vgg.aux'.
 
  (./vgg.tex
@@ -951,17 +1085,90 @@ Package pdftex.def Info: resources/vgg19.png  used on input line 10.
 
 
 
- <./resources/vgg19.png>]) [26]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 106.
- [27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.16 
+      <./resources/vgg19.png>] [26]
+<resources/vgg_mean_res/block1_conv1_5.png, id=357, 513.92pt x 513.92pt>
+File: resources/vgg_mean_res/block1_conv1_5.png Graphic file (type png)
+<use resources/vgg_mean_res/block1_conv1_5.png>
+Package pdftex.def Info: resources/vgg_mean_res/block1_conv1_5.png  used on inp
+ut line 51.
+(pdftex.def)             Requested size: 216.81pt x 216.80946pt.
+<resources/vgg_mean_res/vgg_b1c1_0.png, id=358, 905.3825pt x 903.375pt>
+File: resources/vgg_mean_res/vgg_b1c1_0.png Graphic file (type png)
+<use resources/vgg_mean_res/vgg_b1c1_0.png>
+Package pdftex.def Info: resources/vgg_mean_res/vgg_b1c1_0.png  used on input l
+ine 53.
+(pdftex.def)             Requested size: 216.81pt x 216.31819pt.
+<resources/vgg_mean_res/vgg_b1c1_63.png, id=359, 900.36375pt x 903.375pt>
+File: resources/vgg_mean_res/vgg_b1c1_63.png Graphic file (type png)
+<use resources/vgg_mean_res/vgg_b1c1_63.png>
+Package pdftex.def Info: resources/vgg_mean_res/vgg_b1c1_63.png  used on input 
+line 55.
+(pdftex.def)             Requested size: 216.81pt x 217.53122pt.
+<resources/vgg_mean_res/block2_conv1_33.png, id=360, 513.92pt x 513.92pt>
+File: resources/vgg_mean_res/block2_conv1_33.png Graphic file (type png)
+<use resources/vgg_mean_res/block2_conv1_33.png>
+Package pdftex.def Info: resources/vgg_mean_res/block2_conv1_33.png  used on in
+put line 57.
+(pdftex.def)             Requested size: 216.81pt x 216.80946pt.
+<resources/vgg_mean_res/block2_conv2_120.png, id=363, 513.92pt x 513.92pt>
+File: resources/vgg_mean_res/block2_conv2_120.png Graphic file (type png)
+<use resources/vgg_mean_res/block2_conv2_120.png>
+Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_120.png  used on i
+nput line 63.
+(pdftex.def)             Requested size: 216.81pt x 216.80946pt.
+<resources/vgg_mean_res/block2_conv2_60.png, id=364, 513.92pt x 513.92pt>
+File: resources/vgg_mean_res/block2_conv2_60.png Graphic file (type png)
+<use resources/vgg_mean_res/block2_conv2_60.png>
+Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_60.png  used on in
+put line 65.
+(pdftex.def)             Requested size: 216.81pt x 216.80946pt.
+<resources/vgg_mean_res/block2_conv2_80.png, id=365, 513.92pt x 513.92pt>
+File: resources/vgg_mean_res/block2_conv2_80.png Graphic file (type png)
+<use resources/vgg_mean_res/block2_conv2_80.png>
+Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_80.png  used on in
+put line 67.
+(pdftex.def)             Requested size: 216.81pt x 216.80946pt.
+<resources/vgg_mean_res/block5_conv2_60.png, id=366, 513.92pt x 513.92pt>
+File: resources/vgg_mean_res/block5_conv2_60.png Graphic file (type png)
+<use resources/vgg_mean_res/block5_conv2_60.png>
+Package pdftex.def Info: resources/vgg_mean_res/block5_conv2_60.png  used on in
+put line 69.
+(pdftex.def)             Requested size: 216.81pt x 216.80946pt.
+) [27] [28pdfTeX warning (ext4): destination with the same identifier (name{fig
+ure.4.2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.103 \include{vgg}
+                    <./resources/vgg_mean_res/block1_conv1_5.png (PNG copy)> <.
+/resources/vgg_mean_res/vgg_b1c1_0.png> <./resources/vgg_mean_res/vgg_b1c1_63.p
+ng> <./resources/vgg_mean_res/block2_conv1_33.png (PNG copy)>] [29pdfTeX warnin
+g (ext4): destination with the same identifier (name{figure.4.3}) has been alre
+ady used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.103 \include{vgg}
+                    <./resources/vgg_mean_res/block2_conv2_120.png (PNG copy)> 
+<./resources/vgg_mean_res/block2_conv2_60.png (PNG copy)> <./resources/vgg_mean
+_res/block2_conv2_80.png (PNG copy)> <./resources/vgg_mean_res/block5_conv2_60.
+png (PNG copy)>] [30
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 106.
- (./praca.aux (./tytul.aux) (./wstep.aux) (./siecifc.aux) (./cnn.aux) (./vgg.au
-x))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 106.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 106.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 110.
+ [31]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 110.
+ (./praca.aux (./tytul.aux) (./wstep.aux)
+(./siecifc.aux) (./cnn.aux) (./vgg.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 110.
 Package rerunfilecheck Info: File `praca.out' has not changed.
 (rerunfilecheck)             Checksum: 8C5FF6EA023123100C2180C8488FF197;1814.
 
@@ -971,16 +1178,16 @@ LaTeX Warning: There were multiply-defined labels.
 Package logreq Info: Writing requests to 'praca.run.xml'.
 \openout1 = `praca.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 106.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 110.
  ) 
 Here is how much of TeX's memory you used:
- 16716 strings out of 494060
- 267882 string characters out of 6163035
- 875156 words of memory out of 5000000
- 20034 multiletter control sequences out of 15000+600000
- 56986 words of font info for 63 fonts, out of 8000000 for 9000
+ 17607 strings out of 494060
+ 284828 string characters out of 6163035
+ 888636 words of memory out of 5000000
+ 20878 multiletter control sequences out of 15000+600000
+ 58064 words of font info for 64 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 36i,12n,45p,972b,1909s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,51p,972b,3454s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019basic/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/lo
 cal/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.
@@ -999,10 +1206,10 @@ ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type
 /times/utmr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on praca.pdf (27 pages, 805172 bytes).
+Output written on praca.pdf (31 pages, 9451656 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
- 122 named destinations out of 1000 (max. 500000)
- 265 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 496 PDF objects out of 1000 (max. 8388607)
+ 399 compressed objects within 4 object streams
+ 147 named destinations out of 1000 (max. 500000)
+ 305 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -51,6 +51,31 @@
       \endverb
       \keyw{vgg,cnn}
     \endentry
+    \entry{imagenet}{online}{}
+      \name{author}{1}{}{%
+        {{hash=410865ce1d82b2c16206105302898c80}{%
+           family={http://image-net.org/about-people},
+           familyi={h\bibinithyphendelim n\bibinithyphendelim p\bibinitperiod}}}%
+      }
+      \strng{namehash}{410865ce1d82b2c16206105302898c80}
+      \strng{fullhash}{410865ce1d82b2c16206105302898c80}
+      \strng{bibnamehash}{410865ce1d82b2c16206105302898c80}
+      \strng{authorbibnamehash}{410865ce1d82b2c16206105302898c80}
+      \strng{authornamehash}{410865ce1d82b2c16206105302898c80}
+      \strng{authorfullhash}{410865ce1d82b2c16206105302898c80}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Zbiór danych imagenet.}
+      \verb{urlraw}
+      \verb http://www.image-net.org/
+      \endverb
+      \verb{url}
+      \verb http://www.image-net.org/
+      \endverb
+      \keyw{imagenet}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

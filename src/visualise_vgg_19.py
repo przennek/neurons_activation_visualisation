@@ -38,8 +38,8 @@ def deprocess_image(x, target_std=0.1):
 
 #image_resize_steps = [(32, 32), (48, 48), (64, 64), (80, 80), (128, 128), (200, 200), (256, 256), (512, 512)]
 # step_iter = 0.1
-#image_resize_steps = [(64, 64), (128, 128), (200, 200), (256, 256), (512, 512)]
-image_resize_steps = [(256, 256)]
+image_resize_steps = [(64, 64), (128, 128), (200, 200), (256, 256), (512, 512)]
+#image_resize_steps = [(256, 256)]
 step_iter = 0.2
 
 # load model and layer map
@@ -48,9 +48,9 @@ layers_by_name = dict([(layer.name, layer) for layer in model.layers])
 input_tensor = model.inputs[0]
 
 # create random image
-#img = random_np_gray(image_resize_steps[0][0], image_resize_steps[0][1])
-img = load_image("ig")
-#img = numpy_to_img(img)
+img = random_np_gray(image_resize_steps[0][0], image_resize_steps[0][1])
+#img = load_image("ig")
+img = numpy_to_img(img)
 img = np.expand_dims(img, axis=0)
 
 # get the filter to visualise
