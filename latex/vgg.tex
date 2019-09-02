@@ -27,10 +27,10 @@ model = VGG19(include_top=False, weights='imagenet')
 
 Zastosowane opcje to przedewszystkim zestaw danych na których była trenowana sieć, w tym wypadku zbiór ImageNet\cite{imagenet}, oraz wyłączenie z ładowanego modelu warstw gęstch. Ta ostatnia opcja pozwoli na rekonstukcję obrazu o dowolnej liczbie pikseli (zamiast standardowego dla architektury VGG 224\(\times\)224 pikseli).
 
-Mając załadowany model wraz z wytrenowanymi wagami, wybieram poszczególne filtry z kolejnych warstw konwolucyjnych. Następnie, generuję losowy obrazek o niskiej rozdzielczości, w skali odcieni szarości i wyliczam aktywacje wybranej wcześniej warstwy. Medianę z tych aktywacji traktuję jako wartość mojej funkcji kosztu i modyfikuję wylosowany uprzednio obrazek w celu jej maksymalizacji.
+Mając załadowany model wraz z wytrenowanymi wagami, wybieram poszczególne filtry z kolejnych warstw konwolucyjnych. Następnie, generuję losowy (wartość pikseli losowana jest z rozkładu jednorodnego) obrazek o niskiej rozdzielczości, w skali odcieni szarości i wyliczam aktywacje wybranej wcześniej warstwy. Medianę z tych aktywacji traktuję jako wartość mojej funkcji kosztu i modyfikuję wylosowany uprzednio obrazek w celu jej maksymalizacji.
 Modyfikacja obrazu polega na dodaniu odpowiednio znormalizowanego gradientu do wartości poszczególnych pikseli. Cały proces treningu składa się z kilkukrotnego skalowania obrazu do wyższych ''rozdzielczości'' i ponawiania procesu optymalizacji. 
 
-Skalowanie jest konieczne ponieważ struktury generowane tą metodą charakteryzują się wysoką częstotliwością (są małe i powtarzalne). Uprzednie wygenerowanie fragmentu wzoru w niskiej rozdzielczości i skalowanie, sprawia, że często wzór jest niejako ''dobudowywany'' zamiast powtarzany - co czasem daje lepsze zrozumienie na co patrzymy, choć nie jest to niestety reguła.
+Skalowanie jest konieczne ponieważ struktury generowane tą metodą charakteryzują się wysoką częstotliwością (są małe i powtarzalne). Uprzednie wygenerowanie fragmentu wzoru w niskiej rozdzielczości i skalowanie, sprawia, że często wzór jest niejako ''dobudowywany'' zamiast powtarzany, przez co jest większy - co czasem daje lepsze zrozumienie na co patrzymy, choć nie jest to niestety reguła.
 
 \label{lst:vggmeantraining}
 \begin{lstlisting}[language=Python, caption={Wizualizowanie poprzez maksymalizację mediany wybranej warstwy.}, captionpos=b]
@@ -45,29 +45,132 @@ for interpolation_step in image_resize_steps:
     resize_img(img);
 \end{lstlisting}
 
-Szczegóły takie jak normalizacja gradientu czy konwersja obrazu z postaci nadającej się do treningu na postać zdatną do wyświetlenia zostały pominięte.
+Listing \ref{lst:vggmeantraining} zawiera wysokopoziomowy zarys tego w jaki sposób działa skrypt generujący poniższe wizualizacje. Wszystkie szczegóły implementacyjne takie jak normalizacja gradientu czy konwersja obrazu z postaci nadającej się do treningu na postać zdatną do wyświetlenia zostały pominięte.
+
+Zgodnie z oczekiwaniami złożoność uzyskanych wizualizacji rośnie wraz numerem warstwy na podstawie której je uzyskano. Uzyskane obrazy nie prezentują żadnej ze znanych mi klas na, których trenowano tę konkretną instację VGG19, a raczej ''teksturę'' obserwowanego przedmiotu.
+
+Pierwsze warstwy nie są zbytnio bogate w informacje. Kodują podstawowe informacje o kolorze, nie posiadając zbyt wiele informacji o strukturze klasyfikowanego przedmiotu. Choć i już tu trafiają się ciekawe wizualizacje jak np. filtru 5 warstwy conv1 bloku 1 - przypominającej trochę księżyc. 
+
+U części z tych wizualizacji (szczególnie na dalszych początkowych warstwch) można zaobserwować struktury przypominające korę drzew. Kolejne wizualizacje robią się bardziej kolorowe i przechodzą w bardziej abstrakcyjne wzory, które wciąż możnaby wziąć za tkaninę czy chmurę. Niestety uchwycone zależności na warstwach głębokich, choć fascynujące są poza moimi możliwościami interpretacji.
+
+Choć przytoczony w pracy zestaw wizualizacji nie posiada dużej ich reprezentacji, podczas tworzenia wizualizacji natknąłem się na wiele niemal identycznych struktur, nieznacznie tylko obróconych o jakiś kąt. Za przykład może posłużyć wizualizacja z warstw conv5 bloku 1, filtry 30 i 3 na figurze \ref{mean-vgg-vis-c5bx}.
+Biorąc pod uwagę to, że w sieciach CNN filtry aplikowane są cały czas w taki sam sposób, czyli od lewej do prawej, z góry na dół; a przedmioty występujące w danych wejściowych często występują w różnych położeniach nie wydaje się być zaskakujące, że istnieje potrzeba stosowania takich samych filtrów o różnych rotacjach. 
+Jest to zaskakująco analogiczna sytuacja jak w klasycznej analizie obrazu, gdzie stosowane filtry do wykrywania krawędzi pionowych i poziomych są takimi samymi, po uprzedniej operacji transporowania, macierzami.
+Pozostawia to wciąż niezagospodarowane (w 2019 roku) pole do poprawy działania takich sieci. Odpowiednie kadrowanie, rotacja danych wejściowych lub jakakolwiek forma adaptacyjnej aplikacji fitrów mogłaby sprawić, że trening tych samych, obróconych filtrów byłby zbędny co w rezultacie sprawiłoby, że nie potrzeba byłoby ich tak dużo co mogłoby skrócić trening sieci przy braku negatywnego wpływu na sprawność sieci.
 
 \begin{figure}
-\subfloat[Wizualizacja filtra nr 5 bloku 1]{\includegraphics[width = 3in]{resources/vgg_mean_res/block1_conv1_5.png}} 
+\subfloat[Wizualizacja filtra nr 5 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv1_5.png}} 
 ~
-\subfloat[Wizualizacja filtra nr 0 bloku 1]{\includegraphics[width = 3in]{resources/vgg_mean_res/vgg_b1c1_0.png}} 
+\subfloat[Wizualizacja filtra nr 15 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv1_15.png}} 
+~
+\subfloat[Wizualizacja filtra nr 9 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv1_9.png}} 
 \\
-\subfloat[Wizualizacja filtra nr 63 bloku 1]{\includegraphics[width = 3in]{resources/vgg_mean_res/vgg_b1c1_63.png}} 
+\subfloat[Wizualizacja filtra nr 50 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv2_50.png}} 
 ~
-\subfloat[Wizualizacja filtra nr 33 bloku 2]{\includegraphics[width = 3in]{resources/vgg_mean_res/block2_conv1_33.png}} 
-\caption{Wybrane wizualizacje początkowej warstwy sieci VGG-19 (oznaczonej na rysunku \ref{vgg-model} jako conv1)}
+\subfloat[Wizualizacja filtra nr 32 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv2_32.png}} 
+~
+\subfloat[Wizualizacja filtra nr 33 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv2_33.png}} 
+\\
+\subfloat[Wizualizacja filtra nr 59 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv2_59.png}} 
+~
+\subfloat[Wizualizacja filtra nr 60 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv2_60.png}} 
+~
+\subfloat[Wizualizacja filtra nr 61 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv2_61.png}} 
+\caption{Wybrane wizualizacje warstwy sieci VGG-19 oznaczonej na rysunku \ref{vgg-model} jako conv1}
 \label{mean-vgg-vis-c1bx}
 \end{figure}
 
 \begin{figure}
-\subfloat[Wizualizacja filtra nr 120 bloku 2]{\includegraphics[width = 3in]{resources/vgg_mean_res/block2_conv2_120.png}} 
+\subfloat[Wizualizacja filtra nr 120 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_120.png}} 
 ~
-\subfloat[Wizualizacja filtra nr 60 bloku 2]{\includegraphics[width = 3in]{resources/vgg_mean_res/block2_conv2_60.png}} 
+\subfloat[Wizualizacja filtra nr 60 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_60.png}} 
+~
+\subfloat[Wizualizacja filtra nr 80 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_80.png}} 
 \\
-\subfloat[Wizualizacja filtra nr 80 bloku 2]{\includegraphics[width = 3in]{resources/vgg_mean_res/block2_conv2_80.png}} 
+\subfloat[Wizualizacja filtra nr 33 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv1_33.png}} 
 ~
-\subfloat[Wizualizacja filtra nr 60 bloku 5]{\includegraphics[width = 3in]{resources/vgg_mean_res/block5_conv2_60.png}} 
-\caption{Wybrane wizualizacje początkowej warstwy sieci VGG-19 (oznaczonej na rysunku \ref{vgg-model} jako conv1)}
-\label{mean-vgg-vis-c1bx}
+\subfloat[Wizualizacja filtra nr 32 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv1_32.png}} 
+~
+\subfloat[Wizualizacja filtra nr 19 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv1_19.png}} 
+\\
+\subfloat[Wizualizacja filtra nr 63 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_63.png}} 
+~
+\subfloat[Wizualizacja filtra nr 64 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_64.png}} 
+~
+\subfloat[Wizualizacja filtra nr 65 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_65.png}} 
+
+\caption{Wybrane wizualizacje warstwy sieci VGG-19 oznaczonej na rysunku \ref{vgg-model} jako conv2}
+\label{mean-vgg-vis-c2bx}
 \end{figure}
 
+\begin{figure}
+\subfloat[Wizualizacja filtra nr 128 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv4_128.png}} 
+~
+\subfloat[Wizualizacja filtra nr 17 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv4_17.png}} 
+~
+\subfloat[Wizualizacja filtra nr 9 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv2_9.png}} 
+\\
+\subfloat[Wizualizacja filtra nr 34 bloku 3]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv3_34.png}} 
+~
+\subfloat[Wizualizacja filtra nr 15 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv1_15.png}} 
+~
+\subfloat[Wizualizacja filtra nr 32 bloku 3]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv3_32.png}} 
+\\
+\subfloat[Wizualizacja filtra nr 254 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv4_254.png}} 
+~
+\subfloat[Wizualizacja filtra nr 32 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv4_32.png}} 
+~
+\subfloat[Wizualizacja filtra nr 33 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block3_conv1_59.png}} 
+
+\caption{Wybrane wizualizacje warstwy sieci VGG-19 oznaczonej na rysunku \ref{vgg-model} jako conv3}
+\label{mean-vgg-vis-c3bx}
+\end{figure}
+
+\begin{figure}
+\subfloat[Wizualizacja filtra nr 128 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv4_128.png}} 
+~
+\subfloat[Wizualizacja filtra nr 17 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv4_17.png}} 
+~
+\subfloat[Wizualizacja filtra nr 32 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv4_32.png}} 
+\\
+\subfloat[Wizualizacja filtra nr 10 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv1_10.png}} 
+~
+\subfloat[Wizualizacja filtra nr 11 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv2_11.png}} 
+~
+\subfloat[Wizualizacja filtra nr 15 bloku 3]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv3_15.png}} 
+\\
+\subfloat[Wizualizacja filtra nr 59 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv1_59.png}} 
+~
+\subfloat[Wizualizacja filtra nr 64 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv2_64.png}} 
+~
+\subfloat[Wizualizacja filtra nr 65 bloku 3]{\includegraphics[width = 2in]{resources/vgg_mean_res/block4_conv3_65.png}} 
+
+\caption{Wybrane wizualizacje początkowej warstwy sieci VGG-19 (oznaczonej na rysunku \ref{vgg-model} jako conv4)}
+\label{mean-vgg-vis-c4bx}
+\end{figure}
+
+\begin{figure}
+\subfloat[Wizualizacja filtra nr 120 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv1_120.png}} 
+~
+\subfloat[Wizualizacja filtra nr 3 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv1_3.png}} 
+~
+\subfloat[Wizualizacja filtra nr 30 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv1_30.png}} 
+\\
+\subfloat[Wizualizacja filtra nr 60 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv1_60.png}} 
+~
+\subfloat[Wizualizacja filtra nr 60 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv2_60.png}} 
+~
+\subfloat[Wizualizacja filtra nr 63 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv4_63.png}} 
+\\
+\subfloat[Wizualizacja filtra nr 63 bloku 2]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv2_63.png}} 
+~
+\subfloat[Wizualizacja filtra nr 90 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv1_90.png}} 
+~
+\subfloat[Wizualizacja filtra nr 65 bloku 4]{\includegraphics[width = 2in]{resources/vgg_mean_res/block5_conv4_65.png}} 
+\caption{Wybrane wizualizacje warstwy sieci VGG-19 oznaczonej na rysunku \ref{vgg-model} jako conv5}
+\label{mean-vgg-vis-c5bx}
+\end{figure}
+
+Teza, że VGG19 nie jest w stanie uchwycić "formy" tego co klasyfikuje w taki sam sposób jak robi to człowiek może zostać zweryfikowana w analogiczny sposób w jaki otrzymałem powyższe wizualizacje.
+Jeżeli do modelu przywrócićby warstwy gęste i próbować zmaksymalizować aktywację dla jednej z klas poprzez modyfikację obrazu wejściowego, powinienem otrzymać obraz, który sieć bezwątpliwie traktowałaby jako reprezentanta danej klasy.
+Gdyby sieć miała w sobie zakodowaną pełną informację o tym co tak naprawdę jest na obrazie powinienem otrzymać coś przynajmniej odlegle przypominającego oryginalną klasę.
