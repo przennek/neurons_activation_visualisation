@@ -113,6 +113,33 @@
       \endverb
       \keyw{vgg,nst}
     \endentry
+    \entry{thekeep}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e687512628bae0428935dda2bfa8b39a}{%
+           family={Goldberg},
+           familyi={G\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{e687512628bae0428935dda2bfa8b39a}
+      \strng{fullhash}{e687512628bae0428935dda2bfa8b39a}
+      \strng{bibnamehash}{e687512628bae0428935dda2bfa8b39a}
+      \strng{authorbibnamehash}{e687512628bae0428935dda2bfa8b39a}
+      \strng{authornamehash}{e687512628bae0428935dda2bfa8b39a}
+      \strng{authorfullhash}{e687512628bae0428935dda2bfa8b39a}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The keep}
+      \verb{urlraw}
+      \verb http://www.artnet.com/artists/michael-goldberg/the-keep-OATwKGwjhcYzfjurZZ7R4w2
+      \endverb
+      \verb{url}
+      \verb http://www.artnet.com/artists/michael-goldberg/the-keep-OATwKGwjhcYzfjurZZ7R4w2
+      \endverb
+      \keyw{thekeep}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

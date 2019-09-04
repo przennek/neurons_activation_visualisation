@@ -1,14 +1,14 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is 'praca.blg'
-[43] biber-darwin:315> INFO - === Wed Sep  4, 2019, 11:12:35
-[69] Biber.pm:371> INFO - Reading 'praca.bcf'
-[167] Biber.pm:889> INFO - Found 3 citekeys in bib section 0
-[181] Biber.pm:4093> INFO - Processing section 0
-[193] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliografia.bib' for section 0
-[195] bibtex.pm:1523> INFO - LaTeX decoding ...
-[207] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliografia.bib'
-[234] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[234] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[234] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'pl-PL'
-[242] bbl.pm:636> INFO - Writing 'praca.bbl' with encoding 'UTF-8'
-[243] bbl.pm:739> INFO - Output to praca.bbl
+[46] biber-darwin:315> INFO - === Wed Sep  4, 2019, 22:17:05
+[71] Biber.pm:371> INFO - Reading 'praca.bcf'
+[169] Biber.pm:889> INFO - Found 4 citekeys in bib section 0
+[183] Biber.pm:4093> INFO - Processing section 0
+[194] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliografia.bib' for section 0
+[197] bibtex.pm:1523> INFO - LaTeX decoding ...
+[208] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliografia.bib'
+[237] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[237] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[237] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'pl-PL'
+[245] bbl.pm:636> INFO - Writing 'praca.bbl' with encoding 'UTF-8'
+[247] bbl.pm:739> INFO - Output to praca.bbl

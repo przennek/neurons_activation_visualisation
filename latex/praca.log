@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.19)  4 SEP 2019 11:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.19)  4 SEP 2019 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -689,7 +689,7 @@ LaTeX Warning: Unused global option(s):
 
 LaTeX Warning: Label `fig:lenet5-response' multiply defined.
 
-) (./vgg.aux))
+) (./vgg.aux) (./incepcja.aux) (./podsu.aux))
 \openout1 = `praca.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
@@ -827,32 +827,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--47
 ) [2]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 98.
- (./praca.toc)
-\tf@toc=\write5
-\openout5 = `praca.toc'.
+ (./praca.toc
+Underfull \vbox (badness 2600) has occurred while \output is active []
 
  [3
 
-]
+])
+\tf@toc=\write5
+\openout5 = `praca.toc'.
+
+
+[4]
 \openout2 = `wstep.aux'.
 
- (./wstep.tex [4
-
-
-]
+ (./wstep.tex
 Rozdzia\l  1.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
 
 Underfull \vbox (badness 1824) has occurred while \output is active []
 
- [5])
+ [5
+
+
+])
 [6]
 \openout2 = `siecifc.aux'.
 
  (./siecifc.tex
 Rozdzia\l  2.
-<resources/schemat_fc.png, id=157, 358.941pt x 223.5552pt>
+<resources/schemat_fc.png, id=183, 358.941pt x 223.5552pt>
 File: resources/schemat_fc.png Graphic file (type png)
 <use resources/schemat_fc.png>
 Package pdftex.def Info: resources/schemat_fc.png  used on input line 17.
@@ -862,12 +866,12 @@ Package pdftex.def Info: resources/schemat_fc.png  used on input line 17.
 
 
 ]
-<resources/neuron_fc.png, id=165, 257.763pt x 139.2402pt>
+<resources/neuron_fc.png, id=190, 257.763pt x 139.2402pt>
 File: resources/neuron_fc.png Graphic file (type png)
 <use resources/neuron_fc.png>
 Package pdftex.def Info: resources/neuron_fc.png  used on input line 29.
 (pdftex.def)             Requested size: 257.76237pt x 139.23985pt.
-<resources/activations.png, id=166, 631.35875pt x 147.55125pt>
+<resources/activations.png, id=191, 631.35875pt x 147.55125pt>
 File: resources/activations.png Graphic file (type png)
 <use resources/activations.png>
 Package pdftex.def Info: resources/activations.png  used on input line 38.
@@ -895,12 +899,12 @@ sed, duplicate ignored
 l.67 N
       a przykładzie klasyfikacji, by uzyskać wynik, który można zinterpr...
  <./resources/activations.png>]
-<resources/1v_all.png, id=188, 148.3944pt x 141.1674pt>
+<resources/1v_all.png, id=213, 148.3944pt x 141.1674pt>
 File: resources/1v_all.png Graphic file (type png)
 <use resources/1v_all.png>
 Package pdftex.def Info: resources/1v_all.png  used on input line 72.
 (pdftex.def)             Requested size: 148.39403pt x 141.16704pt.
-<resources/softmax.png, id=189, 206.6922pt x 177.3024pt>
+<resources/softmax.png, id=214, 206.6922pt x 177.3024pt>
 File: resources/softmax.png Graphic file (type png)
 <use resources/softmax.png>
 Package pdftex.def Info: resources/softmax.png  used on input line 80.
@@ -921,7 +925,7 @@ same identifier (name{figure.2.5}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.112 
        <./resources/softmax.png>] [12]
-<resources/backprop_fc.png, id=211, 481.3182pt x 117.0774pt>
+<resources/backprop_fc.png, id=236, 481.3182pt x 117.0774pt>
 File: resources/backprop_fc.png Graphic file (type png)
 <use resources/backprop_fc.png>
 Package pdftex.def Info: resources/backprop_fc.png  used on input line 163.
@@ -938,7 +942,7 @@ l.204   \(
 
  (./cnn.tex
 Rozdzia\l  3.
-<resources/splot.png, id=235, 452.4102pt x 174.4116pt>
+<resources/splot.png, id=260, 452.4102pt x 174.4116pt>
 File: resources/splot.png Graphic file (type png)
 <use resources/splot.png>
 Package pdftex.def Info: resources/splot.png  used on input line 17.
@@ -954,7 +958,7 @@ Package pdftex.def Info: resources/splot.png  used on input line 17.
                                                   \fi \fi 
 l.63 \[n_{x} \times n_{y} \times n_{z}\]
                                          <./resources/splot.png>]
-<resources/maxpool.png, id=246, 212.4738pt x 92.9874pt>
+<resources/maxpool.png, id=271, 212.4738pt x 92.9874pt>
 File: resources/maxpool.png Graphic file (type png)
 <use resources/maxpool.png>
 Package pdftex.def Info: resources/maxpool.png  used on input line 77.
@@ -969,7 +973,7 @@ Underfull \vbox (badness 3838) has occurred while \output is active []
                                                   \fi \fi 
 l.92 
       <./resources/maxpool.png>]
-<resources/lenet5.png, id=253, 452.4102pt x 181.6386pt>
+<resources/lenet5.png, id=278, 452.4102pt x 181.6386pt>
 File: resources/lenet5.png Graphic file (type png)
 <use resources/lenet5.png>
 Package pdftex.def Info: resources/lenet5.png  used on input line 94.
@@ -991,20 +995,20 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 163.
 (/usr/local/texlive/2019basic/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<resources/training_lenet5.png, id=265, 647.41875pt x 243.91125pt>
+<resources/training_lenet5.png, id=290, 647.41875pt x 243.91125pt>
 File: resources/training_lenet5.png Graphic file (type png)
 <use resources/training_lenet5.png>
 Package pdftex.def Info: resources/training_lenet5.png  used on input line 203.
 
 (pdftex.def)             Requested size: 323.70857pt x 121.95532pt.
-<resources/example_digit_lenet5.png, id=266, 420.57124pt x 411.5375pt>
+<resources/example_digit_lenet5.png, id=291, 420.57124pt x 411.5375pt>
 File: resources/example_digit_lenet5.png Graphic file (type png)
 <use resources/example_digit_lenet5.png>
 Package pdftex.def Info: resources/example_digit_lenet5.png  used on input line
  211.
 (pdftex.def)             Requested size: 210.28511pt x 205.76825pt.
  [20]
-<resources/example_digit_lenet5_response.png, id=306, 257.96375pt x 108.405pt>
+<resources/example_digit_lenet5_response.png, id=331, 257.96375pt x 108.405pt>
 File: resources/example_digit_lenet5_response.png Graphic file (type png)
 <use resources/example_digit_lenet5_response.png>
 Package pdftex.def Info: resources/example_digit_lenet5_response.png  used on i
@@ -1031,7 +1035,7 @@ l.228
 l.228 
        <./resources/training_lenet5.png> <./resources/example_digit_lenet5.png>
  <./resources/example_digit_lenet5_response.png>]
-<resources/plot_filtry.png, id=317, 674.52pt x 400.49625pt>
+<resources/plot_filtry.png, id=342, 674.52pt x 400.49625pt>
 File: resources/plot_filtry.png Graphic file (type png)
 <use resources/plot_filtry.png>
 Package pdftex.def Info: resources/plot_filtry.png  used on input line 230.
@@ -1043,13 +1047,13 @@ Package pdftex.def Info: resources/plot_filtry.png  used on input line 230.
                                                   \fi \fi 
 l.245 
        <./resources/plot_filtry.png>]
-<resources/first_layer_gd_lenet.png, id=324, 1284.8pt x 806.01125pt>
+<resources/first_layer_gd_lenet.png, id=349, 1284.8pt x 806.01125pt>
 File: resources/first_layer_gd_lenet.png Graphic file (type png)
 <use resources/first_layer_gd_lenet.png>
 Package pdftex.def Info: resources/first_layer_gd_lenet.png  used on input line
  258.
 (pdftex.def)             Requested size: 321.19922pt x 201.50232pt.
-<resources/second_layer_gd_lenet.png, id=325, 462.528pt x 346.896pt>
+<resources/second_layer_gd_lenet.png, id=350, 462.528pt x 346.896pt>
 File: resources/second_layer_gd_lenet.png Graphic file (type png)
 <use resources/second_layer_gd_lenet.png>
 Package pdftex.def Info: resources/second_layer_gd_lenet.png  used on input lin
@@ -1073,7 +1077,7 @@ l.102 \include{cnn}
 
  (./vgg.tex
 Rozdzia\l  4.
-<resources/vgg19.png, id=343, 875.27pt x 629.35126pt>
+<resources/vgg19.png, id=368, 875.27pt x 629.35126pt>
 File: resources/vgg19.png Graphic file (type png)
 <use resources/vgg19.png>
 Package pdftex.def Info: resources/vgg19.png  used on input line 10.
@@ -1089,271 +1093,271 @@ has been already used, duplicate ignored
                                                   \fi \fi 
 l.16 
       <./resources/vgg19.png>] [26]
-<resources/vgg_mean_res/block1_conv1_5.png, id=369, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv1_5.png, id=394, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv1_5.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv1_5.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv1_5.png  used on inp
 ut line 62.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block1_conv1_15.png, id=370, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv1_15.png, id=395, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv1_15.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv1_15.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv1_15.png  used on in
 put line 64.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block1_conv1_9.png, id=371, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv1_9.png, id=396, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv1_9.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv1_9.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv1_9.png  used on inp
 ut line 66.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block1_conv2_50.png, id=372, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv2_50.png, id=397, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv2_50.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv2_50.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv2_50.png  used on in
 put line 68.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block1_conv2_32.png, id=373, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv2_32.png, id=398, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv2_32.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv2_32.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv2_32.png  used on in
 put line 70.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block1_conv2_33.png, id=374, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv2_33.png, id=399, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv2_33.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv2_33.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv2_33.png  used on in
 put line 72.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block1_conv2_59.png, id=375, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv2_59.png, id=400, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv2_59.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv2_59.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv2_59.png  used on in
 put line 74.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block1_conv2_60.png, id=376, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv2_60.png, id=401, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv2_60.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv2_60.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv2_60.png  used on in
 put line 76.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block1_conv2_61.png, id=377, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block1_conv2_61.png, id=402, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block1_conv2_61.png Graphic file (type png)
 <use resources/vgg_mean_res/block1_conv2_61.png>
 Package pdftex.def Info: resources/vgg_mean_res/block1_conv2_61.png  used on in
 put line 78.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv2_120.png, id=380, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv2_120.png, id=405, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv2_120.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv2_120.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_120.png  used on i
 nput line 84.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv2_60.png, id=381, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv2_60.png, id=406, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv2_60.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv2_60.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_60.png  used on in
 put line 86.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv2_80.png, id=382, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv2_80.png, id=407, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv2_80.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv2_80.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_80.png  used on in
 put line 88.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv1_33.png, id=383, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv1_33.png, id=408, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv1_33.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv1_33.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv1_33.png  used on in
 put line 90.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv1_32.png, id=384, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv1_32.png, id=409, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv1_32.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv1_32.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv1_32.png  used on in
 put line 92.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv1_19.png, id=385, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv1_19.png, id=410, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv1_19.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv1_19.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv1_19.png  used on in
 put line 94.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv2_63.png, id=386, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv2_63.png, id=411, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv2_63.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv2_63.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_63.png  used on in
 put line 96.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv2_64.png, id=387, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv2_64.png, id=412, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv2_64.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv2_64.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_64.png  used on in
 put line 98.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block2_conv2_65.png, id=388, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block2_conv2_65.png, id=413, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block2_conv2_65.png Graphic file (type png)
 <use resources/vgg_mean_res/block2_conv2_65.png>
 Package pdftex.def Info: resources/vgg_mean_res/block2_conv2_65.png  used on in
 put line 100.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv4_128.png, id=391, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv4_128.png, id=416, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv4_128.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv4_128.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv4_128.png  used on i
 nput line 107.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv4_17.png, id=392, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv4_17.png, id=417, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv4_17.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv4_17.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv4_17.png  used on in
 put line 109.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv2_9.png, id=393, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv2_9.png, id=418, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv2_9.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv2_9.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv2_9.png  used on inp
 ut line 111.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv3_34.png, id=394, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv3_34.png, id=419, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv3_34.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv3_34.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv3_34.png  used on in
 put line 113.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv1_15.png, id=395, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv1_15.png, id=420, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv1_15.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv1_15.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv1_15.png  used on in
 put line 115.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv3_32.png, id=396, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv3_32.png, id=421, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv3_32.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv3_32.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv3_32.png  used on in
 put line 117.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv4_254.png, id=397, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv4_254.png, id=422, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv4_254.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv4_254.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv4_254.png  used on i
 nput line 119.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv4_32.png, id=398, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv4_32.png, id=423, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv4_32.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv4_32.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv4_32.png  used on in
 put line 121.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block3_conv1_59.png, id=399, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block3_conv1_59.png, id=424, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block3_conv1_59.png Graphic file (type png)
 <use resources/vgg_mean_res/block3_conv1_59.png>
 Package pdftex.def Info: resources/vgg_mean_res/block3_conv1_59.png  used on in
 put line 123.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv4_128.png, id=402, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv4_128.png, id=427, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv4_128.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv4_128.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv4_128.png  used on i
 nput line 130.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv4_17.png, id=403, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv4_17.png, id=428, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv4_17.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv4_17.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv4_17.png  used on in
 put line 132.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv4_32.png, id=404, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv4_32.png, id=429, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv4_32.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv4_32.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv4_32.png  used on in
 put line 134.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv1_10.png, id=405, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv1_10.png, id=430, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv1_10.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv1_10.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv1_10.png  used on in
 put line 136.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv2_11.png, id=406, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv2_11.png, id=431, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv2_11.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv2_11.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv2_11.png  used on in
 put line 138.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv3_15.png, id=407, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv3_15.png, id=432, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv3_15.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv3_15.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv3_15.png  used on in
 put line 140.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv1_59.png, id=408, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv1_59.png, id=433, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv1_59.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv1_59.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv1_59.png  used on in
 put line 142.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv2_64.png, id=409, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv2_64.png, id=434, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv2_64.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv2_64.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv2_64.png  used on in
 put line 144.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block4_conv3_65.png, id=410, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block4_conv3_65.png, id=435, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block4_conv3_65.png Graphic file (type png)
 <use resources/vgg_mean_res/block4_conv3_65.png>
 Package pdftex.def Info: resources/vgg_mean_res/block4_conv3_65.png  used on in
 put line 146.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv1_120.png, id=413, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv1_120.png, id=438, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv1_120.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv1_120.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv1_120.png  used on i
 nput line 153.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv1_3.png, id=414, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv1_3.png, id=439, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv1_3.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv1_3.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv1_3.png  used on inp
 ut line 155.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv1_30.png, id=415, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv1_30.png, id=440, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv1_30.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv1_30.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv1_30.png  used on in
 put line 157.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv1_60.png, id=416, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv1_60.png, id=441, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv1_60.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv1_60.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv1_60.png  used on in
 put line 159.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv2_60.png, id=417, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv2_60.png, id=442, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv2_60.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv2_60.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv2_60.png  used on in
 put line 161.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv4_63.png, id=418, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv4_63.png, id=443, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv4_63.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv4_63.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv4_63.png  used on in
 put line 163.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv2_63.png, id=419, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv2_63.png, id=444, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv2_63.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv2_63.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv2_63.png  used on in
 put line 165.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv1_90.png, id=420, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv1_90.png, id=445, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv1_90.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv1_90.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv1_90.png  used on in
 put line 167.
 (pdftex.def)             Requested size: 144.54pt x 144.53964pt.
-<resources/vgg_mean_res/block5_conv4_65.png, id=421, 513.92pt x 513.92pt>
+<resources/vgg_mean_res/block5_conv4_65.png, id=446, 513.92pt x 513.92pt>
 File: resources/vgg_mean_res/block5_conv4_65.png Graphic file (type png)
 <use resources/vgg_mean_res/block5_conv4_65.png>
 Package pdftex.def Info: resources/vgg_mean_res/block5_conv4_65.png  used on in
@@ -1424,14 +1428,14 @@ nv1_30.png (PNG copy)> <./resources/vgg_mean_res/block5_conv1_60.png (PNG copy)
 an_res/block5_conv4_63.png (PNG copy)> <./resources/vgg_mean_res/block5_conv2_6
 3.png (PNG copy)> <./resources/vgg_mean_res/block5_conv1_90.png (PNG copy)> <./
 resources/vgg_mean_res/block5_conv4_65.png (PNG copy)>]
-<resources/vgg_mean_topincluded/dragonfly.jpeg, id=505, 328.22626pt x 154.5775p
+<resources/vgg_mean_topincluded/dragonfly.jpeg, id=530, 328.22626pt x 154.5775p
 t>
 File: resources/vgg_mean_topincluded/dragonfly.jpeg Graphic file (type jpg)
 <use resources/vgg_mean_topincluded/dragonfly.jpeg>
 Package pdftex.def Info: resources/vgg_mean_topincluded/dragonfly.jpeg  used on
  input line 184.
 (pdftex.def)             Requested size: 262.58136pt x 123.66214pt.
-<resources/vgg_mean_topincluded/dragonfly-fake.png, id=508, 224.84pt x 224.84pt
+<resources/vgg_mean_topincluded/dragonfly-fake.png, id=533, 224.84pt x 224.84pt
 >
 File: resources/vgg_mean_topincluded/dragonfly-fake.png Graphic file (type png)
 
@@ -1444,28 +1448,83 @@ d on input line 209.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.215 
-       <./resources/vgg_mean_topincluded/dragonfly.jpeg>]) [34pdfTeX warning (e
-xt4): destination with the same identifier (name{figure.4.8}) has been already 
-used, duplicate ignored
+l.216 
+       <./resources/vgg_mean_topincluded/dragonfly.jpeg>]
+Underfull \vbox (badness 7064) has occurred while \output is active []
+
+ [34pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
+8}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.230 ... \times n_F} \sum{(a_{C} - a_{G})^{2}} \]
+                                                   <./resources/vgg_mean_topinc
+luded/dragonfly-fake.png (PNG copy)>] [35]
+<resources/nst/69850020.JPG, id=563, 1550.79375pt x 1027.84pt>
+File: resources/nst/69850020.JPG Graphic file (type jpg)
+<use resources/nst/69850020.JPG>
+Package pdftex.def Info: resources/nst/69850020.JPG  used on input line 279.
+(pdftex.def)             Requested size: 216.81pt x 143.69273pt.
+<resources/nst/the_keep_1958.jpg, id=564, 422.7795pt x 505.89pt>
+File: resources/nst/the_keep_1958.jpg Graphic file (type jpg)
+<use resources/nst/the_keep_1958.jpg>
+Package pdftex.def Info: resources/nst/the_keep_1958.jpg  used on input line 28
+1.
+(pdftex.def)             Requested size: 144.54pt x 172.9575pt.
+
+Underfull \hbox (badness 3312) in paragraph at lines 281--281
+[]\T1/ptm/m/n/10 (b) |Ob-raz stylu (S), ek-pre-sjo-ni-
+ []
+
+<resources/nst/nst__at_iteration_9.png, id=567, 605.26125pt x 401.5pt>
+File: resources/nst/nst__at_iteration_9.png Graphic file (type png)
+<use resources/nst/nst__at_iteration_9.png>
+Package pdftex.def Info: resources/nst/nst__at_iteration_9.png  used on input l
+ine 283.
+(pdftex.def)             Requested size: 361.34999pt x 239.70108pt.
+) [36] [37pdfTeX warning (ext4): destination with the same identifier (name{fig
+ure.4.9}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.103 \include{vgg}
-                    <./resources/vgg_mean_topincluded/dragonfly-fake.png (PNG c
-opy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 110.
- [35
+                    <./resources/nst/69850020.JPG> <./resources/nst/the_keep_19
+58.jpg> <./resources/nst/nst__at_iteration_9.png (PNG copy)>]
+\openout2 = `incepcja.aux'.
+
+ (./incepcja.tex
+[38
+
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 110.
- (./praca.aux (./tytul.aux) (./wstep.aux) (./siecifc.aux) (./cnn.aux) (./vgg.au
-x))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 110.
+Rozdzia\l  5.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 4.
+
+) [39]
+\openout2 = `podsu.aux'.
+
+ (./podsu.tex [40
+
+
+
+]
+Rozdzia\l  6.
+) [41] [42
+
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 111.
+ [43]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
+ (./praca.aux (./tytul.aux) (./wstep.aux) (./siecifc.aux)
+(./cnn.aux) (./vgg.aux) (./incepcja.aux) (./podsu.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
 Package rerunfilecheck Info: File `praca.out' has not changed.
-(rerunfilecheck)             Checksum: 6206CD0EA52AABFBAA73485A35EB5C83;1994.
+(rerunfilecheck)             Checksum: CDB68F5B3657D494A50EC6CAD2C7B79B;2382.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1473,16 +1532,16 @@ LaTeX Warning: There were multiply-defined labels.
 Package logreq Info: Writing requests to 'praca.run.xml'.
 \openout1 = `praca.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 110.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 17883 strings out of 494060
- 294203 string characters out of 6163035
- 890368 words of memory out of 5000000
- 21055 multiletter control sequences out of 15000+600000
+ 17946 strings out of 494060
+ 295302 string characters out of 6163035
+ 896365 words of memory out of 5000000
+ 21080 multiletter control sequences out of 15000+600000
  58064 words of font info for 64 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 41i,12n,51p,972b,3454s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,12n,73p,972b,3454s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019basic/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/lo
 cal/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/local/texlive/2019basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.
@@ -1501,10 +1560,10 @@ ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type
 /times/utmr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on praca.pdf (35 pages, 20147281 bytes).
+Output written on praca.pdf (43 pages, 21745802 bytes).
 PDF statistics:
- 636 PDF objects out of 1000 (max. 8388607)
- 494 compressed objects within 5 object streams
- 205 named destinations out of 1000 (max. 500000)
- 516 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 719 PDF objects out of 1000 (max. 8388607)
+ 564 compressed objects within 6 object streams
+ 223 named destinations out of 1000 (max. 500000)
+ 571 words of extra memory for PDF output out of 10000 (max. 10000000)
 

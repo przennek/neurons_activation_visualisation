@@ -50,3 +50,13 @@
 \contentsline {subsection}{\numberline {4.1.2}Wizualizacja maksymalnej aktywacji danej klasy}{33}{subsection.4.1.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}Neural Style Transfer przy pomocy sieci VGG}{34}{section.4.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Konwolucyjna sie\IeC {\'c} incepcja}{39}{chapter.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.0.1}Architektura sieci incepcja}{39}{subsection.5.0.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.0.2}Deep dream}{39}{subsection.5.0.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.0.3}Nie oparty o VGG Neural Style Transfer na przyk\IeC {\l }adzie sieci incepcja}{39}{subsection.5.0.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Podsumowanie}{41}{chapter.6}% 

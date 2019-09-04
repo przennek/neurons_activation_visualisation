@@ -1998,6 +1998,8 @@
     <bcf:citekey order="1">vggpaper</bcf:citekey>
     <bcf:citekey order="2">imagenet</bcf:citekey>
     <bcf:citekey order="3">nstpaper</bcf:citekey>
+    <bcf:citekey order="4">thekeep</bcf:citekey>
+    <bcf:citekey order="5">thekeep</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

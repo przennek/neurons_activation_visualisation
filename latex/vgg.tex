@@ -211,20 +211,77 @@ Wszystko wydaje się być w porządku dopóki nie wygenerujemy obrazu na podstaw
 \label{fig:wazka-fake}
 \end{figure}
 
-Mimo krótkiego czasu treningu taki obraz klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. Podobny wynik uzyskałem na wszystkich testowanych przeze mnie klasach. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów - niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy.
+Mimo krótkiego czasu treningu taki obraz klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. Podobny wynik uzyskałem na wszystkich testowanych przeze mnie klasach. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów - niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy. 
+By uzyskać obrazy zdolne do oszukania ludzkiej percepcji należy posłużyć się architekturą typu GAN (\textit{ang. Generative Adversarial Networks}).
+
+Niezwykle zajmującym tematem wydaje się być próba wprowadzenia uzyskanych wizualizacji do sieci VGG i uzyskanie odpowiedzi samej sieci co jest na danym obrazie. 
+Zmuszony jednak jestem zostawić temat wizualizacji uzyskanych za pomocą maksymalizacji aktywacji warstwy na rzecz innego zajmującego tematu - neuronowego transferu stylu.
 
 \section{Neural Style Transfer przy pomocy sieci VGG}
 \label{vgg-nst}
-Neural Style Transfer został pierwszy raz zaprezentowany w pracy autorstwa Leon A. Gatys, Alexander S. Ecker, Matthias Bethge \cite{nstpaper}. Jest to technika mająca na celu uzyskanie obrazu G w stylu obrazu S, przy pomocy obrazu bazowego B.
+Neural Style Transfer został pierwszy raz zaprezentowany w pracy autorstwa Leon A. Gatys, Alexander S. Ecker, Matthias Bethge \cite{nstpaper}.
+Jest to technika mająca na celu uzyskanie obrazu \(G\) w stylu obrazu \(S\), przy pomocy obrazu bazowego \(B\) \ref{neural-style-transfer-BSG}.
+
+Jej oryginalni autorzy sami podają kluczową obserwację, umożliwiającą mieszanie obrazu. Jest to spostrzeżenie, że możliwe jest odesparowanie stylu
+i treści z zakodowanej w aktywacjach sieci VGG.
+
+Załóżmy, że chcemy za pomocą wybranej warstwy konwolucyjnej sieci VGG odzwierciedlić treść obrazu \(C\) na obrazie \(G\). Mamy do wyboru warstwy oznaczone conv1...5.
+Gdy wybierzemy jedną warstwę i wykonamy dla obrazów \(C\) i \(G\) kroki propagacji w przód otrzymamy mapy aktywacji \(a_{C}\) i \(a_{G}\). Korzystając z nich, można zdefiniować
+funkcję kosztu: \[J_{c}^{[l]}(C, G) = \frac{1}{4 \times n_H \times n_W \times n_F} \sum{(a_{C} - a_{G})^{2}} \]
+
+Gdzie:
+
+\begin{itemize}
+\item
+    \(n_{W}\) -- szerokość filtra wybranej warstwy,
+\item
+    \(n_{H}\) -- wysokość filtra wybranej warstwy,
+\item
+    \(n_{F}\) -- ilość filtrów wybranej warstwy,
+\item
+    \(l\) -- numer zastosowanej warstwy,
+\end{itemize}
+
+A sumowanie odbywa się po wszystkich elementach mapy cech (uzyskana suma jest sumą aktywacji wszystkich warstw). 
+
+Analogicznie można potraktować problem odzwierciedlenia stylu obrazu. Po wyborze warstwy uzyskujemy aktywację dla obrazów \(S\) i \(G\) oraz oznaczamy je kolejno \(a_{S}\) i \(a_{G}\). 
+Następnie zwijamy tensory o wymiarach \(n_H \times n_W \times n_F\) w dwuwymiarowe macierze o wymiarach \((n_H + n_W) \times n_F\) i wyznaczamy macierze Grama tych macierzy, oznaczamy je jako 
+\(G^{(S)}\) i \(G^{(G)}\). Wtedy można zdefiniować następującą funkcję kosztu stylu.
+
+\[J_{s}^{[l]}(S,G) = \frac{1}{4 \times {n_F}^2 \times (n_H \times n_W)^2} \sum _{i=1}^{n_F}\sum_{j=1}^{n_F}(G^{(S)}_{ij} - G^{(G)}_{ij})^2\tag{2}\]
+
+Gdy zdefiniujemy zbiorczą funkcję kosztu jako:
+
+\[J(G) = \alpha J_{c}(C,G) + \beta J_{s}(S,G)\]
+
+Gdzie:
+\begin{itemize}
+\item
+    \(\alpha\) -- współczynnik kosztu treści,
+\item
+    \(\beta\) -- współczynnik kosztu stylu,
+\end{itemize}
+
+Sterując \(\alpha\) i \(\beta\) można wpływać na to jak bardzo obraz będzie wierny orginałowi C w stosunku do jak bardzo będzie namalowany w stylu S. Używając tak zdefiniowanej funkcji kosztu dla jednej 
+z warstw, można zapisać funkcję biorącą pod uwagę wyjście z kilku warstw konwolucyjnych jednocześnie: 
+
+\[J_{s}(S,G) = \sum_{l} \lambda^{[l]} J^{[l]}_{s}(S,G) \]
+
+Gdzie \(\lambda^{[l]}\) jest współczynnikiem wykorzystania danej warstwy \(l\).
+
+Przy pomocy tej funkcji, można zastosować sposób działania znany z podrozdziału \ref{vgg-mean-activation}. Używając ją zamiast mediany aktywacji danej warstwy uzyskamy efekt widoczny na rysunku \ref{neural-style-transfer-BSG}. Szczegół implementacyjny: zaprezentowany obraz został wygenerowany przy pomocy skryptu napisanego w tensorflow a nie na podstawie modyfikacji opisanego wyżej skryptu.
+Powód jest ściśle praktyczny, dysponowałem już takim skryptem mojego autorstwa - nie było praktyczne jednak wprowadzanie nowej biblioteki uczenia maszynowego, a jak było napisane wyżej, identyczne efekty można uzyskać przy pomocy Kerasa.
+
+W tym miejscu możnaby poświęcić więcej czasu na wizualizacje poszczególnych kombinacji parametrów \(\alpha\), \(\beta\) i \(\lambda\) jednak tak jak w przypadku wizualizacji warstw, tak i tu model sieci 
+incepcja deklasyfikuje VGG pod względem uzyskiwanych efektów transferu stylu i to nim chciałbym się zająć w następnej kolejności.
 
 \begin{figure}
-\subfloat[B]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_120.png}} 
+\subfloat[Obraz bazowy (B)]{\includegraphics[width = 3in]{resources/nst/69850020.JPG}} 
 ~
-\subfloat[S]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_60.png}} 
-~
-\subfloat[G]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_80.png}} 
-\caption{}
+\subfloat[Obraz stylu (S), ekpresjonistyczny - ''The keep''\cite{thekeep}]{\includegraphics[width = 2in]{resources/nst/the_keep_1958.jpg}} 
+\\
+\subfloat[Wygenerowany obraz (G)]{\includegraphics[width = 5in]{resources/nst/nst__at_iteration_9.png}} 
+\caption{Transfer stylu na przykładzie zdjęcia z wakacji.}
 \label{neural-style-transfer-BSG}
 \end{figure}
-
 
