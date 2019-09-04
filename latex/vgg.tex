@@ -211,12 +211,20 @@ Wszystko wydaje się być w porządku dopóki nie wygenerujemy obrazu na podstaw
 \label{fig:wazka-fake}
 \end{figure}
 
-Mimo krótkiego czasu treningu taki obraz klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. I dotyczy to wszystkich testowanych przezemnie klas. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów - niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy.
-
-Wiem, że lepsze efekty udało się osiągnąć z niezwykle głębokimi sieciami typu incepcja i spróbuję je odtworzyć w dalszej części tej pracy. 
-
-Warte uwagi są też \textit{ang. Generative Adversarial Networks (GANs)} przy ich pomocy można generować obrazy, które są wstanie oszukać człowieka. // TODO być może warto będzie napisać o GANach zamiast czegoś.
+Mimo krótkiego czasu treningu taki obraz klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. Podobny wynik uzyskałem na wszystkich testowanych przeze mnie klasach. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów - niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy.
 
 \section{Neural Style Transfer przy pomocy sieci VGG}
 \label{vgg-nst}
-Neural Style Transfer został pierwszy raz zaprezentowany w pracy autorstwa Leon A. Gatys, Alexander S. Ecker, Matthias Bethge \cite{nstpaper}.
+Neural Style Transfer został pierwszy raz zaprezentowany w pracy autorstwa Leon A. Gatys, Alexander S. Ecker, Matthias Bethge \cite{nstpaper}. Jest to technika mająca na celu uzyskanie obrazu G w stylu obrazu S, przy pomocy obrazu bazowego B.
+
+\begin{figure}
+\subfloat[B]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_120.png}} 
+~
+\subfloat[S]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_60.png}} 
+~
+\subfloat[G]{\includegraphics[width = 2in]{resources/vgg_mean_res/block2_conv2_80.png}} 
+\caption{}
+\label{neural-style-transfer-BSG}
+\end{figure}
+
+
