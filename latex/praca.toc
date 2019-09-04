@@ -45,4 +45,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.1}Model sieci VGG-19}{25}{section.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Wizualizacja sieci VGG poprzez rekonstrukcj\IeC {\k e} obrazu przy pomocy maksymalizacji aktywacji neuronu.}{26}{subsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.1.1}Wizualizacja poprzez rekonstrukcj\IeC {\k e} obrazu przy pomocy maksymalizacji aktywacji neuronu.}{26}{subsection.4.1.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}Wizualizacja maksymalnej aktywacji danej klasy}{33}{subsection.4.1.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Neural Style Transfer przy pomocy sieci VGG}{34}{section.4.2}% 

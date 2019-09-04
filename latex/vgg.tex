@@ -14,7 +14,7 @@ Andrew Zisserman\cite{vggpaper}. W publikacji zaprezentowano kilka wariantów te
 
 Dopełnienie w przypadku warstw konwolucyjnych wynosi \(p=1\) przy skoku \(s=1\) co sprawia, że warstwy konwolucyjne mogą być ze sobą łączone w łańcuchy niezmieniające wymiarów tensora. W przypadku warstw poolingowych \(p=1\) przy skoku \(s=2\) tym samym, dzielą one dwa pierwsze wymiary przez pół. Sumarycznie daje to 16 warstw możliwych do wykorzystania w wizualizacjach.
 
-\subsection{Wizualizacja sieci VGG poprzez rekonstrukcję obrazu przy pomocy maksymalizacji aktywacji neuronu.}
+\subsection{Wizualizacja poprzez rekonstrukcję obrazu przy pomocy maksymalizacji aktywacji neuronu.}
 \label{vgg-mean-activation}
 
 Z racji swoich rozmiarów trening sieci VGG potrafi trwać dniami, nawet przy pomocy GPU. Użyję więc wcześniej wytrenowanej sieci dostępnej bezpośrednio w Kerasie.
@@ -47,7 +47,7 @@ for interpolation_step in image_resize_steps:
 
 Listing \ref{lst:vggmeantraining} zawiera wysokopoziomowy zarys tego w jaki sposób działa skrypt generujący poniższe wizualizacje. Wszystkie szczegóły implementacyjne takie jak normalizacja gradientu czy konwersja obrazu z postaci nadającej się do treningu na postać zdatną do wyświetlenia zostały pominięte.
 
-Zgodnie z oczekiwaniami złożoność uzyskanych wizualizacji rośnie wraz numerem warstwy na podstawie której je uzyskano. Uzyskane obrazy nie prezentują żadnej ze znanych mi klas na, których trenowano tę konkretną instację VGG19, a raczej ''teksturę'' obserwowanego przedmiotu.
+Zgodnie z oczekiwaniami złożoność uzyskanych wizualizacji rośnie wraz numerem warstwy na podstawie której je uzyskano. Uzyskane obrazy nie prezentują żadnej ze znanych mi klas na których trenowano tę konkretną instację VGG19, a raczej ''teksturę'' obserwowanego przedmiotu.
 
 Pierwsze warstwy nie są zbytnio bogate w informacje. Kodują podstawowe informacje o kolorze, nie posiadając zbyt wiele informacji o strukturze klasyfikowanego przedmiotu. Choć i już tu trafiają się ciekawe wizualizacje jak np. filtru 5 warstwy conv1 bloku 1 - przypominającej trochę księżyc. 
 
@@ -171,6 +171,52 @@ Pozostawia to wciąż niezagospodarowane (w 2019 roku) pole do poprawy działani
 \label{mean-vgg-vis-c5bx}
 \end{figure}
 
-Teza, że VGG19 nie jest w stanie uchwycić "formy" tego co klasyfikuje w taki sam sposób jak robi to człowiek może zostać zweryfikowana w analogiczny sposób w jaki otrzymałem powyższe wizualizacje.
+\subsection{Wizualizacja maksymalnej aktywacji danej klasy}
+\label{vgg-class-visualisation}
+
+Teza, że VGG19 nie jest w stanie uchwycić pełni formy tego co klasyfikuje w taki sam sposób jak robi to człowiek może zostać zweryfikowana w analogiczny sposób w jaki otrzymałem wizualizacje w podrozdziale \ref{vgg-mean-activation}.
 Jeżeli do modelu przywrócićby warstwy gęste i próbować zmaksymalizować aktywację dla jednej z klas poprzez modyfikację obrazu wejściowego, powinienem otrzymać obraz, który sieć bezwątpliwie traktowałaby jako reprezentanta danej klasy.
-Gdyby sieć miała w sobie zakodowaną pełną informację o tym co tak naprawdę jest na obrazie powinienem otrzymać coś przynajmniej odlegle przypominającego oryginalną klasę.
+Gdyby sieć miała w sobie zakodowaną informację o tym co tak naprawdę jest na obrazie powinienem otrzymać coś przynajmniej odlegle przypominającego oryginalną klasę.
+
+Weźmy przykładowo klasę numer 319 w przypadku tego konkretnego modelu odpowiada ona klasie ważki. 
+
+\begin{figure}[ht]
+\centerline{\includegraphics[scale=0.8]{resources/vgg_mean_topincluded/dragonfly.jpeg}}
+\caption{Przykładowe zdjęcie ważki.}
+\label{fig:wazka-real}
+\end{figure}
+
+\label{lst:wazka-prediction}
+\begin{lstlisting}[language=Python, caption={Predykcja klasy zdjęcia ważki\ref{fig:wazka-real}.}, captionpos=b]
+img = image.load_img('resources/vgg_mean_topincluded/dragonfly.jpeg', target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+preds = model.predict(x)
+print('Predicted:', decode_predictions(preds, top=3)[0])
+\end{lstlisting}
+
+\label{lst:wazka-prediction-result}
+\begin{lstlisting}[language=Python, caption={Wynik skryptu \ref{lst:wazka-prediction}.}, captionpos=b]
+[('n02268443', 'dragonfly', 0.96805733), ('n02268853', 'damselfly', 0.01810956), ('n02264363', 'lacewing', 0.012446008)]
+\end{lstlisting}
+
+Oznacza to nie mniej, że sieć którą dysponuję jest przekonana, w zaokrągleniu, na 97\% mamy do czynienia z ważką. Dwie kolejne najbardziej prawdopodobne klasy przedstawiają inny rodzaj ważki - ważkę równoskrzydłą i owada siatkoskrzydłego.
+
+Wszystko wydaje się być w porządku dopóki nie wygenerujemy obrazu na podstawie wyżej wymienionej klasy.
+
+\begin{figure}[ht]
+\centerline{\includegraphics[scale=0.8]{resources/vgg_mean_topincluded/dragonfly-fake.png}}
+\caption{Ważka uzyskana w odwróconym procesie treningu.}
+\label{fig:wazka-fake}
+\end{figure}
+
+Mimo krótkiego czasu treningu taki obraz klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. I dotyczy to wszystkich testowanych przezemnie klas. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów - niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy.
+
+Wiem, że lepsze efekty udało się osiągnąć z niezwykle głębokimi sieciami typu incepcja i spróbuję je odtworzyć w dalszej części tej pracy. 
+
+Warte uwagi są też \textit{ang. Generative Adversarial Networks (GANs)} przy ich pomocy można generować obrazy, które są wstanie oszukać człowieka. // TODO być może warto będzie napisać o GANach zamiast czegoś.
+
+\section{Neural Style Transfer przy pomocy sieci VGG}
+\label{vgg-nst}
+Neural Style Transfer został pierwszy raz zaprezentowany w pracy autorstwa Leon A. Gatys, Alexander S. Ecker, Matthias Bethge \cite{nstpaper}.

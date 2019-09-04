@@ -20,4 +20,6 @@
 \BOOKMARK [3][-]{subsubsection*.2}{Wizualizacja poprzez mapy cech.}{subsection.3.3.4}% 20
 \BOOKMARK [0][-]{chapter.4}{Wizualizacja przy pomocy warstw ukrytych sieci VGG-19}{}% 21
 \BOOKMARK [1][-]{section.4.1}{Model sieci VGG-19}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.1.1}{Wizualizacja sieci VGG poprzez rekonstrukcje obrazu przy pomocy maksymalizacji aktywacji neuronu.}{section.4.1}% 23
+\BOOKMARK [2][-]{subsection.4.1.1}{Wizualizacja poprzez rekonstrukcje obrazu przy pomocy maksymalizacji aktywacji neuronu.}{section.4.1}% 23
+\BOOKMARK [2][-]{subsection.4.1.2}{Wizualizacja maksymalnej aktywacji danej klasy}{section.4.1}% 24
+\BOOKMARK [1][-]{section.4.2}{Neural Style Transfer przy pomocy sieci VGG}{chapter.4}% 25

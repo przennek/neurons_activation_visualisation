@@ -76,6 +76,43 @@
       \endverb
       \keyw{imagenet}
     \endentry
+    \entry{nstpaper}{online}{}
+      \name{author}{3}{}{%
+        {{hash=b463321fbc7e07dca928b179ef786d43}{%
+           family={Gatys},
+           familyi={G\bibinitperiod},
+           given={Leon\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=76032390b4e0ce051a46193f6091dc26}{%
+           family={Ecker},
+           familyi={E\bibinitperiod},
+           given={Alexander\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=653ad8c2337d9615a186b743cc8d69a5}{%
+           family={Bethge},
+           familyi={B\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{467d36c2c62b4f85d9a0e313c593bf43}
+      \strng{fullhash}{467d36c2c62b4f85d9a0e313c593bf43}
+      \strng{bibnamehash}{467d36c2c62b4f85d9a0e313c593bf43}
+      \strng{authorbibnamehash}{467d36c2c62b4f85d9a0e313c593bf43}
+      \strng{authornamehash}{467d36c2c62b4f85d9a0e313c593bf43}
+      \strng{authorfullhash}{467d36c2c62b4f85d9a0e313c593bf43}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Neural Algorithm of Artistic Style}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1508.06576
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1508.06576
+      \endverb
+      \keyw{vgg,nst}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
