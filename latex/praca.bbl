@@ -140,6 +140,181 @@
       \endverb
       \keyw{thekeep}
     \endentry
+    \entry{inceptionpaper}{online}{}
+      \name{author}{9}{}{%
+        {{hash=ed568d9c3bb059e6bf22899fbf170f86}{%
+           family={Szegedy},
+           familyi={S\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=c0e0d23e2d09e45e6f51cc2bcea6d9f9}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=9fce03efe6b3331a1b93ed2e7c0da9d5}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={Yangqing},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=15f5333df96deaf51c72d065bded37d8}{%
+           family={Sermanet},
+           familyi={S\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=698ee61a2f3fa29734204496d2d36aef}{%
+           family={Reed},
+           familyi={R\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c1826f3465579186aff299a9b0e16ed7}{%
+           family={Anguelov},
+           familyi={A\bibinitperiod},
+           given={Dragomir},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8bbc4c5d96f205bada839e74e0202146}{%
+           family={Erhan},
+           familyi={E\bibinitperiod},
+           given={Dumitru},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8051922e7bd286f884bfbd1023ef62f5}{%
+           family={Vanhoucke},
+           familyi={V\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=aa04c4d6213a1e867b1650e298cb2668}{%
+           family={Rabinovich},
+           familyi={R\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{80f8e6bfc3aff3e75b2807a6f6962740}
+      \strng{fullhash}{64fbaf3c8a6b53523f74f0087b58e7e6}
+      \strng{bibnamehash}{80f8e6bfc3aff3e75b2807a6f6962740}
+      \strng{authorbibnamehash}{80f8e6bfc3aff3e75b2807a6f6962740}
+      \strng{authornamehash}{80f8e6bfc3aff3e75b2807a6f6962740}
+      \strng{authorfullhash}{64fbaf3c8a6b53523f74f0087b58e7e6}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Going Deeper with Convolutions}
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1409.4842
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1409.4842
+      \endverb
+    \endentry
+    \entry{resnetpaper}{article}{}
+      \name{author}{4}{}{%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=5e72bc22dbcf0984c6d113d280e36990}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiangyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=bb295293acacd54387339079ebbe4ead}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Shaoqing},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f85751488058842b5777c7b4074077b5}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{fullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \strng{bibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authorbibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authornamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authorfullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{CoRR}
+      \field{title}{Deep Residual Learning for Image Recognition}
+      \field{volume}{abs/1512.03385}
+      \field{year}{2015}
+      \verb{eprint}
+      \verb 1512.03385
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1512.03385
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1512.03385
+      \endverb
+    \endentry
+    \entry{deepdream}{online}{}
+      \name{author}{3}{}{%
+        {{hash=227f3a2edcf8a761ddd01d28ab6f2302}{%
+           family={Mordvintsev},
+           familyi={M\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=dea937fb216bfbba25c1bfa1f36a63fe}{%
+           family={Olah},
+           familyi={O\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3f41680dcf078556f431fb63768c96a1}{%
+           family={Tyka},
+           familyi={T\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{23aa5d640e70697e0618f45f74d3fd85}
+      \strng{fullhash}{23aa5d640e70697e0618f45f74d3fd85}
+      \strng{bibnamehash}{23aa5d640e70697e0618f45f74d3fd85}
+      \strng{authorbibnamehash}{23aa5d640e70697e0618f45f74d3fd85}
+      \strng{authornamehash}{23aa5d640e70697e0618f45f74d3fd85}
+      \strng{authorfullhash}{23aa5d640e70697e0618f45f74d3fd85}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Inceptionism: Going Deeper into Neural Networks}
+      \verb{urlraw}
+      \verb https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html
+      \endverb
+      \verb{url}
+      \verb https://ai.googleblog.com/2015/06/inceptionism-going-deeper-into-neural.html
+      \endverb
+      \keyw{deepdream}
+    \endentry
+    \entry{lucidrepo}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5e7fae2f2d728fdb36cfd6ed5a3c2058}{%
+           family={https://github.com/tensorflow/lucid/graphs/contributors},
+           familyi={h\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e7fae2f2d728fdb36cfd6ed5a3c2058}
+      \strng{fullhash}{5e7fae2f2d728fdb36cfd6ed5a3c2058}
+      \strng{bibnamehash}{5e7fae2f2d728fdb36cfd6ed5a3c2058}
+      \strng{authorbibnamehash}{5e7fae2f2d728fdb36cfd6ed5a3c2058}
+      \strng{authornamehash}{5e7fae2f2d728fdb36cfd6ed5a3c2058}
+      \strng{authorfullhash}{5e7fae2f2d728fdb36cfd6ed5a3c2058}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Repozytorium z biblioteką lucid.}
+      \verb{urlraw}
+      \verb https://github.com/tensorflow/lucid
+      \endverb
+      \verb{url}
+      \verb https://github.com/tensorflow/lucid
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

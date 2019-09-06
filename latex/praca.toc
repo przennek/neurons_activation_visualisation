@@ -53,10 +53,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Konwolucyjna sie\IeC {\'c} incepcja}{39}{chapter.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.0.1}Architektura sieci incepcja}{39}{subsection.5.0.1}% 
+\contentsline {section}{\numberline {5.1}Architektura sieci incepcja}{39}{section.5.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.0.2}Deep dream}{39}{subsection.5.0.2}% 
+\contentsline {subsection}{\numberline {5.1.1}Wst\IeC {\k e}p}{39}{subsection.5.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.0.3}Nie oparty o VGG Neural Style Transfer na przyk\IeC {\l }adzie sieci incepcja}{39}{subsection.5.0.3}% 
+\contentsline {subsection}{\numberline {5.1.2}Blok sieci incepcja}{39}{subsection.5.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Podsumowanie}{41}{chapter.6}% 
+\contentsline {subsection}{\numberline {5.1.3}Schemat sieci}{40}{subsection.5.1.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}\textit {DeepDream}}{42}{section.5.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.1}Opis i zasada dzia\IeC {\l }ania}{42}{subsection.5.2.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.2}Spos\IeC {\'o}b uzyskiwania wizualizacji}{42}{subsection.5.2.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Nie oparty o VGG Neural Style Transfer na przyk\IeC {\l }adzie sieci incepcja}{42}{section.5.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Podsumowanie}{45}{chapter.6}% 

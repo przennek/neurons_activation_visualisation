@@ -2000,6 +2000,15 @@
     <bcf:citekey order="3">nstpaper</bcf:citekey>
     <bcf:citekey order="4">thekeep</bcf:citekey>
     <bcf:citekey order="5">thekeep</bcf:citekey>
+    <bcf:citekey order="6">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="7">resnetpaper</bcf:citekey>
+    <bcf:citekey order="8">resnetpaper</bcf:citekey>
+    <bcf:citekey order="9">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="10">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="11">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="12">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="13">deepdream</bcf:citekey>
+    <bcf:citekey order="14">lucidrepo</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
