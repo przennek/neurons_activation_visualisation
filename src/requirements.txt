@@ -5,3 +5,4 @@ numpy
 opencv-python
 Pillow
 scipy
+lucid==0.2.3
