@@ -8,10 +8,10 @@
 \BOOKMARK [1][-]{section.2.6}{Propagacja wstecz}{chapter.2}% 8
 \BOOKMARK [0][-]{chapter.3}{Neuronowa siec konwolucyjna}{}% 9
 \BOOKMARK [1][-]{section.3.1}{Wstep}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.2}{Opis element\363w sk\233adajacych sie na CNN}{chapter.3}% 11
-\BOOKMARK [2][-]{subsection.3.2.1}{Filtry i splot w CNN}{section.3.2}% 12
+\BOOKMARK [1][-]{section.3.2}{Opis element\363w sk\233adajacych sie na konwolucyjna siec neuronowa}{chapter.3}% 11
+\BOOKMARK [2][-]{subsection.3.2.1}{Filtry i splot w konwolucyjnej sieci neuronowej}{section.3.2}% 12
 \BOOKMARK [2][-]{subsection.3.2.2}{Warstwy \233aczace}{section.3.2}% 13
-\BOOKMARK [1][-]{section.3.3}{Przyk\233ad sieci konwolucyjnej - LeNet-5}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{Przyk\233ad sieci konwolucyjnej LeNet-5}{chapter.3}% 14
 \BOOKMARK [2][-]{subsection.3.3.1}{Schemat sieci LeNet-5}{section.3.3}% 15
 \BOOKMARK [2][-]{subsection.3.3.2}{Opis implementacji sieci LeNet-5}{section.3.3}% 16
 \BOOKMARK [2][-]{subsection.3.3.3}{Implementacja modelu przy pomocy Keras}{section.3.3}% 17
@@ -20,7 +20,7 @@
 \BOOKMARK [3][-]{subsubsection*.2}{Wizualizacja poprzez mapy cech.}{subsection.3.3.4}% 20
 \BOOKMARK [0][-]{chapter.4}{Wizualizacja przy pomocy warstw ukrytych sieci VGG-19}{}% 21
 \BOOKMARK [1][-]{section.4.1}{Model sieci VGG-19}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.1.1}{Wizualizacja poprzez rekonstrukcje obrazu przy pomocy maksymalizacji aktywacji neuronu.}{section.4.1}% 23
+\BOOKMARK [2][-]{subsection.4.1.1}{Wizualizacja poprzez rekonstrukcje obrazu przy pomocy maksymalizacji aktywacji neuronu}{section.4.1}% 23
 \BOOKMARK [2][-]{subsection.4.1.2}{Wizualizacja maksymalnej aktywacji danej klasy}{section.4.1}% 24
 \BOOKMARK [1][-]{section.4.2}{Neural Style Transfer przy pomocy sieci VGG}{chapter.4}% 25
 \BOOKMARK [0][-]{chapter.5}{Konwolucyjna siec incepcja}{}% 26
@@ -32,5 +32,4 @@
 \BOOKMARK [2][-]{subsection.5.2.1}{Opis i zasada dzia\233ania}{section.5.2}% 32
 \BOOKMARK [2][-]{subsection.5.2.2}{Wizualizacja warstw ukrytych modelu GoogleLeNet}{section.5.2}% 33
 \BOOKMARK [2][-]{subsection.5.2.3}{Wizualizacje uzyskane przy pomocy DeepDream}{section.5.2}% 34
-\BOOKMARK [1][-]{section.5.3}{Nie oparty o VGG Neural Style Transfer na przyk\233adzie sieci incepcja}{chapter.5}% 35
-\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 36
+\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 35

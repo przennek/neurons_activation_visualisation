@@ -51,41 +51,41 @@ input_tensor = model.inputs[0]
 img = random_np_gray(image_resize_steps[0][0], image_resize_steps[0][1])
 #img = load_image("ig")
 img = numpy_to_img(img)
-img = np.expand_dims(img, axis=0)
+#img = np.expand_dims(img, axis=0)
 
 # get the filter to visualise
 layer_name = 'block' + str(sys.argv[1]) + '_conv' + str(sys.argv[2])
 filter_index  = int(sys.argv[3])
 
 # calculate the loss = mean of the layer -> maximizes the activations
-output = layers_by_name[layer_name].output
-loss = K.mean(output[:, :, :, filter_index])
+#output = layers_by_name[layer_name].output
+#loss = K.mean(output[:, :, :, filter_index])
 
-gradients = K.gradients(loss, input_tensor)[0]
-gradients /= (K.sqrt(K.mean(K.square(gradients))) + 1e-5)
+#gradients = K.gradients(loss, input_tensor)[0]
+#gradients /= (K.sqrt(K.mean(K.square(gradients))) + 1e-5)
 
 # 1 step gd
-step = K.function([input_tensor], [loss, gradients])
+#step = K.function([input_tensor], [loss, gradients])
 
-counter = 0
+#counter = 0
 img = np.float64(img)
-for interpolation_step in image_resize_steps:
-    img = np.squeeze(img, axis=0)
-    img = cv2.resize(img, dsize=interpolation_step, interpolation=cv2.INTER_CUBIC)
-    img = np.expand_dims(img, axis=0)
+#for interpolation_step in image_resize_steps:
+#    img = np.squeeze(img, axis=0)
+#    img = cv2.resize(img, dsize=interpolation_step, interpolation=cv2.INTER_CUBIC)
+#    img = np.expand_dims(img, axis=0)
 
-    print("Working with: " + str(image_resize_steps[counter]))
-    ran = 15 + int(image_resize_steps[counter][0] * step_iter)
-    for i in range(ran):
-        loss_val, gradients_val = step([img])
-        img += gradients_val * 1
-        print("Iteration: " + str(i) + " out of " + str(ran) )
+#    print("Working with: " + str(image_resize_steps[counter]))
+#    ran = 15 + int(image_resize_steps[counter][0] * step_iter)
+#    for i in range(ran):
+#        loss_val, gradients_val = step([img])
+#        img += gradients_val * 1
+#        print("Iteration: " + str(i) + " out of " + str(ran) )
         #if loss_val <= K.epsilon():
         #    break
-    counter += 1
+#    counter += 1
 
-img = np.squeeze(img, axis=0)
-img = deprocess_image(img)
+#img = np.squeeze(img, axis=0)
+#img = deprocess_image(img)
 img = pimg_from_nimg(img)
 
 fp = layer_name + "_" + str(filter_index) + ".png"

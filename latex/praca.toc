@@ -21,54 +21,52 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Wst\IeC {\k e}p}{15}{section.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Opis element\IeC {\'o}w sk\IeC {\l }adaj\IeC {\k a}cych si\IeC {\k e} na CNN}{15}{section.3.2}% 
+\contentsline {section}{\numberline {3.2}Opis element\IeC {\'o}w sk\IeC {\l }adaj\IeC {\k a}cych si\IeC {\k e} na konwolucyjn\IeC {\k a} sie\IeC {\'c} neuronow\IeC {\k a}}{15}{section.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.1}Filtry i splot w CNN}{15}{subsection.3.2.1}% 
+\contentsline {subsection}{\numberline {3.2.1}Filtry i splot w konwolucyjnej sieci neuronowej}{15}{subsection.3.2.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.2}Warstwy \IeC {\l }\IeC {\k a}cz\IeC {\k a}ce}{17}{subsection.3.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Przyk\IeC {\l }ad sieci konwolucyjnej - LeNet-5}{18}{section.3.3}% 
+\contentsline {section}{\numberline {3.3}Przyk\IeC {\l }ad sieci konwolucyjnej LeNet-5}{18}{section.3.3}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}Schemat sieci LeNet-5}{18}{subsection.3.3.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.2}Opis implementacji sieci LeNet-5}{18}{subsection.3.3.2}% 
+\contentsline {subsection}{\numberline {3.3.2}Opis implementacji sieci LeNet-5}{19}{subsection.3.3.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.3}Implementacja modelu przy pomocy Keras}{19}{subsection.3.3.3}% 
+\contentsline {subsection}{\numberline {3.3.3}Implementacja modelu przy pomocy \textit {Keras}}{20}{subsection.3.3.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.4}Wizualizacja neuron\IeC {\'o}w warstw konwolucyjnych sieci LeNet-5.}{21}{subsection.3.3.4}% 
+\contentsline {subsection}{\numberline {3.3.4}Wizualizacja neuron\IeC {\'o}w warstw konwolucyjnych sieci LeNet-5.}{22}{subsection.3.3.4}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Wizualizacja poprzez wy\IeC {\'s}wietlenie wag warstw konwolucyjnych.}{22}{subsubsection*.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Wizualizacja poprzez mapy cech.}{23}{subsubsection*.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Wizualizacja przy pomocy warstw ukrytych sieci VGG-19}{25}{chapter.4}% 
+\contentsline {chapter}{\numberline {4}Wizualizacja przy pomocy warstw ukrytych sieci VGG-19}{27}{chapter.4}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Model sieci VGG-19}{25}{section.4.1}% 
+\contentsline {section}{\numberline {4.1}Model sieci VGG-19}{27}{section.4.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Wizualizacja poprzez rekonstrukcj\IeC {\k e} obrazu przy pomocy maksymalizacji aktywacji neuronu.}{26}{subsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.1.1}Wizualizacja poprzez rekonstrukcj\IeC {\k e} obrazu przy pomocy maksymalizacji aktywacji neuronu}{28}{subsection.4.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Wizualizacja maksymalnej aktywacji danej klasy}{33}{subsection.4.1.2}% 
+\contentsline {subsection}{\numberline {4.1.2}Wizualizacja maksymalnej aktywacji danej klasy}{30}{subsection.4.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Neural Style Transfer przy pomocy sieci VGG}{34}{section.4.2}% 
+\contentsline {section}{\numberline {4.2}Neural Style Transfer przy pomocy sieci VGG}{37}{section.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Konwolucyjna sie\IeC {\'c} incepcja}{39}{chapter.5}% 
+\contentsline {chapter}{\numberline {5}Konwolucyjna sie\IeC {\'c} incepcja}{41}{chapter.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Architektura sieci incepcja}{39}{section.5.1}% 
+\contentsline {section}{\numberline {5.1}Architektura sieci incepcja}{41}{section.5.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.1}Wst\IeC {\k e}p}{39}{subsection.5.1.1}% 
+\contentsline {subsection}{\numberline {5.1.1}Wst\IeC {\k e}p}{41}{subsection.5.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.2}Blok sieci incepcja}{39}{subsection.5.1.2}% 
+\contentsline {subsection}{\numberline {5.1.2}Blok sieci incepcja}{41}{subsection.5.1.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.3}Schemat sieci}{40}{subsection.5.1.3}% 
+\contentsline {subsection}{\numberline {5.1.3}Schemat sieci}{42}{subsection.5.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}\textit {DeepDream} i wizualizacje warstw ukrytych GoogleLeNet}{42}{section.5.2}% 
+\contentsline {section}{\numberline {5.2}\textit {DeepDream} i wizualizacje warstw ukrytych GoogleLeNet}{44}{section.5.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}Opis i zasada dzia\IeC {\l }ania}{42}{subsection.5.2.1}% 
+\contentsline {subsection}{\numberline {5.2.1}Opis i zasada dzia\IeC {\l }ania}{44}{subsection.5.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}Wizualizacja warstw ukrytych modelu GoogleLeNet}{42}{subsection.5.2.2}% 
+\contentsline {subsection}{\numberline {5.2.2}Wizualizacja warstw ukrytych modelu GoogleLeNet}{44}{subsection.5.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.3}Wizualizacje uzyskane przy pomocy \textit {DeepDream}}{43}{subsection.5.2.3}% 
+\contentsline {subsection}{\numberline {5.2.3}Wizualizacje uzyskane przy pomocy \textit {DeepDream}}{45}{subsection.5.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Nie oparty o VGG Neural Style Transfer na przyk\IeC {\l }adzie sieci incepcja}{43}{section.5.3}% 
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Podsumowanie}{49}{chapter.6}% 
+\contentsline {chapter}{\numberline {6}Podsumowanie}{51}{chapter.6}% 

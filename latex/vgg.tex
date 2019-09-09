@@ -12,12 +12,12 @@ Andrew Zisserman\cite{vggpaper}. W publikacji zaprezentowano kilka wariantów te
 \label{fig:vgg19-schemat}
 \end{figure}
 
-Dopełnienie w przypadku warstw konwolucyjnych wynosi \(p=1\) przy skoku \(s=1\) co sprawia, że warstwy konwolucyjne mogą być ze sobą łączone w łańcuchy niezmieniające wymiarów tensora. W przypadku warstw poolingowych \(p=1\) przy skoku \(s=2\) tym samym, dzielą one dwa pierwsze wymiary przez pół. Sumarycznie daje to 16 warstw możliwych do wykorzystania w wizualizacjach.
+Dopełnienie w przypadku warstw konwolucyjnych wynosi \(p=1\) przy skoku \(s=1\) co sprawia, że warstwy konwolucyjne mogą być ze sobą łączone w łańcuchy niezmieniające wymiarów tensora. W przypadku warstw \textit{poolingowych} \(p=1\) przy skoku \(s=2\) tym samym, dzielą one dwa pierwsze wymiary przez pół. Sumarycznie daje to 16 warstw możliwych do wykorzystania w wizualizacjach.
 
-\subsection{Wizualizacja poprzez rekonstrukcję obrazu przy pomocy maksymalizacji aktywacji neuronu.}
+\subsection{Wizualizacja poprzez rekonstrukcję obrazu przy pomocy maksymalizacji aktywacji neuronu}
 \label{vgg-mean-activation}
 
-Z racji swoich rozmiarów trening sieci VGG potrafi trwać dniami, nawet przy pomocy GPU. Użyję więc wcześniej wytrenowanej sieci dostępnej bezpośrednio w Kerasie.
+Z racji swoich rozmiarów, trening sieci VGG zajmuje dni, nawet przy pomocy GPU. Użyję więc wcześniej wytrenowanej sieci dostępnej bezpośrednio w Kerasie.
 
 \label{lst:vggkeras}
 \begin{lstlisting}[language=Python, caption={Wczytywanie wag VGG-19 w Keras.}, captionpos=b]
@@ -25,12 +25,24 @@ from keras.applications import VGG19
 model = VGG19(include_top=False, weights='imagenet')
 \end{lstlisting}
 
-Zastosowane opcje to przedewszystkim zestaw danych na których była trenowana sieć, w tym wypadku zbiór ImageNet\cite{imagenet}, oraz wyłączenie z ładowanego modelu warstw gęstch. Ta ostatnia opcja pozwoli na rekonstukcję obrazu o dowolnej liczbie pikseli (zamiast standardowego dla architektury VGG 224\(\times\)224 pikseli).
+Zastosowane opcje to przede wszystkim zestaw danych na, których była trenowana sieć, w tym wypadku zbiór ImageNet\cite{imagenet}, oraz wyłączenie z ładowanego modelu warstw gęstch. Ta ostatnia opcja pozwoli na rekonstukcję obrazu o dowolnej liczbie pikseli (zamiast standardowego dla architektury VGG 224\(\times\)224 pikseli).
 
-Mając załadowany model wraz z wytrenowanymi wagami, wybieram poszczególne filtry z kolejnych warstw konwolucyjnych. Następnie, generuję losowy (wartość pikseli losowana jest z rozkładu jednorodnego) obrazek o niskiej rozdzielczości, w skali odcieni szarości i wyliczam aktywacje wybranej wcześniej warstwy. Medianę z tych aktywacji traktuję jako wartość mojej funkcji kosztu i modyfikuję wylosowany uprzednio obrazek w celu jej maksymalizacji.
-Modyfikacja obrazu polega na dodaniu odpowiednio znormalizowanego gradientu do wartości poszczególnych pikseli. Cały proces treningu składa się z kilkukrotnego skalowania obrazu do wyższych ''rozdzielczości'' i ponawiania procesu optymalizacji. 
+Mając załadowany model wraz z wytrenowanymi wagami, wybieram poszczególne filtry z kolejnych warstw konwolucyjnych. Następnie, generuję losowy (wartość pikseli losowana jest z rozkładu jednorodnego) obrazek o niskiej rozdzielczości, początkowo szary obraz zaburzam nieznacznie różnymi kolorami i wyliczam aktywacje wybranej wcześniej warstwy.
+Przykładowy obraz wejściowy przedstawia rysunek \ref{fig:obrazwe}
 
-Skalowanie jest konieczne ponieważ struktury generowane tą metodą charakteryzują się wysoką częstotliwością (są małe i powtarzalne). Uprzednie wygenerowanie fragmentu wzoru w niskiej rozdzielczości i skalowanie, sprawia, że często wzór jest niejako ''dobudowywany'' zamiast powtarzany, przez co jest większy - co czasem daje lepsze zrozumienie na co patrzymy, choć nie jest to niestety reguła.
+\begin{figure}[ht]
+\centerline{\includegraphics[scale=1]{resources/cnn/obrazwe.png}}
+\caption{Obraz wejściowy dla skryptu maksymalizującego medianę warstwy.}
+\label{fig:obrazwe}
+\end{figure}
+
+Medianę z tych aktywacji traktuję jako wartość mojej funkcji kosztu i modyfikuję wylosowany uprzednio obrazek w celu jej maksymalizacji.
+
+Maksymalizacja aktywacji jest możliwa poprzez wywołanie metody o nazwie \textit{gradients} z biblioteki Keras. Wykorzystując ją można przy pomocy tensora wejściowego, w tym wypadku zdjęcia, oraz funkcji kosztu (zdefiniowanej powyżej) uzyskać gradient funkcji kosztu dla danych z tensora.Następnie, moim celem będzie wykonać operację odwrotną niż w podczas treningu sieci -- maksymalizację funkcji kosztu. Uzyskany gradient wykorzystywany jest do przekształcania obrazu.
+
+Modyfikacja obrazu polega na dodaniu odpowiednio znormalizowanego gradientu do wartości poszczególnych pikseli. Cały proces treningu składa się z kilkukrotnego skalowania obrazu do wyższych ,,rozdzielczości'' i ponawiania procesu optymalizacji. 
+
+Skalowanie jest konieczne, ponieważ struktury generowane tą metodą charakteryzują się wysoką częstotliwością (są małe i powtarzalne). Uprzednie wygenerowanie fragmentu wzoru w niskiej rozdzielczości i skalowanie, sprawia, że często wzór jest niejako ,,dobudowywany'' zamiast powtarzany, przez co jest większy -- co czasem daje lepsze zrozumienie na co patrzymy, choć nie jest to niestety reguła.
 
 \label{lst:vggmeantraining}
 \begin{lstlisting}[language=Python, caption={Wizualizowanie poprzez maksymalizację mediany wybranej warstwy.}, captionpos=b]
@@ -45,18 +57,19 @@ for interpolation_step in image_resize_steps:
     resize_img(img);
 \end{lstlisting}
 
-Listing \ref{lst:vggmeantraining} zawiera wysokopoziomowy zarys tego w jaki sposób działa skrypt generujący poniższe wizualizacje. Wszystkie szczegóły implementacyjne takie jak normalizacja gradientu czy konwersja obrazu z postaci nadającej się do treningu na postać zdatną do wyświetlenia zostały pominięte.
+Listing \ref{lst:vggmeantraining} zawiera wysokopoziomowy zarys tego, w jaki sposób działa skrypt generujący poniższe wizualizacje. Wszystkie szczegóły implementacyjne, takie jak normalizacja gradientu czy konwersja obrazu z postaci nadającej się do treningu na postać zdatną do wyświetlenia zostały pominięte.
 
-Zgodnie z oczekiwaniami złożoność uzyskanych wizualizacji rośnie wraz numerem warstwy na podstawie której je uzyskano. Uzyskane obrazy nie prezentują żadnej ze znanych mi klas na których trenowano tę konkretną instację VGG19, a raczej ''teksturę'' obserwowanego przedmiotu.
+Zgodnie z oczekiwaniami, złożoność uzyskanych wizualizacji rośnie wraz numerem warstwy, na podstawie której je uzyskano. Uzyskane obrazy nie prezentują żadnej ze znanych mi klas na których trenowano tę konkretną instancję VGG19, a raczej ,,teksturę'' obserwowanego przedmiotu.
 
 Pierwsze warstwy nie są zbytnio bogate w informacje. Kodują podstawowe informacje o kolorze, nie posiadając zbyt wiele informacji o strukturze klasyfikowanego przedmiotu. Choć i już tu trafiają się ciekawe wizualizacje jak np. filtru 5 warstwy conv1 bloku 1 - przypominającej trochę księżyc. 
 
-U części z tych wizualizacji (szczególnie na dalszych początkowych warstwch) można zaobserwować struktury przypominające korę drzew. Kolejne wizualizacje robią się bardziej kolorowe i przechodzą w bardziej abstrakcyjne wzory, które wciąż możnaby wziąć za tkaninę czy chmurę. Niestety uchwycone zależności na warstwach głębokich, choć fascynujące są poza moimi możliwościami interpretacji.
+U części z tych wizualizacji (szczególnie na dalszych początkowych warstwch) można zaobserwować struktury przypominające korę drzew. Kolejne wizualizacje robią się bardziej kolorowe i przechodzą w bardziej abstrakcyjne wzory, które wciąż możnaby wziąć za tkaninę czy chmurę. Niestety uchwycone zależności na warstwach głębokich, choć fascynujące, są poza moimi możliwościami interpretacji.
 
-Choć przytoczony w pracy zestaw wizualizacji nie posiada dużej ich reprezentacji, podczas tworzenia wizualizacji natknąłem się na wiele niemal identycznych struktur, nieznacznie tylko obróconych o jakiś kąt. Za przykład może posłużyć wizualizacja z warstw conv5 bloku 1, filtry 30 i 3 na figurze \ref{mean-vgg-vis-c5bx}.
+Choć przytoczony w pracy zestaw wizualizacji nie posiada dużej ich reprezentacji, podczas tworzenia wizualizacji natknąłem się na wiele podobnych do siebie struktur, nieznacznie tylko obróconych o jakiś kąt. Za przykład może posłużyć wizualizacja z warstw conv5 bloku 1, filtry 30 i 3 na rysunku \ref{mean-vgg-vis-c5bx}.
+
 Biorąc pod uwagę to, że w sieciach CNN filtry aplikowane są cały czas w taki sam sposób, czyli od lewej do prawej, z góry na dół; a przedmioty występujące w danych wejściowych często występują w różnych położeniach nie wydaje się być zaskakujące, że istnieje potrzeba stosowania takich samych filtrów o różnych rotacjach. 
-Jest to zaskakująco analogiczna sytuacja jak w klasycznej analizie obrazu, gdzie stosowane filtry do wykrywania krawędzi pionowych i poziomych są takimi samymi, po uprzedniej operacji transporowania, macierzami.
-Pozostawia to wciąż niezagospodarowane (w 2019 roku) pole do poprawy działania takich sieci. Odpowiednie kadrowanie, rotacja danych wejściowych lub jakakolwiek forma adaptacyjnej aplikacji fitrów mogłaby sprawić, że trening tych samych, obróconych filtrów byłby zbędny co w rezultacie sprawiłoby, że nie potrzeba byłoby ich tak dużo co mogłoby skrócić trening sieci przy braku negatywnego wpływu na sprawność sieci.
+Jest to zaskakująco analogiczna sytuacja jak w klasycznej analizie obrazu, gdzie stosowane filtry do wykrywania krawędzi pionowych i poziomych są takimi samymi, po uprzedniej operacji transponowania, macierzami.
+Pozostawia to pole do poprawy działania takich sieci. Odpowiednie kadrowanie, rotacja danych wejściowych lub jakakolwiek forma adaptacyjnej aplikacji fitrów mogłaby sprawić, że trening tych samych, obróconych filtrów byłby zbędny co w rezultacie sprawiłoby, że nie potrzeba byłoby ich tak dużo, co mogłoby skrócić trening sieci przy braku negatywnego wpływu na sprawność predykcji.
 
 \begin{figure}
 \subfloat[Wizualizacja filtra nr 5 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv1_5.png}} 
@@ -174,7 +187,7 @@ Pozostawia to wciąż niezagospodarowane (w 2019 roku) pole do poprawy działani
 \subsection{Wizualizacja maksymalnej aktywacji danej klasy}
 \label{vgg-class-visualisation}
 
-Teza, że VGG19 nie jest w stanie uchwycić pełni formy tego co klasyfikuje w taki sam sposób jak robi to człowiek może zostać zweryfikowana w analogiczny sposób w jaki otrzymałem wizualizacje w podrozdziale \ref{vgg-mean-activation}.
+VGG19 w inny od człowieka sposób uchwyca to czym jest dany na obrazie przedmiot. By zwizualizować w jaki sposób sieć odróżnia poszczególne klasy, można posłużyć się analogicznym sposóbem postępowania jak z podrozdziału \ref{vgg-mean-activation}.
 Jeżeli do modelu przywrócićby warstwy gęste i próbować zmaksymalizować aktywację dla jednej z klas poprzez modyfikację obrazu wejściowego, powinienem otrzymać obraz, który sieć bezwątpliwie traktowałaby jako reprezentanta danej klasy.
 Gdyby sieć miała w sobie zakodowaną informację o tym co tak naprawdę jest na obrazie powinienem otrzymać coś przynajmniej odlegle przypominającego oryginalną klasę.
 
@@ -203,7 +216,7 @@ print('Predicted:', decode_predictions(preds, top=3)[0])
 
 Oznacza to nie mniej, że sieć którą dysponuję jest przekonana, w zaokrągleniu, na 97\% mamy do czynienia z ważką. Dwie kolejne najbardziej prawdopodobne klasy przedstawiają inny rodzaj ważki - ważkę równoskrzydłą i owada siatkoskrzydłego.
 
-Wszystko wydaje się być w porządku dopóki nie wygenerujemy obrazu na podstawie wyżej wymienionej klasy.
+Wszystko wydaje się być w porządku dopóki nie wygenerujemy obrazu na podstawie wyżej wymienionej klasy. Uprzednio modyfikując funkcję kosztu, tak by teraz zwracała wartość jaką przypisuje klasie ważki softmax, możemy zmodyfikować szary szum tak by maksymalizować (wg. sieci) prawdopodobieństwo tego, że na obrazie jest ważka. Tym nie skaluje obrazu podczas treningu i modyfikuję obraz \(224 \times 224\).
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.8]{resources/vgg_mean_topincluded/dragonfly-fake.png}}
@@ -262,21 +275,18 @@ Gdzie:
     \(\beta\) -- współczynnik kosztu stylu,
 \end{itemize}
 
-Sterując \(\alpha\) i \(\beta\) można wpływać na to jak bardzo obraz będzie wierny orginałowi C w stosunku do jak bardzo będzie namalowany w stylu S. Używając tak zdefiniowanej funkcji kosztu dla jednej 
+Sterując \(\alpha\) i \(\beta\) można wpływać na to jak bardzo obraz będzie wierny orginałowi \textit{C} w stosunku do jak bardzo będzie namalowany w stylu \textit{S}. Używając tak zdefiniowanej funkcji kosztu dla jednej 
 z warstw, można zapisać funkcję biorącą pod uwagę wyjście z kilku warstw konwolucyjnych jednocześnie: 
 
 \[J_{s}(S,G) = \sum_{l} \lambda^{[l]} J^{[l]}_{s}(S,G) \]
 
 Gdzie \(\lambda^{[l]}\) jest współczynnikiem wykorzystania danej warstwy \(l\).
 
-Przy pomocy tej funkcji, można zastosować sposób działania znany z podrozdziału \ref{vgg-mean-activation}. Używając ją zamiast mediany aktywacji danej warstwy uzyskamy efekt widoczny na rysunku \ref{neural-style-transfer-BSG}. Szczegół implementacyjny: zaprezentowany obraz został wygenerowany przy pomocy skryptu napisanego w tensorflow a nie na podstawie modyfikacji opisanego wyżej skryptu.
+Przy pomocy tej funkcji, można zastosować sposób działania znany z podrozdziału \ref{vgg-mean-activation}. Używając ją zamiast mediany aktywacji danej warstwy uzyskamy efekt widoczny na rysunku \ref{neural-style-transfer-BSG}. Szczegół implementacyjny: zaprezentowany obraz został wygenerowany przy pomocy skryptu napisanego w \textit{tensorflow} a nie na podstawie modyfikacji opisanego wyżej skryptu.
 Powód jest ściśle praktyczny, dysponowałem już takim skryptem mojego autorstwa - nie było praktyczne jednak wprowadzanie nowej biblioteki uczenia maszynowego, a jak było napisane wyżej, identyczne efekty można uzyskać przy pomocy Kerasa.
 
-W tym miejscu możnaby poświęcić więcej czasu na wizualizacje poszczególnych kombinacji parametrów \(\alpha\), \(\beta\) i \(\lambda\) jednak tak jak w przypadku wizualizacji warstw, tak i tu model sieci 
-incepcja deklasyfikuje VGG pod względem uzyskiwanych efektów transferu stylu i to nim chciałbym się zająć w następnej kolejności.
-
 \begin{figure}
-\subfloat[Obraz bazowy (B)]{\includegraphics[width = 3in]{resources/nst/69850020.JPG}} 
+\subfloat[Obraz bazowy (B), autor zdjęcia: Grzegorz Rucki]{\includegraphics[width = 3in]{resources/nst/69850020.JPG}} 
 ~
 \subfloat[Obraz stylu (S), ekpresjonistyczny - ''The keep''\cite{thekeep}]{\includegraphics[width = 2in]{resources/nst/the_keep_1958.jpg}} 
 \\

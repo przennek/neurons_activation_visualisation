@@ -80,7 +80,7 @@ Należy jednocześnie nadmienić, że filtry nie muszą być stosowane tylko na 
 Warstwy łączące (ang. \textit{pooling layers}) są często wykorzystywane w celu zmniejszania wymiarów warstwy sieci CNN. Do najpopularniejszej należy zdecydowanie tzw. \textit{max pooling}. Polega na tym, że z obszaru w macierzy reprezentującej wartości danej warstwy w sieci konwolucyjnej wybieramy element z najwyższą wartością.
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=1]{resources/cnn/maxpool.pdf]}}
+\centerline{\includegraphics[scale=1]{resources/cnn/maxpool.pdf}}
 \caption{Zasada działania \textit{maxpool} dla macierzy \(4x4\) przy użycia filtra \(2x2\), bez dopełnienia i z krokiem \(s = 2\).}
 \label{fig:maxpool}
 \end{figure}
@@ -98,7 +98,7 @@ Przy użyciu splotu, warstw łączących i sieci gęsto połączonych, można za
 Schemat sieci LeNet-5 przedstawia rysunek \ref{fig:lenet5}.
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=1]{resources/cnn/lenet5.pdf}}
+\centerline{\includegraphics[scale=0.65]{resources/cnn/lenet5.pdf}}
 \caption{Schemat sieci konwolucyjnej LeNet-5. Jako \(s\) oznaczono krok konwolucji a \(f\) to wymiar macierzy kwadratowych składających się na filtr.}
 \label{fig:lenet5}
 \end{figure}
@@ -159,7 +159,7 @@ pozytywne efekty dla czasu treningu sieci i w pewnym stopniu, tak samo
 jak \textit{dropout}, normalizuje wagi
 sieci.
 
-\subsection{Implementacja modelu przy pomocy \textit{Keras}
+\subsection{Implementacja modelu przy pomocy \textit{Keras}}
 
 Ten niewielki model jest idealnym przykładem, w jaki sposób modeluje się sieci neuronowe przy pomocy Kerasa. 
 Kod do wczytywania danych został pominięty, ponieważ nie jest istotny z punktu widzenia treningu. 
