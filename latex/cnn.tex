@@ -2,28 +2,32 @@
 \label{chap:cnn}
 \section{Wstęp}
 \label{cnn-wstęp}
-W przypadku zagadnień z dziedziny analizy obrazu, same sieci gęste robią się niepraktyczne. Teoretycznie możliwe jest przetworzenie obrazu w taki sposób, że każdy piksel traktowany jest jako jeden węzeł sieci, ale to już przy obrazkach o wymiarach 100x100x3 (100 na 100 pikseli, 3 kanały RGB) daje 30000 węzłów na warstwie pierwszej. Nawet gdyby warstwa druga
-miała być dwa razy mniejsza tj. 15000 węzłów macierz \(w^{\lbrack 1\rbrack}\) miałaby wymiar (30000, 15000) przy założeniu, że rozmiar liczby typu double to 64 bity to sama taka pojedyncza macierz ważyłaby \(64\ \left\lbrack B \right\rbrack \bullet 30000 \bullet 15000 \bullet \frac{1}{8\ }\ \left\lbrack b \right\rbrack \bullet \frac{1}{1024\ }\left\lbrack \text{kb} \right\rbrack\frac{1}{1024\ }\left\lbrack \text{mb} \right\rbrack\  \approx \ 3422\ \lbrack mb\rbrack\). Poza problemami z pamięcią,
-leży wziąć pod uwagę wysoki koszt obliczeniowy operacji na tak dużych macierzach, a przecież rozdzielczość współczesnych obrazów jest wielokrotnie wyższa. By poradzić sobie z tym problemem, należało wprowadzić inny rodzaj architektury sieci neuronowej -- konwolucyjną sieć neuronową.
+W przypadku zagadnień z dziedziny analizy obrazu, same sieci gęste robią się niepraktyczne. Teoretycznie możliwe jest przetworzenie obrazu w taki sposób, że każdy piksel traktowany jest jako jeden węzeł sieci,
+ale już przy obrazkach o wymiarach 100x100x3 (100 na 100 pikseli, 3 kanały RGB) daje to 30000 węzłów na warstwie pierwszej. Nawet gdyby warstwa druga
+miała być dwa razy mniejsza tj. 15000 węzłów macierz \(w^{\lbrack 1\rbrack}\) miałaby wymiar (30000, 15000). 
+Przy założeniu, że rozmiar liczby typu double to 64 bity, to sama taka pojedyncza macierz miałaby rozmiar \(64\ \left\lbrack b \right\rbrack \times 30000 \times 15000 \times \frac{1}{8\ }\ \times \frac{1}{1024\ } \frac{1}{1024\ }\  \approx \ 3433\ \lbrack MB\rbrack\). Poza problemami z pamięcią,
+leży wziąć pod uwagę wysoki koszt obliczeniowy operacji na tak dużych macierzach, a przecież rozdzielczość współczesnych obrazów jest wielokrotnie wyższa. By poradzić sobie z tym problemem, należało wprowadzić inny rodzaj architektury sieci neuronowej -- konwolucyjną sieć neuronową (ang. \textit{convolutional neural network}, w skrócie \textit{CNN}).
 
-\section{Opis elementów składających się na CNN}
+\section{Opis elementów składających się na konwolucyjną sieć neuronową}
 \label{opis-elementów-cnn}
 
-\subsection{Filtry i splot w CNN}
+\subsection{Filtry i splot w konwolucyjnej sieci neuronowej}
 
-By ograniczyć ilość węzłów definiuje się tzw. filtry. Są to macierze kwadratowe wypełnione wagami \(w\) których wartość jest ustalana w procesie propagacji wstecznej. By uzyskać wynik, stosuje się na obrazie dyskretną operację splotu z zadanym \emph{krokiem} i \emph{dopełnieniem}.
+By ograniczyć liczbę węzłów, definiuje się tzw. filtry. Są to macierze kwadratowe, wypełnione wagami \(w\) których wartość jest ustalana w procesie propagacji wstecznej. Macierze te są układane w warstwy a ilość tych warstw determinowana jest przez ilość kanałów obrazu wejściowego lub poprzedniej warstwy sieci konwolucyjnej.
+
+By uzyskać wynik, stosuje się na obrazie dyskretną operację splotu z filtrem lub filtrami. Taka operacja wykonywana jest z zadanym \emph{krokiem} i \emph{dopełnieniem}. Przykładową operację splotu macierzy i filtra prezentuje rysunek \ref{fig:splot}.
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=0.8]{resources/splot.png}}
-\caption{Przykładowa operacja splotu wykonywana między dwiema warstwami sieci CNN.}
+\centerline{\includegraphics[scale=0.8]{resources/cnn/splot_w_cnn.pdf}}
+\caption{Przykładowa operacja splotu wykonywana między dwiema warstwami sieci \textit{CNN}.}
 \label{fig:splot}
 \end{figure}
 
 Operację wykonaną pomiędzy pojedynczą warstwą wejściową a odpowiadającym jej filtrem można zapisać:
 
-Niech: \(k = \left\lfloor \frac{n + 2p}{s} \right\rfloor\), \(k\ \in Z\)
+niech: \(k = \left\lfloor \frac{n + 2p}{s} \right\rfloor\), \(k\ \in Z\)
 
-\[\sum_{q = 0}^{n_{w}}{\sum_{p = 0}^{k}{\sum_{i = 0}^{n_{g} - 1}{\sum_{j = 0}^{n_{g} - 1}{\sigma\lbrack f_{q}\left( ps + i,ps + j \right) \bullet g_{q}\left( i,j \right) + b\rbrack}}}}\]
+\[\sum_{q = 0}^{n_{w}}{\sum_{p = 0}^{k}{\sum_{i = 0}^{n_{g} - 1}{\sum_{j = 0}^{n_{g} - 1}{\rho\lbrack f_{q}\left( ps + i,ps + j \right) g_{q}\left( i,j \right) + b\rbrack}}}},\]
 
 gdzie:
 
@@ -31,13 +35,13 @@ gdzie:
 \item
   \(n_{w}\) -- wielkość trzeciego wymiaru wejściowej macierzy,
 \item
-  n -- wymiar wejściowej macierzy kwadratowej, w tym przypadku równy 6,
+  \(n\) -- wymiar wejściowej macierzy kwadratowej, w tym przypadku równy 6,
 \item
-  p -- dopełnienie, wymiar dodatkowej „obwódki'' wokół oryginalnego
+  \(p\) -- dopełnienie, wymiar dodatkowej „obwódki'' wokół oryginalnego
   obrazu w celu wyeliminowania tzw. problemu brzegu; w tym przypadku
   równe 1.
 \item
-  s -- krok, z którym dopasowujemy filtr na macierz wejściową, w tym
+  \(s\) -- krok, z którym dopasowujemy filtr na macierz wejściową, w tym
   wypadku równy 2, to znaczy macierz filtra jest aplikowana co dwa
   elementy w pionie i poziomie (każdy piksel jest zakryty wyłącznie
   raz),
@@ -50,76 +54,81 @@ gdzie:
   \(g_{q}(i,j)\) -- funkcja reprezentująca wartości macierzy filtra
   warstwy \(q\),
 \item
-  \(\sigma\) - funkcja aktywacji,
+  \(\rho\) - funkcja aktywacji,
 \item
-  \(b\) -- bias.
+  \(b\) -- bias, reprezentuje wartość neuronu gdy wszystkie aktywacje na jego wejściu są równe zero. Dokładna jego wartość jest ustalana razem z wagami podczas propagacji wstecznej,
+\item
+  \(k\) -- krok z jakim aplikowany jest filter na obrazie.
 \end{itemize}
 
-Wzór zaproponowany powyżej jest analogicznym do gęstego modelu wzoru na
-propagację wprzód \(z^{\lbrack l\rbrack} = w^{\lbrack l\rbrack}a^{\lbrack l - 1\rbrack} + b^{\lbrack l\rbrack},\ \ a^{\lbrack l\rbrack} = \sigma(z_{n}^{\lbrack l\rbrack})\). Jeżeli traktować \(w\), \(a\) i \(b\) jak macierze, a \(\sigma\) jako operację działającą na każdym z elementów macierzy z osobna.
+Wzór zaproponowany powyżej jest analogiczny do gęstego modelu wzoru na
+propagację w przód \(z^{\lbrack l\rbrack} = w^{\lbrack l\rbrack}a^{\lbrack l - 1\rbrack} + b^{\lbrack l\rbrack},\ \ a^{\lbrack l\rbrack} = \rho(z_{n}^{\lbrack l\rbrack})\), jeżeli traktować \(w\), \(a\) i \(b\) jak macierze, a \(\rho\) jako operację działającą na każdym z elementów macierzy z osobna.
 
-Uzyskane tym sposobem macierze wynikowe oraz wagowe są wielokrotnie mniejsze, kosztem tego, że te same wagi są ustalane przy pomocy różnych części obrazu. Można za to wprowadzić wiele różnych zestawów filtrów. Każdy z nich, może nauczyć się wykrywać inne zależności w obrazie np. jeden może odpowiadać za wykrywanie krawędzi w pionie, inny w poziomie. W tym wypadku każdy z tych filtrów miałby wymiary 2\(\times\)2\(\times\)3. Stosując wiele różnych filtrów na raz uzyskujemy wielowymiarowy wynik,
-wymiar trójwymiarowej macierzy wynikowej wynosi wtedy:
+Uzyskane tym sposobem macierze wynikowe oraz wagowe są wielokrotnie mniejsze, kosztem tego, że te same wagi są ustalane przy pomocy różnych części obrazu. Można za to wprowadzić wiele różnych zestawów filtrów. Każdy z nich może nauczyć się wykrywać inne zależności w obrazie np. jeden może odpowiadać za wykrywanie krawędzi w pionie, inny w poziomie. W tym wypadku każdy z tych filtrów miałby wymiary 2\(\times\)2\(\times\)3. Stosując wiele różnych filtrów na raz uzyskujemy wielowymiarowy wynik
+a wymiar trójwymiarowej macierzy wynikowej wynosi wtedy:
 \[n_{x} \times n_{y} \times n_{z}\]
 Gdzie \(n_{x}\) = ­­\(n_{y}\)=
 \(\left\lfloor \frac{n + 2p - n_{f}}{s} \right\rfloor + 1\), \(n,\ p,\ s\)
 są zgodne z opisem wyżej, \(n_{f}\ \)to wymiar macierzy kwadratowej
-filtra a \(n_{z}\) -- to ilość użytych filtrów wielkości
-\(n_{f} \times n_{f} \times n_{z}\).
+filtra a \(n_{z}\) -- to liczba użytych filtrów wielkości
+\(n_{f} \times n_{f} \times n_{c}\), gdzie \(n_{c} to ilość kanałów poprzedniej warstwy\).
 
-Należy jednocześnie nadmienić, że filtry nie muszą być stosowane tylko na danych wejściowych. Wynik konwolucji może i często jest, przekazywany do głębszych warstw, gdzie uczone są filtry pracujące na wynikach warstw poprzednich. O wizualizacji tego czego się te filtry nauczyły, będzie dalej w tej pracy.
+Należy jednocześnie nadmienić, że filtry nie muszą być stosowane tylko na danych wejściowych. Wynik konwolucji może i często jest, przekazywany do głębszych warstw, gdzie uczone są filtry pracujące na wynikach warstw poprzednich. O wizualizacji tego, czego się te filtry nauczyły, będzie dalej w tej pracy.
 
 \subsection{Warstwy łączące}
 
-Warstwy łączące (ang. "pooling layers") są często wykorzystywane w celu zmniejszania wymiarów warstwy sieci CNN. Do najpopularniejszej należy zdecydowanie tzw. max pooling. Polega na tym, że z obszaru w macierzy reprezentującej wartości danej warstwy w sieci konwolucyjnej wybieramy element z najwyższą wartością.
+Warstwy łączące (ang. \textit{pooling layers}) są często wykorzystywane w celu zmniejszania wymiarów warstwy sieci CNN. Do najpopularniejszej należy zdecydowanie tzw. \textit{max pooling}. Polega na tym, że z obszaru w macierzy reprezentującej wartości danej warstwy w sieci konwolucyjnej wybieramy element z najwyższą wartością.
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=1]{resources/maxpool.png}}
-\caption{Zasada działania maxpool dla macierzy 4x4 przy użycia filtra 2x2, bez dopełnienia i z krokiem s = 2.}
+\centerline{\includegraphics[scale=1]{resources/cnn/maxpool.pdf]}}
+\caption{Zasada działania \textit{maxpool} dla macierzy \(4x4\) przy użycia filtra \(2x2\), bez dopełnienia i z krokiem \(s = 2\).}
 \label{fig:maxpool}
 \end{figure}
 
-Istnieje jeszcze wariacja sumująca wszystkie wartości z obszaru (ang. „sum pooling'') i licząca średnią z obszaru (ang. „avg pooling''). Zasady odnośnie liczenia wielkości macierzy wynikowej dotyczącą każdego z wariantów poolingu i są analogiczne jak w przypadku obliczania splotu, z tym wyjątkiem, że pooling stosowany jest do każdej z warstw osobno i nie wpływa na wielkość trzeciego wymiaru macierzy wynikowej.
+Istnieje jeszcze wariacja sumująca wszystkie wartości z obszaru (ang. \textit{sum pooling}) i licząca średnią z obszaru (ang. \textit{avg pooling}). Zasady odnośnie liczenia wielkości macierzy wynikowej dotyczącą każdego z wariantów \textit{poolingu} i są analogiczne jak w przypadku obliczania splotu, z tym wyjątkiem, że \textit{pooling} stosowany jest do każdej z warstw osobno i nie wpływa na wielkość trzeciego wymiaru macierzy wynikowej.
 
-Popularnym schematem jest ustawienia warstwy poolingowej zaraz po warstwie konwolucyjnej (wraz z wykonaniem aktywacji na wyniku). Warstwy splot-pooling często są łączone ze sobą w różnych wariantach architektury sieci CNN.
+Popularnym schematem jest stawianie warstwy \textit{poolingowej} zaraz po warstwie konwolucyjnej (wraz z wykonaniem aktywacji na wyniku). Warstwy \textit{splot-pooling} często są łączone ze sobą w różnych wariantach architektury sieci \textit{CNN}.
 
-\section{Przykład sieci konwolucyjnej - LeNet-5}
+\section{Przykład sieci konwolucyjnej LeNet-5}
 \label{lenet5}
 
 \subsection{Schemat sieci LeNet-5}
 
 Przy użyciu splotu, warstw łączących i sieci gęsto połączonych, można zaprezentować kompletny model sieci konwolucyjnej. Posłużę się przykładem klasycznej sieci nazwanej LeNet-5. Oryginalnie służyła do rozpoznawania odręcznie pisanego pisma.
+Schemat sieci LeNet-5 przedstawia rysunek \ref{fig:lenet5}.
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=1]{resources/lenet5.png}}
-\caption{Schemat sieci konwolucyjnej LeNet-5}
+\centerline{\includegraphics[scale=1]{resources/cnn/lenet5.pdf}}
+\caption{Schemat sieci konwolucyjnej LeNet-5. Jako \(s\) oznaczono krok konwolucji a \(f\) to wymiar macierzy kwadratowych składających się na filtr.}
 \label{fig:lenet5}
 \end{figure}
 
-Przyjmuje ona wejściu obrazki o wymiarach 32\(\times\)32 pikseli z trzema kanałami (RGB), stosuje operacje splotu przy użyciu 6 filtrów o wymiarach 5\(\times\)5\(\times\)3 dając, zgodnie ze wzorem, wynik o wymiarach 28\(\times\)28\(\times\)6. Do tak uzyskanych macierzy wprowadzany jest element nieliniowości przy pomocy funkcji aktywacji, w tym przypadku tangens hiperboliczny. Następnie stosowana jest warstwa maxpool o wymiarze filtra 2\(\times\)2\(\times\)6. Tak uzyskany wynik, trafia na splot
-tym razem 16 filtrów 5\(\times\)5\(\times\)6 i maxpool 2\(\times\)2\(\times\)16. Następnie przekazywany jest do w pełni połączonej sieci neuronowej, trójwarstwowej, posiadającej 400, 120 i 84 węzły na kolejnych warstwach. W wersji, którą chce zaprezentować wynik uzyskam przy pomocy softmax i będzie to 10 elementowy wektor.
+Przyjmuje ona na wejściu obrazki o wymiarach 32\(\times\)32 pikseli z trzema kanałami (RGB), stosuje operacje splotu przy użyciu 6 filtrów o wymiarach 5\(\times\)5\(\times\)3 dając, zgodnie ze wzorem, wynik o wymiarach 28\(\times\)28\(\times\)6.
+Do tak uzyskanych macierzy wprowadzany jest element nieliniowości przy pomocy funkcji aktywacji, w tym przypadku tangens hiperboliczny.
+Następnie stosowana jest warstwa \textit{maxpool} o wymiarze filtra 2\(\times\)2\(\times\)6. Tak uzyskany wynik trafia na splot
+tym razem 16 filtrów 5\(\times\)5\(\times\)6 i \textit{maxpool} 2\(\times\)2\(\times\)16. Następnie przekazywany jest do w pełni połączonej sieci neuronowej, trójwarstwowej, posiadającej 400, 120 i 84 węzły na kolejnych warstwach. W wersji, którą chce zaprezentować wynik uzyskam przy pomocy \textit{softmax} i będzie to 10 elementowy wektor.
 
 \subsection{Opis implementacji sieci LeNet-5}
 
 By zaimplementować zaproponowany model, posłużę się biblioteką do
 głębokiego uczenia maszynowego -- Keras. Model będzie zaimplementowany w
-języku Python (wersja 3). Sieć będzie trenowana przy pomocy CPU. Do
-treningu użyję publicznie dostępnej bazy danych mnist
-(http://yann.lecun.com/exdb/mnist/). Dane zostaną podzielone w
-sposób jaki został zaproponowany przez autorów tj. 60~000 przykładów
-będzie użytych do treningu sieci a 10~000 do ewaluacji sprawności sieci.
+języku Python (wersja 3). Z racji niewielkich rozmiarów sieć będzie trenowana przy pomocy procesora. Do
+treningu użyję publicznie dostępnej bazy danych MNIST \cite{mnist}. Zawiera ona zbiór odręcznie pisanych cyfr wraz z przyporządkowaną wartością od 0 do 9.
+Dane zostaną podzielone w
+sposób, jaki został zaproponowany przez autorów tj. 60~000 przykładów
+będzie użytych do treningu, a 10~000 do ewaluacji sprawności sieci.
 Często pracuje się na trzech zbiorach danych: do uczenia, do regulacji
 parametrów oraz do testów. W tym wypadku architektura sieci nie będzie
-jednak zmieniana w trakcie treningu więc zestaw służący do regulacji
+jednak zmieniana w trakcie treningu, więc zestaw służący do regulacji
 zostanie pominięty.
 
-Dane dostępne w postaci binarnej zostaną wczytane na raz do pamięci RAM.
+Dane dostępne w postaci binarnej zostaną wczytane naraz do pamięci RAM.
 Następnie wartości pikseli obrazu zostaną znormalizowane z przedziału
-{[}0, 255{]} do {[}0, 1{]}. Etykiety początkowo wczytywane są jako cyfra
-z przedziału {[}0, 9{]}, w przypadku użycia softmax, istnieje potrzeba
+\({[}0, 255{]}\) do \({[}0, 1{]}\). Etykiety symbolizujące jaką cyfrę przedstawia obraz początkowo wczytywane są jako cyfra
+z przedziału \({[}0, 9{]}\). W przypadku użycia \textit{softmax}, istnieje potrzeba
 dostosowania ich do postaci wektora składającego się z zer i jedynek w
 którym, jedynka wstawiona na odpowiedniej pozycji pokazuje jaka jest
-wartość etykiety (ang. „onehot vector'').
+wartość etykiety (ang. \textit{onehot vector}).
 
 Niestety dostępne obrazy nie pasują formatem do zaproponowanej
 oryginalnie sieci LeNet-5. Zamiast posiadać trzy kanały, obrazy
@@ -129,35 +138,35 @@ zredukowany trzeci wymiar. By nie zmieniać zbytnio oryginalnej
 architektury, obrazy zostały dopełnione przy pomocy zer na brzegach do
 wymiaru 32\(\times\)32.
 
-Sieć trenowana jest przy pomocy wariacji metody gradientu -- adam, użyta
-funkcja kosztu to opisana w tej pracy „cross entropy loss''. Gdy sieć
-jest trenowana przy pomocy adam, dane użyte do treningu grupowane są w
+Sieć trenowana jest przy pomocy wariacji metody gradientu -- \textit{Adam} wspomnianej w rozdziale \ref{sec:backprob}. Użyta
+funkcja kosztu została opisana w rozdziale \ref{sec:costfunction}. Gdy sieć
+jest trenowana przy pomocy \textit{Adam}, dane użyte do treningu grupowane są w
 mniejsze porcje (w tym przypadku 256 elementów), na których przeliczana
-jest propagacja wprzód i w tył na raz. Następnie, na sieci wynikowej
+jest propagacja w przód i w tył naraz. Następnie, na sieci wynikowej
 uczona jest następna porcja, aż do wyczerpania elementów ze zbioru
-uczącego. Taki jeden obieg nazywamy epochem. Podczas treningu tej sieci
-wykonam 5 takich epochów,
+uczącego. Taki jeden obieg nazywamy \textit{epochem}. Podczas treningu tej sieci
+wykonam 5 takich \textit{epochów},
 
 W celu uzyskania lepszej sprawności w przewidywaniach sieci,
 zastosowałem w implementacji, nie opisane do tej pory praktyki
-zapobiegające przeuczeniu sieci tzw. „dropout'' i normalizację porcji
-(ang. „batch normalization''). Dropout, losowo „wyłącza'' poszczególne
+zapobiegające przeuczeniu sieci tzw. \textit{dropout} i normalizację porcji
+(ang. \textit{batch normalization}). Dropout, losowo \textit{wyłącza} poszczególne
 neurony podczas uczenia, wymuszając równomierne rozłożenie
-odpowiedzialności za wykrywanie poszczególnych cech zbioru danych. Batch
-normalization, natomiast skaluje wagi warstw ukrytych tak by mediana i
+odpowiedzialności za wykrywanie poszczególnych cech zbioru danych. \textit{Batch
+normalization} natomiast skaluje wagi warstw ukrytych tak, by mediana i
 odchylenie standardowe nie zmieniały się zbyt drastycznie. Daje to
 pozytywne efekty dla czasu treningu sieci i w pewnym stopniu, tak samo
-jak dropout, normalizuje wagi
+jak \textit{dropout}, normalizuje wagi
 sieci.
 
-\subsection{Implementacja modelu przy pomocy Keras}
+\subsection{Implementacja modelu przy pomocy \textit{Keras}
 
-Ten niewielki model, jest idealnym przykładem w jaki sposób modeluje się sieci neuronowe przy pomocy Kerasa. 
+Ten niewielki model jest idealnym przykładem, w jaki sposób modeluje się sieci neuronowe przy pomocy Kerasa. 
 Kod do wczytywania danych został pominięty, ponieważ nie jest istotny z punktu widzenia treningu. 
-Po wczytaniu danych, obrazy użyte do treningu są dopełniane do wielkości 32\(\times\)32 przy pomocy metody ZeroPadding2D, 
-następnie przy pomocy Conv2D definiuje warstwę konwolucyjną, normalizuję jej wagi przy pomocy BatchNormalization i 
-aktywuję przy pomocy tangensa hiperbolicznego. Następnie, stosuję warstwę MaxPooling2D, analogiczne warstwy 
-Conv2D oraz BatchNormalization i całość wprowadzam do warstw gęstej sieci (warstwy Dense), stosując uprzednio dwa razy Dropout.
+Po wczytaniu danych, obrazy użyte do treningu są dopełniane do wielkości 32\(\times\)32 przy pomocy metody \textit{ZeroPadding2D}, 
+następnie przy pomocy \textit{Conv2D} definiuję warstwę konwolucyjną, normalizuję jej wagi przy pomocy \textit{BatchNormalization} i 
+aktywuję przy pomocy tangensa hiperbolicznego. Następnie stosuję warstwę \textit{MaxPooling2D}, analogiczne warstwy 
+\textit{Conv2D} oraz \textit{BatchNormalization} i całość wprowadzam do warstw gęstej sieci (warstwy \textit{Dense}), stosując uprzednio dwa razy \textit{Dropout}.
 
 \label{lst:lenet5keras}
 \begin{lstlisting}[language=Python, caption={Model sieci LeNet-5 w Keras.}, captionpos=b]
@@ -195,9 +204,9 @@ print ("Loss = " + str(preds[0]))
 print ("Test Accuracy = " + str(preds[1]))
 \end{lstlisting}
 
-Model zdefiniowany przy pomocy klasy Model, trenowany jest przy pomocy funkcji optymalizującej Adam przy użyciu funkcji 
-kosztu „binary crossentropy'' zdefiniowanych przy pomocy metody compile. Trening modelu zaczyna się po wywołaniu metody fit, przyjmującej dane na których ma być wtrenowana.
-Metoda evaluate testuje skuteczność modelu na danych testowych.
+Model zdefiniowany przy pomocy klasy \textit{Model}, trenowany jest przy pomocy funkcji optymalizującej \textit{Adam} przy użyciu funkcji 
+kosztu \text{binary crossentropy} zdefiniowanych przy pomocy metody \textit{compile}. Trening modelu zaczyna się po wywołaniu metody \textit{fit}, przyjmującej dane, na których ma być wytrenowana.
+Metoda \textit{evaluate} testuje skuteczność modelu na danych testowych.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.5]{resources/training_lenet5.png}}
@@ -205,7 +214,7 @@ Metoda evaluate testuje skuteczność modelu na danych testowych.
 \label{fig:lenet5-training}
 \end{figure}
 
-Trening trwał niecałe 4 minuty i uzyskał skuteczność powyżej 99\% co jest bardzo zadawalającym wynikiem.
+Trening trwał niecałe 4 minuty i uzyskał skuteczność powyżej 99\%, co jest bardzo zadawalającym wynikiem.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.5]{resources/example_digit_lenet5.png}}
@@ -220,10 +229,10 @@ Trening trwał niecałe 4 minuty i uzyskał skuteczność powyżej 99\% co jest 
 \end{figure}
 
 \subsection{Wizualizacja neuronów warstw konwolucyjnych sieci LeNet-5.}
-Mając do dyspozycji wytrenowany model, można przystąpić do próby wizualizacji tego czego nauczyła się sieć. Przy modelu tak płytkim jak LeNet-5 uzyskane odpowiedzi powinny być mniej imponujące wizualnie, ale przez to łatwiejsze w interpretacji.
+Mając do dyspozycji wytrenowany model, można przystąpić do próby wizualizacji tego, czego nauczyła się sieć. Przy modelu tak płytkim jak LeNet-5 uzyskane odpowiedzi powinny być mniej imponujące wizualnie, ale przez to łatwiejsze w interpretacji.
 
 \subsubsection{Wizualizacja poprzez wyświetlenie wag warstw konwolucyjnych.}
-Pierwszy ze sposobów, który zaprezentuję będzie też najprostszy koncepcyjnie. Wyrysowanie filtrów warstw konwolucyjnych powinno dać ogólny zarys tego, jakie cechy obrazu (gradient, linie poziome/pionowe/ukośne) były brane pod uwagę przez sieć. W celu łatwiejszej intrepretacji zestawię ze sobą filtry 5\(\times\)5 oryginalnie występujące w sieci LeNet-5 z wariacją sieci wytrenowanej na filtrach 3\(\times\)3, którą wytrenowałem tylko po to by mieć punkt odniesienia do filtrów
+Pierwszy ze sposobów, który zaprezentuję będzie też najprostszy koncepcyjnie. Wyrysowanie filtrów warstw konwolucyjnych powinno dać ogólny zarys tego, jakie cechy obrazu (gradient, linie poziome/pionowe/ukośne) były brane pod uwagę przez sieć. W celu łatwiejszej intrepretacji zestawię ze sobą filtry 5\(\times\)5 oryginalnie występujące w sieci LeNet-5 z wariacją sieci wytrenowanej na filtrach 3\(\times\)3, którą wytrenowałem tylko po to, by mieć punkt odniesienia do filtrów
 klasycznie używanych w analizie obrazu.
 
 \begin{figure}[ht]
@@ -232,16 +241,17 @@ klasycznie używanych w analizie obrazu.
 \label{fig:lenet5-response}
 \end{figure}
 
-Na filtrach 3\(\times\)3 widać mocną tendencję w wykrywaniu krawędzi pionowych, poziomych i ukośnych. Dodatkowo duży nacisk położony jest na wykrywanie gradientu po skosie (dwa pierwsze filtry od góry i dwa ostatnie od dołu).
+Na filtrach 3\(\times\)3 widać tendencję w wykrywaniu krawędzi pionowych, poziomych i ukośnych. Dodatkowo duży nacisk położony jest na wykrywanie gradientu po skosie (dwa pierwsze filtry od góry i dwa ostatnie od dołu).
+Widoczne jest, że macierze filtrów odbiegają trochę wartościami od klasycznie używanych macierzy w analizie obrazów. Mogło być to spowodowane przedewszystkim charakterem używanego zbioru danych, sieć mogła dostosować używane filtry by te pasowały jak najbardziej do danych wejściowych. Dodatkowo, użyte dopełnienie z \(28\) do \(32\) pikseli nie było obojętne na uzyskane wartości w macierzach.
 
-W przypadku filtrów 5\(\times\)5 kształty, które próbuje dopasować sieć robią się bardziej skomplikowane, przez co trudniejsze w interpretacji. Podobnie jak w przypadku filtrów warstwy pierwszej można znaleźć filtry szukające ukośnych gradientów oraz linii w pionie i poziomie, ale oprócz tego znajdują się tu filtry, które intrepretowałbym jako elementy strukturalne próbujące dopasować się do konkretnych kształtów występujących w poszczególnych elementach. Należy jednak podkreślić, że
-wyświetlone filtry 5\(\times\)5 operują na wyniku konwolucji i maxpoolingu warstwy pierwszej -- są przez to ciężkie w intrepretacji.
+W przypadku filtrów 5\(\times\)5 kształty, które próbuje dopasować sieć robią się bardziej skomplikowane, przez co trudniejsze w interpretacji. Podobnie jak w przypadku filtrów warstwy pierwszej, można znaleźć filtry szukające ukośnych gradientów oraz linii w pionie i poziomie, ale oprócz tego znajdują się tu filtry, które intrepretowałbym jako elementy strukturalne próbujące dopasować się do konkretnych kształtów występujących w poszczególnych elementach. Należy jednak podkreślić, że
+wyświetlone filtry 5\(\times\)5 operują na wyniku konwolucji i \textit{maxpoolingu} warstwy pierwszej -- są przez to trudne w intrepretacji.
 
-Wniosek jest taki, że tym wypadku najprostsze rozwiązanie nie jest najlepsze. Nie będę więc dalej analizował tej metody ani stosował jej dla modeli o większej złożoności bo im głębszą warstwę sieci wybiorę tym trudniejsze w intrepretacji będą wyniki.
+Wniosek jest taki, że tym wypadku najprostsze rozwiązanie nie jest najlepsze. Nie będę więc dalej analizował tej metody ani stosował jej dla modeli o większej złożoności, bo im głębszą warstwę sieci wybiorę tym trudniejsze w intrepretacji będą wyniki.
 
 \subsubsection{Wizualizacja poprzez mapy cech.}
-Mapy cech czy inaczej mapy aktywacji, wizualizują rezultat zastosowania filtrów na danych wejściowych -- np. obrazu wejściowego czy innej mapy cech. Przykładowo, dla danego obrazu można wyrysować jakie konkretnie jego cechy zostały wyszczególnione przez warstwę sieci CNN. 
-By uzyskać mapę cech dla danego obrazu, należy zmodyfikować model w taki sposób by jego warstwą wyjściową była ta warstwa konwolucyjna, której cechy chcemy uzyskać
+Mapy cech czy inaczej mapy aktywacji, wizualizują rezultat zastosowania filtrów na danych wejściowych -- np. obrazu wejściowego czy innej mapy cech. Przykładowo, dla danego obrazu można wyrysować jakie, konkretnie jego cechy zostały wyszczególnione przez warstwę sieci CNN. 
+By uzyskać mapę cech dla danego obrazu, należy zmodyfikować model w taki sposób, by jego warstwą wyjściową była ta warstwa konwolucyjna, której cechy chcemy uzyskać
 
 \label{lst:lenet5keras-mapy}
 \begin{lstlisting}[language=Python, caption={Uzyskiwanie mapy aktywacji dla danego modelu i obrazu w Keras.}, captionpos=b]
@@ -251,12 +261,12 @@ feature_maps = vmodel.predict(img)
 \end{lstlisting}
 
 W ogólności, warstwy bliżej źródła danych powinny zawierać informacje o dużej ilości szczegółów, a warstwy głębsze, wykrywać cechy bardziej ogólne. I tak, 
-dla pierwszej warstwy konwolucyjnej sieci LeNet-5 wyrysowane cechy dla przykładu z każdej klas bardzo mocno przypominają oryginalne obrazy. Dostrzegalne różnice pomiędzy warstwami polegają na dostrzeganiu innego ''konturu'' obrazu, każda z warstw akcentuje inny jego rodzaj, przez co liczby dają iluzję bycia ''oświetlonymi'' z różnych stron.
-Zgadza się to z obserwacją poczynioną w przypadku analizy wartości filtrów. Obraz niejako skanowany jest z każdej strony a uzyskany gradient determinuje z jaką klasą mamy do czynienia.
+dla pierwszej warstwy konwolucyjnej sieci LeNet-5 wyrysowane cechy dla przykładu z każdej klas bardzo mocno przypominają oryginalne obrazy. Dostrzegalne różnice pomiędzy warstwami polegają na dostrzeganiu innego ,,konturu'' obrazu każda z warstw akcentuje inny jego rodzaj, przez co liczby dają iluzję bycia ,,oświetlonymi'' z różnych stron.
+Zgadza się to z obserwacją poczynioną w przypadku analizy wartości filtrów. Dodatkowo, każda aktywacja różni się trochę kolorem tła co nasuwa logiczny wniosek, że aktywacja nie jest zależna od tła otoczenia (choć prawdopodobnie niejednolite tło mogłoby negatywnie wpłynąć na wydajność sieci).
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.25]{resources/first_layer_gd_lenet.png}}
-\caption{Mapy aktywacji dla 6 filtrów warstwy pierwszej, przy użyciu przykładu dla każdej z klas.}
+\caption{Mapy aktywacji dla 6 filtrów warstwy pierwszej, przy użyciu przykładu dla każdej z klas. Filtry użyte do aktywacji ustawione są w rzędach tak, że indeks rzędu odpowiada numerowi filtra. Kolejne kolumny odpowiadają użytej klasie. }
 \label{fig:lenet5-mapy-aktywacji-l1}
 \end{figure}
 
@@ -269,6 +279,6 @@ Sytuacja robi się jeszcze ciekawsza w przypadku warstwy drugiej. Tam jest już 
 \end{figure}
 
 Uzyskane aktywacje wciąż przypominają oryginalną szóstkę, lecz tym razem, zgodnie z oczekiwaniami, cechy są bardziej zgeneralizowane.
-Wyraźnie widać skupienie filtrów na dolnej ''pętli'' szóstki oraz na tym, by posiadała odpowiednie łuki na brzegach (wyraźnie zarysowany jest tam gradient, widoczny szczególnie na filtrach w ostatnim rzędzie).
+Wyraźnie widać skupienie filtrów na dolnej ,,pętli'' szóstki oraz na tym, by posiadała odpowiednie łuki na brzegach (wyraźnie zarysowany jest tam gradient, widoczny szczególnie na filtrach w ostatnim rzędzie).
 
-Niestety sieć LeNet-5 jest na tyle płytka a zestaw odręcznie pisanych cyfr na tyle mało skomplikowany, że nie uda mi się przy ich pomocy wyekstrahować bardziej złożonych wzorów. W tym celu będę musiał posłużyć się bardziej złożonym modelem. Siecią VGG-19. 
+Niestety sieć LeNet-5 jest na tyle płytka, a zestaw odręcznie pisanych cyfr na tyle mało skomplikowany, że nie uda mi się przy ich pomocy wyekstrahować bardziej złożonych wzorów. W tym celu będę musiał posłużyć się bardziej złożonym modelem -- siecią VGG-19. 

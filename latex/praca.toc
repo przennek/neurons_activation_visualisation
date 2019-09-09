@@ -11,7 +11,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Neuron g\IeC {\k e}stej sieci neuronowej}{8}{section.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Propagacja wprz\IeC {\'o}d}{9}{section.2.4}% 
+\contentsline {section}{\numberline {2.4}Propagacja w prz\IeC {\'o}d}{9}{section.2.4}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.5}Funkcja kosztu}{11}{section.2.5}% 
 \defcounter {refsection}{0}\relax 
@@ -61,12 +61,14 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.3}Schemat sieci}{40}{subsection.5.1.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}\textit {DeepDream}}{42}{section.5.2}% 
+\contentsline {section}{\numberline {5.2}\textit {DeepDream} i wizualizacje warstw ukrytych GoogleLeNet}{42}{section.5.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.2.1}Opis i zasada dzia\IeC {\l }ania}{42}{subsection.5.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}Spos\IeC {\'o}b uzyskiwania wizualizacji}{42}{subsection.5.2.2}% 
+\contentsline {subsection}{\numberline {5.2.2}Wizualizacja warstw ukrytych modelu GoogleLeNet}{42}{subsection.5.2.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Nie oparty o VGG Neural Style Transfer na przyk\IeC {\l }adzie sieci incepcja}{42}{section.5.3}% 
+\contentsline {subsection}{\numberline {5.2.3}Wizualizacje uzyskane przy pomocy \textit {DeepDream}}{43}{subsection.5.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Podsumowanie}{45}{chapter.6}% 
+\contentsline {section}{\numberline {5.3}Nie oparty o VGG Neural Style Transfer na przyk\IeC {\l }adzie sieci incepcja}{43}{section.5.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Podsumowanie}{49}{chapter.6}% 

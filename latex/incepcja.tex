@@ -61,22 +61,83 @@ Jako, że z racji wielkości nie sposób zamieścić wszystkich informacji na te
 \label{fig:googleNet}
 \end{figure}
 
-\section{\textit{DeepDream}}
+\section{\textit{DeepDream} i wizualizacje warstw ukrytych GoogleLeNet}
 
 \subsection{Opis i zasada działania}
-
+\label{ddopis}
 \textit{DeepDream} to  program komputerowy stworzony przez Aleksandra Mordvintseva. Został opublikowany  w 2015 roku i opisany w formie posta na blogu \cite{deepdream}.
 
-Co do zasady działania \textit{Deepdream} jest modyfikacją programu zaprezentowanego w podrozdziale \ref{vgg-mean-activation}. Podobnie jak w wyżej wymienionym programie, używając wcześniej wytrenowanej sieci neuronowej modyfikujemy obraz by zmaksymalizować aktywację neuronów danej sieci konwolucyjnej.
+Co do zasady działania zarówno \textit{Deepdream} jak i wizualizacje neuronów są modyfikacją programu zaprezentowanego w podrozdziale \ref{vgg-mean-activation}. Podobnie jak w wyżej wymienionym programie, używając wcześniej wytrenowanej sieci neuronowej modyfikujemy obraz by zmaksymalizować aktywację neuronów danej sieci konwolucyjnej.
 
 Poza oczywistą zamianą VGG na GoogleLeNet, \textit{DeepDream} stosuje znany już z podrozdziału
 \ref{vgg-nst} sposób obliczania aktywacji kilku neuronów na raz przy użyciu paramteru stopnia 
 użycia danej warstwy \(\lambda\). Obliczając aktywację dla kilku warstw na raz uzyskuje się bogatsze w treść efekty wizualne. Podobnie jak w przypadku wizualizacji uzyskanych na VGG, w celu uzyskania obrazu,
-modyfikować wcześniej spreparowany, wylosowany obraz-szum. W swoim poście oryginalny autor posłużył się kolorowym obrazem (RGB). Najciekawsze efekty jednak uzyskano przy pomocy modyfikacji już istniejących zdjęć. Tak samo jak poprzednio, obraz jest wieloktronie skalowany podczas treningu, ale z racji swoich rozmiarów sieć GoogleLeNet jest w stanie uchwycić struktury obrazu nieuchwtyne dla VGG co umożliwia generowanie 
+modyfikować wcześniej spreparowany, wylosowany obraz-szum. W swoim poście oryginalny autor posłużył się kolorowym obrazem (RGB). Ciekawe efekty uzyskano również przy pomocy modyfikacji już istniejących zdjęć. Tak samo jak poprzednio, obraz jest wieloktronie skalowany podczas treningu, ale z racji swoich rozmiarów sieć GoogleLeNet jest w stanie uchwycić struktury nieuchwtyne dla VGG co umożliwia generowanie 
 nieco psychodelicznych obrazów.
 
-\subsection{Sposób uzyskiwania wizualizacji}
-Choć \textit{DeepDream} może zostać zaimplementowany od podstaw przy pomocy \textit{Kerasa}, ja zdecydowałem się na  
+\subsection{Wizualizacja warstw ukrytych modelu GoogleLeNet}
+W przypadku wizualizacji samych warstw modelu GoogleLeNet zdecydowałem się na  
 opublikowaną przez Google, opartą na \textit{tensorflow}, bibliotekę \textit{lucid} \cite{lucidrepo}. Jej głównym zastosowaniem jest wizualizacja neuronów, ale pozwala też m.in na \textit{neural style transfer}, nawet na obiektch 3D.
+
+Podobnie jak w przypadku wizualizacji na VGG, nie będę trenował sieci Incepcja samodzielnie, ponieważ taki trening trwałby bardzo długo. Zamiast tego załaduje model przygotowany przez autorów biblioteki. Podobnie jak w przypadku VGG model zostal wytrenowany na zbiorze \textit{ImageNet}.
+
+\label{lst:load-model-lucid}
+\begin{lstlisting}[language=Python, caption={Wczytywanie modelu GoogleLeNet w \textit{lucid}.}, captionpos=b]
+model = models.InceptionV1()
+model.load_graphdef()
+\end{lstlisting}
+
+Po wczytaniu modelu jedyne co pozostało to wybrać warstwy które chcemy aktywować i możemy generować wizualizacje.
+
+\label{lst:visualise-lucid}
+\begin{lstlisting}[language=Python, caption={Generowanie wizualizacji neuronów przy użyciu \textit{lucid}.}, captionpos=b]
+channel = lambda n: objectives.channel("mixed4a_pre_relu", n)
+pf = lambda: param.image(256)
+obj = channel(122) + channel(155)
+_ = render.render_vis(model, param_f = pf, objective_f = obj)
+\end{lstlisting}
+
+Listing \ref{lst:visualise-lucid} jest przykładem implementacji wizualizacji aktywacji filtrów 122 i 155 warstwy \textit{mixed4a\_pre\_relu}.
+Efekty skryptu można zobaczyć na rysunku \ref{fig:inc122i155}. Przykładowe wizualizacje innych filtrów i warstwy pokazuje rysunek \ref{fig:incOtherVis}.
+
+Na załączonych wizualizacjach widać potencjał \textit{lucid} jako biblioteki. Uzyskane wyniki pokazują w jaki sposób kolejne filtry oddziaływują na otrzymywany obraz - opisują przez to interakcje między neuronami.
+
+Ilość kombinacji między warstwami czy filtrami niestety nie pozwoli na zamieszczenie podobnego przeglądu aktywacji warstw jaki został zamieszczony w przypadku sieci VGG. 
+\begin{figure}[ht]
+\centerline{\includegraphics[scale=0.5]{resources/inception/mixed4a_pre_relu_122i155.png}}
+\caption{Wizualizacja aktywacji filtrów 122 i 155 warstwy \textit{mixed4a\_pre\_relu}.}
+\label{fig:inc122i155}
+\end{figure}
+
+\begin{figure}
+\subfloat[Wizualizacja filtrów 122, 155 i 255 warstwy \textit{mixed4a\_pre\_relu}.]{\includegraphics[width = 3in]{resources/inception/mixed4a_pre_relu_122i155i255.png}} 
+~
+\subfloat[Wizualizacja filtrów 122, 155, 255 i 455 warstwy \textit{mixed4a\_pre\_relu}.]{\includegraphics[width = 3in]{resources/inception/mixed4a_pre_relu_122i155i255i455.png}} 
+\\
+\subfloat[Wizualizacja filtra 1 warstwy \textit{mixed3a}.]{\includegraphics[width = 2in]{resources/inception/mixed3a_1.png}} 
+~
+\subfloat[Wizualizacja filtrów 1 i 102 warstwy \textit{mixed3a}.]{\includegraphics[width = 2in]{resources/inception/mixed3a_1i102.png}} 
+~
+\subfloat[Wizualizacja filtrów 1, 102 i 203 warstwy \textit{mixed3a}.]{\includegraphics[width = 2in]{resources/inception/mixed3a_1i102i203.png}} 
+\label{fig:incOtherVis}
+\caption{Przykładowe wizualizacje neuronów sieci GoogleLeNet.}
+\end{figure}
+
+\subsection{Wizualizacje uzyskane przy pomocy \textit{DeepDream}}
+Zgodnie z opisem z podrozdziału \ref{ddopis} prezentowane wizualizacje zostały otrzymane poprzez modyfikację skryptu wizualizującego VGG. W procesie modyfikacji obrazu biorą 4 warstwy konwolucyjne (mixed od 2 do 4). Największy wpływ na funkcję kosztu mają 2 ostatnie warstwy. By uzyskać bardziej widoczny efekt należy modyfikować orginalny obraz przez większą ilość iteracji, jest to jednak kosztowne obliczeniowo.
+
+Uzyskane efekty zostały zaprezentowane na rysunku \ref{fig:deepdream}.
+
+\begin{figure}
+\subfloat[Orginalny obraz, opuszczony kompleks narciarski obok Sarajewa.]{\includegraphics[width = 3in]{resources/inception/deepdream/1.png}} 
+~
+\subfloat[Wersja \textit{DeepDream} kompleksu narciarskiego.]{\includegraphics[width = 3in]{resources/inception/deepdream/skocznia4.png}} 
+\\
+\subfloat[Oryginalny obraz, most w miejscowości Mostar.]{\includegraphics[width = 3in]{resources/inception/deepdream/2.png}} 
+~
+\subfloat[Wersja \textit{DeepDream} mostu w Mostarze.]{\includegraphics[width = 3in]{resources/inception/deepdream/mostar.png}} 
+\label{fig:deepdream}
+\caption{Przykładowe wizualizacje neuronów sieci GoogleLeNet.}
+\end{figure}
 
 \section{Nie oparty o VGG Neural Style Transfer na przykładzie sieci incepcja}

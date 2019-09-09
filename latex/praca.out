@@ -3,7 +3,7 @@
 \BOOKMARK [1][-]{section.2.1}{Algorytmy uczace sie}{chapter.2}% 3
 \BOOKMARK [1][-]{section.2.2}{Gesta siec neuronowa}{chapter.2}% 4
 \BOOKMARK [1][-]{section.2.3}{Neuron gestej sieci neuronowej}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.4}{Propagacja wprz\363d}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.4}{Propagacja w prz\363d}{chapter.2}% 6
 \BOOKMARK [1][-]{section.2.5}{Funkcja kosztu}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.6}{Propagacja wstecz}{chapter.2}% 8
 \BOOKMARK [0][-]{chapter.3}{Neuronowa siec konwolucyjna}{}% 9
@@ -28,8 +28,9 @@
 \BOOKMARK [2][-]{subsection.5.1.1}{Wstep}{section.5.1}% 28
 \BOOKMARK [2][-]{subsection.5.1.2}{Blok sieci incepcja}{section.5.1}% 29
 \BOOKMARK [2][-]{subsection.5.1.3}{Schemat sieci}{section.5.1}% 30
-\BOOKMARK [1][-]{section.5.2}{DeepDream}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.2}{DeepDream i wizualizacje warstw ukrytych GoogleLeNet}{chapter.5}% 31
 \BOOKMARK [2][-]{subsection.5.2.1}{Opis i zasada dzia\233ania}{section.5.2}% 32
-\BOOKMARK [2][-]{subsection.5.2.2}{Spos\363b uzyskiwania wizualizacji}{section.5.2}% 33
-\BOOKMARK [1][-]{section.5.3}{Nie oparty o VGG Neural Style Transfer na przyk\233adzie sieci incepcja}{chapter.5}% 34
-\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 35
+\BOOKMARK [2][-]{subsection.5.2.2}{Wizualizacja warstw ukrytych modelu GoogleLeNet}{section.5.2}% 33
+\BOOKMARK [2][-]{subsection.5.2.3}{Wizualizacje uzyskane przy pomocy DeepDream}{section.5.2}% 34
+\BOOKMARK [1][-]{section.5.3}{Nie oparty o VGG Neural Style Transfer na przyk\233adzie sieci incepcja}{chapter.5}% 35
+\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 36
