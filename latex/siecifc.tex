@@ -13,6 +13,8 @@ Praca traktuje o zagadnieniach z dziedziny uczenia z nauczycielem (ang. \textit{
 Uzyskany wynik jest początkowo losowy i zostaje użyty do obliczenia wartości funkcji kosztu, opisanych w rozdziale \ref{sec:costfunction}.
 Na podstawie funkcji kosztu, wagi sieci zostaną skorygowane w procesie propagacji wstecznej.
 
+Wszystkie informacje na temat sieci neuronowych podane w tym i następnych rozdziałach są zaczerpnięte z materiałów półrocznego kursu deeplearning.ai \cite{deeplearningai} autorstwa dr Andrew Ng.
+
 \section{Gęsta sieć neuronowa}
 
 Podstawową implementacją sieci neuronowej jest tzw. sieć w pełni połączona (ang. \textit{Fully Connected Network}). Składa się z warstw: wejściowej, jednej lub więcej warstw ukrytych i warstwy wyjściowej.  
@@ -121,8 +123,8 @@ By udało się to sprawnie zrobić, będę korzystał z faktu, że ta i inne fun
 \section{Propagacja wstecz}
 \label{sec:backprob}
 
-Jest to modyfikacja wag sieci neuronowej \(w\) z uwzględnieniem funkcji kosztu \(J(w)\). Popularnym sposobem jest metoda gradientu prostego (częściej spotykana w wariacji z tzw. pędem, z angielskiego \textit{Gradient descent with momentum} lub dalsze jej modyfikacje jak np. algorytm
-\textit{Adaptive moment estimation}, znany jako \textit{Adam}). W swej najprostszej wersji można sprowadzić go do następujących kroków:
+Jest to modyfikacja wag sieci neuronowej \(w\) z uwzględnieniem funkcji kosztu \(J(w)\). Popularnym sposobem jest metoda gradientu prostego \cite{gd} (częściej spotykana w wariacji z tzw. pędem, z angielskiego \textit{Gradient descent with momentum} lub dalsze jej modyfikacje jak np. algorytm
+\textit{Adaptive moment estimation}, znany jako \textit{Adam} \cite{adampaper}). W swej najprostszej wersji można sprowadzić go do następujących kroków:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}

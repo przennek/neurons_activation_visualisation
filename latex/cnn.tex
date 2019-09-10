@@ -5,7 +5,7 @@
 W przypadku zagadnień z dziedziny analizy obrazu, same sieci gęste robią się niepraktyczne. Teoretycznie możliwe jest przetworzenie obrazu w taki sposób, że każdy piksel traktowany jest jako jeden węzeł sieci,
 ale już przy obrazkach o wymiarach 100x100x3 (100 na 100 pikseli, 3 kanały RGB) daje to 30000 węzłów na warstwie pierwszej. Nawet gdyby warstwa druga
 miała być dwa razy mniejsza tj. 15000 węzłów macierz \(w^{\lbrack 1\rbrack}\) miałaby wymiar (30000, 15000). 
-Przy założeniu, że rozmiar liczby typu double to 64 bity, to sama taka pojedyncza macierz miałaby rozmiar \(64\ \left\lbrack b \right\rbrack \times 30000 \times 15000 \times \frac{1}{8\ }\ \times \frac{1}{1024\ } \frac{1}{1024\ }\  \approx \ 3433\ \lbrack MB\rbrack\). Poza problemami z pamięcią,
+Przy założeniu, że rozmiar liczby typu double to 64 bity, to sama taka pojedyncza macierz miałaby rozmiar \(64\ \left\lbrack b \right\rbrack \times 30000 \times 15000 \times \frac{1}{8\ }\ \times \frac{1}{1024\ } \times \frac{1}{1024\ }\  \approx \ 3433\ \lbrack MB\rbrack\). Poza problemami z pamięcią,
 leży wziąć pod uwagę wysoki koszt obliczeniowy operacji na tak dużych macierzach, a przecież rozdzielczość współczesnych obrazów jest wielokrotnie wyższa. By poradzić sobie z tym problemem, należało wprowadzić inny rodzaj architektury sieci neuronowej -- konwolucyjną sieć neuronową (ang. \textit{convolutional neural network}, w skrócie \textit{CNN}).
 
 \section{Opis elementów składających się na konwolucyjną sieć neuronową}
@@ -71,7 +71,7 @@ Gdzie \(n_{x}\) = ­­\(n_{y}\)=
 \(\left\lfloor \frac{n + 2p - n_{f}}{s} \right\rfloor + 1\), \(n,\ p,\ s\)
 są zgodne z opisem wyżej, \(n_{f}\ \)to wymiar macierzy kwadratowej
 filtra a \(n_{z}\) -- to liczba użytych filtrów wielkości
-\(n_{f} \times n_{f} \times n_{c}\), gdzie \(n_{c} to ilość kanałów poprzedniej warstwy\).
+\(n_{f} \times n_{f} \times n_{c}\), gdzie \(n_{c}\) to ilość kanałów poprzedniej warstwy.
 
 Należy jednocześnie nadmienić, że filtry nie muszą być stosowane tylko na danych wejściowych. Wynik konwolucji może i często jest, przekazywany do głębszych warstw, gdzie uczone są filtry pracujące na wynikach warstw poprzednich. O wizualizacji tego, czego się te filtry nauczyły, będzie dalej w tej pracy.
 
@@ -94,7 +94,7 @@ Popularnym schematem jest stawianie warstwy \textit{poolingowej} zaraz po warstw
 
 \subsection{Schemat sieci LeNet-5}
 
-Przy użyciu splotu, warstw łączących i sieci gęsto połączonych, można zaprezentować kompletny model sieci konwolucyjnej. Posłużę się przykładem klasycznej sieci nazwanej LeNet-5. Oryginalnie służyła do rozpoznawania odręcznie pisanego pisma.
+Przy użyciu splotu, warstw łączących i sieci gęsto połączonych, można zaprezentować kompletny model sieci konwolucyjnej. Posłużę się przykładem klasycznej sieci nazwanej LeNet-5 \cite{lenetpaper}. Oryginalnie służyła do rozpoznawania odręcznie pisanego pisma.
 Schemat sieci LeNet-5 przedstawia rysunek \ref{fig:lenet5}.
 
 \begin{figure}[ht]

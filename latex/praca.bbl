@@ -19,6 +19,116 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{deeplearningai}{online}{}
+      \name{author}{1}{}{%
+        {{hash=bdb4d740fc9548d1c32a62103c30169d}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{fullhash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{bibnamehash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{authorbibnamehash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{authornamehash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{authorfullhash}{bdb4d740fc9548d1c32a62103c30169d}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Kurs deeplearning.ai.}
+      \verb{urlraw}
+      \verb https://www.deeplearning.ai/deep-learning-specialization/
+      \endverb
+      \verb{url}
+      \verb https://www.deeplearning.ai/deep-learning-specialization/
+      \endverb
+      \keyw{deeplearning}
+    \endentry
+    \entry{gd}{online}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labeltitlesource}{title}
+      \field{title}{Polski artykuł na wikipedii o metodzie gradientu prostego.}
+      \verb{urlraw}
+      \verb https://pl.wikipedia.org/wiki/Metoda_gradientu_prostego
+      \endverb
+      \verb{url}
+      \verb https://pl.wikipedia.org/wiki/Metoda_gradientu_prostego
+      \endverb
+      \keyw{gd}
+    \endentry
+    \entry{adampaper}{online}{}
+      \name{author}{2}{}{%
+        {{hash=b6fbd171848aad4edf3925543f1f1522}{%
+           family={Kingma},
+           familyi={K\bibinitperiod},
+           given={Diederik\bibnamedelima P.},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=8aa66e8231cc2fdbe67aa4f18ca970c6}{%
+           family={Ba},
+           familyi={B\bibinitperiod},
+           given={Jimmy},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{fullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{bibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorbibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authornamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorfullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Adam: A Method for Stochastic Optimization.}
+      \verb{urlraw}
+      \verb https://arxiv.org/pdf/1412.6980.pdf
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/pdf/1412.6980.pdf
+      \endverb
+      \keyw{adampaper}
+    \endentry
+    \entry{lenetpaper}{online}{}
+      \name{author}{3}{}{%
+        {{hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=17acda211a651e90e228f1776ee07818}{%
+           family={Cortes},
+           familyi={C\bibinitperiod},
+           given={Corinna},
+           giveni={C\bibinitperiod}}}%
+        {{hash=57683730ceb22e5d170051dedfc04a8e}{%
+           family={Burges},
+           familyi={B\bibinitperiod},
+           given={Christopher\bibnamedelima J.C.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{efcd7df77681651155e8e7a4553de729}
+      \strng{fullhash}{efcd7df77681651155e8e7a4553de729}
+      \strng{bibnamehash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authorbibnamehash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authornamehash}{efcd7df77681651155e8e7a4553de729}
+      \strng{authorfullhash}{efcd7df77681651155e8e7a4553de729}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Gradient-Based Learning Applied to Document Recognition.}
+      \verb{urlraw}
+      \verb http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
+      \endverb
+      \verb{url}
+      \verb http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf
+      \endverb
+      \keyw{lenetpaper}
+    \endentry
     \entry{mnist}{online}{}
       \name{author}{3}{}{%
         {{hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
@@ -43,8 +153,9 @@
       \strng{authorbibnamehash}{efcd7df77681651155e8e7a4553de729}
       \strng{authornamehash}{efcd7df77681651155e8e7a4553de729}
       \strng{authorfullhash}{efcd7df77681651155e8e7a4553de729}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Baza danych zawierająca ręcznie pisane cyfry MNIST}
@@ -75,8 +186,8 @@
       \strng{authorbibnamehash}{25d2f3c4577a6632d37f0126cc781232}
       \strng{authornamehash}{25d2f3c4577a6632d37f0126cc781232}
       \strng{authorfullhash}{25d2f3c4577a6632d37f0126cc781232}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Very deep convolutional network for large-scale image recognition}
@@ -100,8 +211,8 @@
       \strng{authorbibnamehash}{410865ce1d82b2c16206105302898c80}
       \strng{authornamehash}{410865ce1d82b2c16206105302898c80}
       \strng{authorfullhash}{410865ce1d82b2c16206105302898c80}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Zbiór danych imagenet.}
@@ -137,8 +248,8 @@
       \strng{authorbibnamehash}{467d36c2c62b4f85d9a0e313c593bf43}
       \strng{authornamehash}{467d36c2c62b4f85d9a0e313c593bf43}
       \strng{authorfullhash}{467d36c2c62b4f85d9a0e313c593bf43}
-      \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A Neural Algorithm of Artistic Style}
@@ -164,8 +275,8 @@
       \strng{authorbibnamehash}{e687512628bae0428935dda2bfa8b39a}
       \strng{authornamehash}{e687512628bae0428935dda2bfa8b39a}
       \strng{authorfullhash}{e687512628bae0428935dda2bfa8b39a}
-      \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The keep}
@@ -231,8 +342,8 @@
       \strng{authorbibnamehash}{80f8e6bfc3aff3e75b2807a6f6962740}
       \strng{authornamehash}{80f8e6bfc3aff3e75b2807a6f6962740}
       \strng{authorfullhash}{64fbaf3c8a6b53523f74f0087b58e7e6}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Going Deeper with Convolutions}
@@ -272,8 +383,8 @@
       \strng{authorbibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
       \strng{authornamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
       \strng{authorfullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprinttype}{arXiv}
