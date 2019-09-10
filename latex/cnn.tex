@@ -77,7 +77,7 @@ Należy jednocześnie nadmienić, że filtry nie muszą być stosowane tylko na 
 
 \subsection{Warstwy łączące}
 
-Warstwy łączące (ang. \textit{pooling layers}) są często wykorzystywane w celu zmniejszania wymiarów warstwy sieci CNN. Do najpopularniejszej należy zdecydowanie tzw. \textit{max pooling}. Polega na tym, że z obszaru w macierzy reprezentującej wartości danej warstwy w sieci konwolucyjnej wybieramy element z najwyższą wartością.
+Warstwy łączące (ang. \textit{pooling layers}) są często wykorzystywane w celu zmniejszania wymiarów warstwy sieci CNN. Do najpopularniejszej należy zdecydowanie tzw. \textit{max pooling}. Polega na tym, że z obszaru w macierzy reprezentującej wartości danej warstwy w sieci konwolucyjnej wybieramy element z najwyższą wartością. Przykład operacji \textit{maxpool} przedstawia rysunek \ref{fig:maxpool}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=1]{resources/cnn/maxpool.pdf}}
@@ -206,7 +206,7 @@ print ("Test Accuracy = " + str(preds[1]))
 
 Model zdefiniowany przy pomocy klasy \textit{Model}, trenowany jest przy pomocy funkcji optymalizującej \textit{Adam} przy użyciu funkcji 
 kosztu \text{binary crossentropy} zdefiniowanych przy pomocy metody \textit{compile}. Trening modelu zaczyna się po wywołaniu metody \textit{fit}, przyjmującej dane, na których ma być wytrenowana.
-Metoda \textit{evaluate} testuje skuteczność modelu na danych testowych.
+Metoda \textit{evaluate} testuje skuteczność modelu na danych testowych. Wynik treningu sieci LeNet-5 przedstawia rysunek \ref{fig:lenet5-training}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.5]{resources/training_lenet5.png}}
@@ -214,7 +214,7 @@ Metoda \textit{evaluate} testuje skuteczność modelu na danych testowych.
 \label{fig:lenet5-training}
 \end{figure}
 
-Trening trwał niecałe 4 minuty i uzyskał skuteczność powyżej 99\%, co jest bardzo zadawalającym wynikiem.
+Trening trwał niecałe 4 minuty i uzyskał skuteczność powyżej 99\%, co jest bardzo zadawalającym wynikiem. Przykładowy obraz ze zbioru treningowego pokazuje rysunek \ref{fig:lenet5-digit} a odpowiedź modelu na pytanie jaka to cyfra znajduje się na rysunku \ref{fig:lenet5-response}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.5]{resources/example_digit_lenet5.png}}
@@ -234,11 +234,12 @@ Mając do dyspozycji wytrenowany model, można przystąpić do próby wizualizac
 \subsubsection{Wizualizacja poprzez wyświetlenie wag warstw konwolucyjnych.}
 Pierwszy ze sposobów, który zaprezentuję będzie też najprostszy koncepcyjnie. Wyrysowanie filtrów warstw konwolucyjnych powinno dać ogólny zarys tego, jakie cechy obrazu (gradient, linie poziome/pionowe/ukośne) były brane pod uwagę przez sieć. W celu łatwiejszej intrepretacji zestawię ze sobą filtry 5\(\times\)5 oryginalnie występujące w sieci LeNet-5 z wariacją sieci wytrenowanej na filtrach 3\(\times\)3, którą wytrenowałem tylko po to, by mieć punkt odniesienia do filtrów
 klasycznie używanych w analizie obrazu.
+Wizualizację uzyskanych filtrów pokazuje rysunek \ref{fig:lenet5-response2}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.5]{resources/plot_filtry.png}}
 \caption{Wizualizacja filtrów sieci LeNet-5. Od lewej filtry warstwy pierwszej wersji zmodyfikowanej 3\(\times\)3. Z prawej filtry warstwy drugiej wersji oryginalnej.}
-\label{fig:lenet5-response}
+\label{fig:lenet5-response2}
 \end{figure}
 
 Na filtrach 3\(\times\)3 widać tendencję w wykrywaniu krawędzi pionowych, poziomych i ukośnych. Dodatkowo duży nacisk położony jest na wykrywanie gradientu po skosie (dwa pierwsze filtry od góry i dwa ostatnie od dołu).
@@ -251,7 +252,7 @@ Wniosek jest taki, że tym wypadku najprostsze rozwiązanie nie jest najlepsze. 
 
 \subsubsection{Wizualizacja poprzez mapy cech.}
 Mapy cech czy inaczej mapy aktywacji, wizualizują rezultat zastosowania filtrów na danych wejściowych -- np. obrazu wejściowego czy innej mapy cech. Przykładowo, dla danego obrazu można wyrysować jakie, konkretnie jego cechy zostały wyszczególnione przez warstwę sieci CNN. 
-By uzyskać mapę cech dla danego obrazu, należy zmodyfikować model w taki sposób, by jego warstwą wyjściową była ta warstwa konwolucyjna, której cechy chcemy uzyskać
+By uzyskać mapę cech dla danego obrazu, należy zmodyfikować model w taki sposób, by jego warstwą wyjściową była ta warstwa konwolucyjna, której cechy chcemy uzyskać. Przykładowe mapy cech pokazuje rysunek \ref{fig:lenet5-mapy-aktywacji-l1} i \ref{fig:lenet5-mapy-aktywacji-l2}.
 
 \label{lst:lenet5keras-mapy}
 \begin{lstlisting}[language=Python, caption={Uzyskiwanie mapy aktywacji dla danego modelu i obrazu w Keras.}, captionpos=b]

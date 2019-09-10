@@ -4,7 +4,7 @@
 \label{vgg-model}
 
 Do bardziej złożonych wizualizacji posłużę się siecią VGG, której architekturę zaprezentowano po raz pierwszy w 2015 roku w publikacji autorstwa Karen Simonyan i 
-Andrew Zisserman\cite{vggpaper}. W publikacji zaprezentowano kilka wariantów tej sieci. Ja z uwagi na większą ilość warstw użyję wariantu VGG-19.
+Andrew Zisserman\cite{vggpaper}. W publikacji zaprezentowano kilka wariantów tej sieci. Ja z uwagi na większą ilość warstw użyję wariantu VGG-19, którego schemat znajduje się na rysunku \ref{fig:vgg19-schemat}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.5]{resources/vgg/vgg.pdf}}
@@ -71,6 +71,7 @@ Biorąc pod uwagę to, że w sieciach CNN filtry aplikowane są cały czas w tak
 Jest to zaskakująco analogiczna sytuacja jak w klasycznej analizie obrazu, gdzie stosowane filtry do wykrywania krawędzi pionowych i poziomych są takimi samymi, po uprzedniej operacji transponowania, macierzami.
 Pozostawia to pole do poprawy działania takich sieci. Odpowiednie kadrowanie, rotacja danych wejściowych lub jakakolwiek forma adaptacyjnej aplikacji fitrów mogłaby sprawić, że trening tych samych, obróconych filtrów byłby zbędny co w rezultacie sprawiłoby, że nie potrzeba byłoby ich tak dużo, co mogłoby skrócić trening sieci przy braku negatywnego wpływu na sprawność predykcji.
 
+Rysunki \ref{mean-vgg-vis-c1bx}, \ref{mean-vgg-vis-c2bx}, \ref{mean-vgg-vis-c3bx}, \ref{mean-vgg-vis-c4bx} i \ref{mean-vgg-vis-c5bx} przedstawiają uzyskane wizualizacje przy pomocy wyżej opisanego procesu.
 \begin{figure}
 \subfloat[Wizualizacja filtra nr 5 bloku 1]{\includegraphics[width = 2in]{resources/vgg_mean_res/block1_conv1_5.png}} 
 ~
@@ -191,7 +192,7 @@ VGG19 w inny od człowieka sposób uchwyca to czym jest dany na obrazie przedmio
 Jeżeli do modelu przywrócićby warstwy gęste i próbować zmaksymalizować aktywację dla jednej z klas poprzez modyfikację obrazu wejściowego, powinienem otrzymać obraz, który sieć bezwątpliwie traktowałaby jako reprezentanta danej klasy.
 Gdyby sieć miała w sobie zakodowaną informację o tym co tak naprawdę jest na obrazie powinienem otrzymać coś przynajmniej odlegle przypominającego oryginalną klasę.
 
-Weźmy przykładowo klasę numer 319 w przypadku tego konkretnego modelu odpowiada ona klasie ważki. 
+Weźmy przykładowo klasę numer 319 w przypadku tego konkretnego modelu odpowiada ona klasie ważki. Przykładowego przedstawiciela tej klasy przedstawia rysunek \ref{lst:wazka-prediction-result}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.8]{resources/vgg_mean_topincluded/dragonfly.jpeg}}
@@ -224,7 +225,7 @@ Wszystko wydaje się być w porządku dopóki nie wygenerujemy obrazu na podstaw
 \label{fig:wazka-fake}
 \end{figure}
 
-Mimo krótkiego czasu treningu taki obraz klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. Podobny wynik uzyskałem na wszystkich testowanych przeze mnie klasach. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów - niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy. 
+Mimo krótkiego czasu treningu taki obraz jak na rysunku \ref{fig:wazka-fake}, klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. Podobny wynik uzyskałem na wszystkich testowanych przeze mnie klasach. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów - niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy. 
 By uzyskać obrazy zdolne do oszukania ludzkiej percepcji należy posłużyć się architekturą typu GAN (\textit{ang. Generative Adversarial Networks}).
 
 Niezwykle zajmującym tematem wydaje się być próba wprowadzenia uzyskanych wizualizacji do sieci VGG i uzyskanie odpowiedzi samej sieci co jest na danym obrazie. 
