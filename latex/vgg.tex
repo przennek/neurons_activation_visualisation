@@ -4,7 +4,7 @@
 \label{vgg-model}
 
 Do bardziej złożonych wizualizacji posłużę się siecią VGG, której architekturę zaprezentowano po raz pierwszy w 2015 roku w publikacji autorstwa Karen Simonyan i 
-Andrew Zisserman\cite{vggpaper}. W publikacji zaprezentowano kilka wariantów tej sieci. Ja z uwagi na większą ilość warstw użyję wariantu VGG-19, którego schemat znajduje się na rysunku \ref{fig:vgg19-schemat}.
+Andrew Zisserman\cite{vggpaper}. W publikacji zaprezentowano kilka wariantów tej sieci. Ja z uwagi na większą liczbę warstw użyję wariantu VGG-19, którego schemat znajduje się na rysunku \ref{fig:vgg19-schemat}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.5]{resources/vgg/vgg.pdf}}
@@ -19,8 +19,7 @@ Dopełnienie w przypadku warstw konwolucyjnych wynosi \(p=1\) przy skoku \(s=1\)
 
 Z racji swoich rozmiarów, trening sieci VGG zajmuje dni, nawet przy pomocy GPU. Użyję więc wcześniej wytrenowanej sieci dostępnej bezpośrednio w Kerasie.
 
-\label{lst:vggkeras}
-\begin{lstlisting}[language=Python, caption={Wczytywanie wag VGG-19 w Keras.}, captionpos=b]
+\begin{lstlisting}[language=Python, caption={Wczytywanie wag VGG-19 w Keras.}, label={lst:vggkeras}, captionpos=b]
 from keras.applications import VGG19
 model = VGG19(include_top=False, weights='imagenet')
 \end{lstlisting}
@@ -38,14 +37,14 @@ Przykładowy obraz wejściowy przedstawia rysunek \ref{fig:obrazwe}
 
 Medianę z tych aktywacji traktuję jako wartość mojej funkcji kosztu i modyfikuję wylosowany uprzednio obrazek w celu jej maksymalizacji.
 
-Maksymalizacja aktywacji jest możliwa poprzez wywołanie metody o nazwie \textit{gradients} z biblioteki Keras. Wykorzystując ją można przy pomocy tensora wejściowego, w tym wypadku zdjęcia, oraz funkcji kosztu (zdefiniowanej powyżej) uzyskać gradient funkcji kosztu dla danych z tensora.Następnie, moim celem będzie wykonać operację odwrotną niż w podczas treningu sieci -- maksymalizację funkcji kosztu. Uzyskany gradient wykorzystywany jest do przekształcania obrazu.
+Maksymalizacja aktywacji jest możliwa poprzez wywołanie metody o nazwie \textit{gradients} z biblioteki Keras. Wykorzystując ją można przy pomocy tensora wejściowego, w tym wypadku zdjęcia, oraz funkcji kosztu (zdefiniowanej powyżej) uzyskać gradient funkcji kosztu dla danych z tensora.
+Następnie, moim celem będzie wykonać operację odwrotną niż w podczas treningu sieci -- maksymalizację funkcji kosztu. Uzyskany gradient wykorzystywany jest do przekształcania obrazu.
 
 Modyfikacja obrazu polega na dodaniu odpowiednio znormalizowanego gradientu do wartości poszczególnych pikseli. Cały proces treningu składa się z kilkukrotnego skalowania obrazu do wyższych ,,rozdzielczości'' i ponawiania procesu optymalizacji. 
 
 Skalowanie jest konieczne, ponieważ struktury generowane tą metodą charakteryzują się wysoką częstotliwością (są małe i powtarzalne). Uprzednie wygenerowanie fragmentu wzoru w niskiej rozdzielczości i skalowanie, sprawia, że często wzór jest niejako ,,dobudowywany'' zamiast powtarzany, przez co jest większy -- co czasem daje lepsze zrozumienie na co patrzymy, choć nie jest to niestety reguła.
 
-\label{lst:vggmeantraining}
-\begin{lstlisting}[language=Python, caption={Wizualizowanie poprzez maksymalizację mediany wybranej warstwy.}, captionpos=b]
+\begin{lstlisting}[language=Python, caption={Wizualizowanie poprzez maksymalizację mediany wybranej warstwy.}, label={lst:vggmeantraining}, captionpos=b]
 output = layers_by_name[layer_name].output
 loss = K.mean(output[:, :, :, filter_index])
 gradients = K.gradients(loss, input_tensor)[0]
@@ -188,11 +187,11 @@ Rysunki \ref{mean-vgg-vis-c1bx}, \ref{mean-vgg-vis-c2bx}, \ref{mean-vgg-vis-c3bx
 \subsection{Wizualizacja maksymalnej aktywacji danej klasy}
 \label{vgg-class-visualisation}
 
-VGG19 w inny od człowieka sposób uchwyca to czym jest dany na obrazie przedmiot. By zwizualizować w jaki sposób sieć odróżnia poszczególne klasy, można posłużyć się analogicznym sposóbem postępowania jak z podrozdziału \ref{vgg-mean-activation}.
-Jeżeli do modelu przywrócićby warstwy gęste i próbować zmaksymalizować aktywację dla jednej z klas poprzez modyfikację obrazu wejściowego, powinienem otrzymać obraz, który sieć bezwątpliwie traktowałaby jako reprezentanta danej klasy.
-Gdyby sieć miała w sobie zakodowaną informację o tym co tak naprawdę jest na obrazie powinienem otrzymać coś przynajmniej odlegle przypominającego oryginalną klasę.
+VGG19 w inny od człowieka sposób uchwyca to, czym jest dany na obrazie przedmiot. By zwizualizować w jaki sposób sieć odróżnia poszczególne klasy, można posłużyć się analogicznym sposóbem postępowania jak z podrozdziału \ref{vgg-mean-activation}.
+Jeżeli do modelu przywrócić warstwy gęste i próbować zmaksymalizować aktywację dla jednej z klas poprzez modyfikację obrazu wejściowego, powinienem otrzymać obraz, który sieć bezwątpliwie traktowałaby jako reprezentanta danej klasy.
+Gdyby sieć miała w sobie zakodowaną informację o tym, co tak naprawdę jest na obrazie, powinienem otrzymać coś przynajmniej odlegle przypominającego oryginalną klasę.
 
-Weźmy przykładowo klasę numer 319 w przypadku tego konkretnego modelu odpowiada ona klasie ważki. Przykładowego przedstawiciela tej klasy przedstawia rysunek \ref{lst:wazka-prediction-result}.
+Weźmy przykładowo klasę numer 319. W przypadku tego konkretnego modelu odpowiada ona klasie ważki. Przykładowego przedstawiciela tej klasy przedstawia rysunek \ref{fig:wazka-real}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.8]{resources/vgg_mean_topincluded/dragonfly.jpeg}}
@@ -200,8 +199,7 @@ Weźmy przykładowo klasę numer 319 w przypadku tego konkretnego modelu odpowia
 \label{fig:wazka-real}
 \end{figure}
 
-\label{lst:wazka-prediction}
-\begin{lstlisting}[language=Python, caption={Predykcja klasy zdjęcia ważki\ref{fig:wazka-real}.}, captionpos=b]
+\begin{lstlisting}[language=Python, caption={Predykcja klasy zdjęcia ważki (rys. \ref{fig:wazka-real}.)}, label={lst:wazkaprediction}, captionpos=b]
 img = image.load_img('resources/vgg_mean_topincluded/dragonfly.jpeg', target_size=(224, 224))
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
@@ -210,14 +208,15 @@ preds = model.predict(x)
 print('Predicted:', decode_predictions(preds, top=3)[0])
 \end{lstlisting}
 
-\label{lst:wazka-prediction-result}
-\begin{lstlisting}[language=Python, caption={Wynik skryptu \ref{lst:wazka-prediction}.}, captionpos=b]
+\begin{lstlisting}[language=Python, caption={Wynik skryptu z listingu \ref{lst:wazkaprediction}.}, label={lst:wazkapredictionresult}, captionpos=b]
 [('n02268443', 'dragonfly', 0.96805733), ('n02268853', 'damselfly', 0.01810956), ('n02264363', 'lacewing', 0.012446008)]
 \end{lstlisting}
 
-Oznacza to nie mniej, że sieć którą dysponuję jest przekonana, w zaokrągleniu, na 97\% mamy do czynienia z ważką. Dwie kolejne najbardziej prawdopodobne klasy przedstawiają inny rodzaj ważki - ważkę równoskrzydłą i owada siatkoskrzydłego.
+Wynik skryptu z listungu \ref{lst:wazkaprediction} jest widoczny na listngu \ref{lst:wazkapredictionresult}.
 
-Wszystko wydaje się być w porządku dopóki nie wygenerujemy obrazu na podstawie wyżej wymienionej klasy. Uprzednio modyfikując funkcję kosztu, tak by teraz zwracała wartość jaką przypisuje klasie ważki softmax, możemy zmodyfikować szary szum tak by maksymalizować (wg. sieci) prawdopodobieństwo tego, że na obrazie jest ważka. Tym nie skaluje obrazu podczas treningu i modyfikuję obraz \(224 \times 224\).
+Oznacza to, że sieć, którą dysponuję, jest przekonana, że w zaokrągleniu na 97\% mamy do czynienia z ważką. Dwie kolejne najbardziej prawdopodobne klasy przedstawiają inny rodzaj ważki -- ważkę równoskrzydłą i owada siatkoskrzydłego.
+
+Wszystko wydaje się być w porządku, dopóki nie wygenerujemy obrazu na podstawie wyżej wymienionej klasy. Uprzednio modyfikując funkcję kosztu tak, by teraz zwracała wartość, jaką przypisuje klasie ważki softmax, możemy zmodyfikować szary szum tak, by maksymalizować (wg. sieci) prawdopodobieństwo tego, że na obrazie jest ważka. Tym razem nie skaluję obrazu podczas treningu i modyfikuję obraz \(224 \times 224\).
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=0.8]{resources/vgg_mean_topincluded/dragonfly-fake.png}}
@@ -225,25 +224,26 @@ Wszystko wydaje się być w porządku dopóki nie wygenerujemy obrazu na podstaw
 \label{fig:wazka-fake}
 \end{figure}
 
-Mimo krótkiego czasu treningu taki obraz jak na rysunku \ref{fig:wazka-fake}, klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. Podobny wynik uzyskałem na wszystkich testowanych przeze mnie klasach. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów - niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy. 
+Mimo krótkiego czasu treningu taki obraz jak na rysunku \ref{fig:wazka-fake}, klasyfikowany jest przez sieć VGG19 jako ważka z pewnością sięgającą 96\%. Podobny wynik uzyskałem na wszystkich testowanych przeze mnie klasach. VGG rozpoznaje przedmioty na podstawie prawdopodobieństwa wystąpienia pewnej kombinacji filtrów -- niestety samo nie nadaje się do generowania realistycznych obrazów danej klasy. 
 By uzyskać obrazy zdolne do oszukania ludzkiej percepcji należy posłużyć się architekturą typu GAN (\textit{ang. Generative Adversarial Networks}).
 
-Niezwykle zajmującym tematem wydaje się być próba wprowadzenia uzyskanych wizualizacji do sieci VGG i uzyskanie odpowiedzi samej sieci co jest na danym obrazie. 
-Zmuszony jednak jestem zostawić temat wizualizacji uzyskanych za pomocą maksymalizacji aktywacji warstwy na rzecz innego zajmującego tematu - neuronowego transferu stylu.
+Niezwykle zajmującym tematem wydaje się być próba wprowadzenia uzyskanych wizualizacji do sieci VGG i uzyskanie odpowiedzi samej sieci, co jest na danym obrazie. 
+Zmuszony jednak jestem zostawić temat wizualizacji uzyskanych za pomocą maksymalizacji aktywacji warstwy na rzecz innego zajmującego tematu -- neuronowego transferu stylu.
 
 \section{\textit{Neural Style Transfer} przy pomocy sieci VGG}
 \label{vgg-nst}
 \textit{Neural Style Transfer} został pierwszy raz zaprezentowany w pracy autorstwa Leon A. Gatys, Alexander S. Ecker, Matthias Bethge \cite{nstpaper}.
-Jest to technika mająca na celu uzyskanie obrazu \(G\) w stylu obrazu \(S\), przy pomocy obrazu bazowego \(B\) \ref{neural-style-transfer-BSG}.
+Jest to technika mająca na celu uzyskanie obrazu \(G\) w stylu obrazu \(S\), przy pomocy obrazu bazowego \(B\) (patrz rys. \ref{neural-style-transfer-BSG}).
 
-Jej oryginalni autorzy sami podają kluczową obserwację, umożliwiającą mieszanie obrazu. Jest to spostrzeżenie, że możliwe jest odesparowanie stylu
-i treści z zakodowanej w aktywacjach sieci VGG.
+Jej oryginalni autorzy sami podają kluczową obserwację, umożliwiającą mieszanie obrazu. Jest to spostrzeżenie, że możliwe jest odesparowanie stylu i treści zakodowanych w aktywacjach sieci VGG.
+
+Wszystkie wykorzystane wzory w tym podrozdziale pochodzą z publikacji \textit{A Neural Algorithm of Artistic Style} \cite{nstpaper}.
 
 Załóżmy, że chcemy za pomocą wybranej warstwy konwolucyjnej sieci VGG odzwierciedlić treść obrazu \(C\) na obrazie \(G\). Mamy do wyboru warstwy oznaczone conv1...5.
 Gdy wybierzemy jedną warstwę i wykonamy dla obrazów \(C\) i \(G\) kroki propagacji w przód otrzymamy mapy aktywacji \(a_{C}\) i \(a_{G}\). Korzystając z nich, można zdefiniować
-funkcję kosztu: \[J_{c}^{[l]}(C, G) = \frac{1}{4 \times n_H \times n_W \times n_F} \sum{(a_{C} - a_{G})^{2}} \]
+funkcję kosztu: \[J_{c}^{[l]}(C, G) = \frac{1}{4 \times n_H \times n_W \times n_F} \sum{(a_{C} - a_{G})^{2}}, \tag{11}\]
 
-Gdzie:
+gdzie:
 
 \begin{itemize}
 \item
@@ -251,24 +251,24 @@ Gdzie:
 \item
     \(n_{H}\) -- wysokość filtra wybranej warstwy,
 \item
-    \(n_{F}\) -- ilość filtrów wybranej warstwy,
+    \(n_{F}\) -- liczba filtrów wybranej warstwy,
 \item
-    \(l\) -- numer zastosowanej warstwy,
+    \(l\) -- numer zastosowanej warstwy.
 \end{itemize}
 
-A sumowanie odbywa się po wszystkich elementach mapy cech (uzyskana suma jest sumą aktywacji wszystkich warstw). 
+Sumowanie odbywa się po wszystkich elementach mapy cech (uzyskana suma jest sumą aktywacji wszystkich warstw). 
 
 Analogicznie można potraktować problem odzwierciedlenia stylu obrazu. Po wyborze warstwy uzyskujemy aktywację dla obrazów \(S\) i \(G\) oraz oznaczamy je kolejno \(a_{S}\) i \(a_{G}\). 
-Następnie zwijamy tensory o wymiarach \(n_H \times n_W \times n_F\) w dwuwymiarowe macierze o wymiarach \((n_H + n_W) \times n_F\) i wyznaczamy macierze Grama tych macierzy, oznaczamy je jako 
+Następnie zwijamy tensory o wymiarach \(n_H \times n_W \times n_F\) w dwuwymiarowe macierze o wymiarach \((n_H + n_W) \times n_F\),  wyznaczamy macierze Grama tych macierzy i oznaczamy je jako 
 \(G^{(S)}\) i \(G^{(G)}\). Wtedy można zdefiniować następującą funkcję kosztu stylu.
 
-\[J_{s}^{[l]}(S,G) = \frac{1}{4 \times {n_F}^2 \times (n_H \times n_W)^2} \sum _{i=1}^{n_F}\sum_{j=1}^{n_F}(G^{(S)}_{ij} - G^{(G)}_{ij})^2\tag{2}\]
+\[J_{s}^{[l]}(S,G) = \frac{1}{4 \times {n_F}^2 \times (n_H \times n_W)^2} \sum _{i=1}^{n_F}\sum_{j=1}^{n_F}(G^{(S)}_{ij} - G^{(G)}_{ij})^2 ,\tag{12}\]
 
-Gdy zdefiniujemy zbiorczą funkcję kosztu jako:
+Definiujemy zbiorczą funkcję kosztu jako:
 
-\[J(G) = \alpha J_{c}(C,G) + \beta J_{s}(S,G)\]
+\[J(G) = \alpha J_{c}(C,G) + \beta J_{s}(S,G), \tag{13}\]
 
-Gdzie:
+gdzie:
 \begin{itemize}
 \item
     \(\alpha\) -- współczynnik kosztu treści,
@@ -276,15 +276,15 @@ Gdzie:
     \(\beta\) -- współczynnik kosztu stylu,
 \end{itemize}
 
-Sterując \(\alpha\) i \(\beta\) można wpływać na to jak bardzo obraz będzie wierny orginałowi \textit{C} w stosunku do jak bardzo będzie namalowany w stylu \textit{S}. Używając tak zdefiniowanej funkcji kosztu dla jednej 
+Sterując \(\alpha\) i \(\beta\) można wpływać na to jak bardzo obraz będzie wierny oryginałowi \textit{C} w stosunku do tego jak bardzo będzie namalowany w stylu \textit{S}. Używając tak zdefiniowanej funkcji kosztu dla jednej 
 z warstw, można zapisać funkcję biorącą pod uwagę wyjście z kilku warstw konwolucyjnych jednocześnie: 
 
-\[J_{s}(S,G) = \sum_{l} \lambda^{[l]} J^{[l]}_{s}(S,G) \]
+\[J_{s}(S,G) = \sum_{l} \lambda^{[l]} J^{[l]}_{s}(S,G), \tag{14}\]
 
-Gdzie \(\lambda^{[l]}\) jest współczynnikiem wykorzystania danej warstwy \(l\).
+gdzie \(\lambda^{[l]}\) jest współczynnikiem wykorzystania danej warstwy \(l\).
 
-Przy pomocy tej funkcji, można zastosować sposób działania znany z podrozdziału \ref{vgg-mean-activation}. Używając ją zamiast mediany aktywacji danej warstwy uzyskamy efekt widoczny na rysunku \ref{neural-style-transfer-BSG}. Szczegół implementacyjny: zaprezentowany obraz został wygenerowany przy pomocy skryptu napisanego w \textit{tensorflow} a nie na podstawie modyfikacji opisanego wyżej skryptu.
-Powód jest ściśle praktyczny, dysponowałem już takim skryptem mojego autorstwa - nie było praktyczne jednak wprowadzanie nowej biblioteki uczenia maszynowego, a jak było napisane wyżej, identyczne efekty można uzyskać przy pomocy Kerasa.
+Przy pomocy tej funkcji można zastosować sposób działania znany z podrozdziału \ref{vgg-mean-activation}. Używając ją zamiast mediany aktywacji danej warstwy uzyskamy efekt widoczny na rysunku \ref{neural-style-transfer-BSG}. Szczegół implementacyjny: zaprezentowany obraz został wygenerowany przy pomocy skryptu napisanego w \textit{tensorflow}, a nie na podstawie modyfikacji opisanego wyżej skryptu.
+Powód jest ściśle praktyczny dysponowałem już takim skryptem mojego autorstwa -- nie było praktyczne jednak wprowadzanie nowej biblioteki uczenia maszynowego, a jak było napisane wyżej, identyczne efekty można uzyskać przy pomocy Kerasa.
 
 \begin{figure}
 \subfloat[Obraz bazowy (B), autor zdjęcia: Grzegorz Rucki]{\includegraphics[width = 3in]{resources/nst/69850020.JPG}} 

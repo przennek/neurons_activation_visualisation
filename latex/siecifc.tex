@@ -54,14 +54,14 @@ Najpopularniejsze funkcje aktywacji przedstawia rysunek \ref{fig:activations}.
 
 By ustalić wartość neuronu, posługujemy się następującym wzorami:
 
-\[z_{n}^{\lbrack l\rbrack}=\sum_{i=1}^{j}{w_{\text{ni}}^{\lbrack l\rbrack}a_{i}^{\lbrack l - 1\rbrack} + b_{n}^{\lbrack l\rbrack}},\]
+\[z_{n}^{\lbrack l\rbrack}=\sum_{i=1}^{j}{w_{\text{ni}}^{\lbrack l\rbrack}a_{i}^{\lbrack l - 1\rbrack} + b_{n}^{\lbrack l\rbrack}},\tag{1}\]
 
-\[a_{n}^{\lbrack l\rbrack}=\rho(z_{n}^{\lbrack l\rbrack}),\]
+\[a_{n}^{\lbrack l\rbrack}=\rho(z_{n}^{\lbrack l\rbrack}),\tag{2}\]
 
-Gdzie:
+gdzie:
 \begin{itemize}
 \item \(\rho\) to funkcja aktywacji,
-\item \textsubscript{(n)} oznacza numer neuronu w warstwie,
+\item \textsubscript{n} oznacza numer neuronu w warstwie,
 \item \textsuperscript{{[}l{]}} to numer warstwy,
 \item \(b\) to tak zwany bias. Jego wartość jest ustalana razem z wagami w procesie propagacji wstecznej,
 \item \(w_{\text{ni}}^{\lbrack l\rbrack}\) jest to \textbf{i}-ta waga neuronu numer \textbf{n}, warstwy \textbf{l},
@@ -69,9 +69,9 @@ Gdzie:
 \end{itemize}
 
 Używając tych wzorów, możemy obliczać wartości wag kolejnych warstw sieci aż do warstwy ostatniej.
-Tam, w zależności od postawionego problemu, możemy wyliczyć kolejne aktywacje przy pomocy \(\rho\) (tylko w odróżnieniu od warstw ukrytych nie stosuje się tam \(ReLU\), tylko np. \(sigmoid\) lub możemy użyć funkcji \(softmax\):
+Tam, w zależności od postawionego problemu, możemy wyliczyć kolejne aktywacje przy pomocy \(\rho\) (tylko w odróżnieniu od warstw ukrytych nie stosuje się tam \(ReLU\), tylko np. \(sigmoid\)) lub możemy użyć funkcji \(softmax\):
 
-\[S(y_{i}) = \frac{e^{y_{\text{i\ }}}}{\sum_{j}^{y_{n}}e^{y_{j}}}\]
+\[S(y_{i}) = \frac{e^{y_{\text{i\ }}}}{\sum_{j}^{y_{n}}e^{y_{j}}} \tag{3}\]
 
 Jest to funkcja, która przyjmuje \(y_{n}\) elementowy wektor składający się z liczb rzeczywistych i przeprowadza go w rozkład prawdopodobieństwa składającego się z \(y_{n}\) elementów. Przydatną jej cechą jest to, że zachowuje proporcjonalny udział wartości w wynikowym prawdopodobieństwie -- tj. elementy o wyższej wartości mają przypisane wyższe wartości prawdopodobieństwa.
 
@@ -93,7 +93,7 @@ By zobrazować działanie algorytmu posłużę się przykładem. Załóżmy, że
 \label{fig:softmax}
 \end{figure}
 
-Istnieją inne metody aktywacji warstw wyjściowych. Każda z nich, która zostanie użyta w tej pracy będzie trzymała się podobnego schematu. Wynikiem sieci gęsto połączonej będzie wektor zer i jedynek, w którym 1 ustawione na odpowiednim miejscu w rzędzie będzie oznaczało, że dany przedmiot został rozpoznany. W przypadku rozrysowanym na rysunku \ref{fig:softmax} będzie to wektor \([1 0 0]\).
+Istnieją inne metody aktywacji warstw wyjściowych. Każda z nich, która zostanie użyta w tej pracy będzie trzymała się podobnego schematu. Wynikiem sieci gęsto połączonej będzie wektor zer i jedynek, w którym 1 ustawione na odpowiednim miejscu w rzędzie będzie oznaczało, że dany przedmiot został rozpoznany. W przypadku rozrysowanym na rysunku \ref{fig:softmax} będzie to wektor \([1, 0, 0]\).
 
 \section{Funkcja kosztu}
 \label{sec:costfunction}
@@ -102,7 +102,9 @@ W przypadku problemów poruszanych w tej pracy, funkcję kosztu należy rozumie�
 
 Istnieje wiele różnych funkcji kosztu. Opiszę tutaj tylko funkcję \textit{cross entropy loss}, która jest często wybierana przy treningu sieci, które na ostatniej warstwie używają \(softmax\).
 
-\[J(w) = \frac{1}{m}\ \sum_{i = 1}^{m}{\lbrack y_{i}\log{\acute{y}_{i} + \left( 1 - y_{i} \right)\log{(1 - \ \acute{y}_{i})}}\rbrack},\]
+\[J(w) = - \frac{1}{m}\ \sum_{i = 1}^{m}{\lbrack y_{i}\log{\acute{y}_{i}(w) + \left( 1 - y_{i} \right)\log{(1 - \ \acute{y}_{i}(w))}}\rbrack}, \tag{4}\]
+
+źródło: artykuł na anglojęzycznej Wikipedii \cite{wikicrs},
 
 gdzie:
 
@@ -112,9 +114,9 @@ gdzie:
 \item
   \(m\) -- liczba klasyfikowanych przykładów,
 \item
-  \(y_{i}\) -- wartość oczekiwana dla przykładu numer i
+    \(y_{i}\) -- wartość oczekiwana dla przykładu numer \textit{i}
 \item
-    \(\acute{y}_{i}\) -- wartość uzyskana przy pomocy sieci dla przykładu numer \(i\).
+    \(\acute{y}_{i}\) -- wartość uzyskana przy pomocy sieci dla przykładu numer \textit{i}.
 \end{itemize}
 
 Jest to suma błędów pojedynczych predykcji dla wszystkich przykładów dostępnych w danym zestawie danych treningowych. Zadaniem treningu, będzie znalezienie jej minimum dla danego problemu.
@@ -129,14 +131,14 @@ Jest to modyfikacja wag sieci neuronowej \(w\) z uwzględnieniem funkcji kosztu 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Wybierz punkt startowy \(w_{0}\).
+  wybierz punkt startowy \(w_{0}\),
 \item
-  \(w_{k + 1} = w_{k} - \alpha\ \nabla f(w_{k})\).
+  \(w_{k + 1} = w_{k} - \alpha\ \nabla f(w_{k})\),
 \item
-  Jeżeli \(\left\| w_{k + 1} - w_{k} \right\|\  \geq \varepsilon\) idź
-  do 2.
+  jeżeli \(\left\| w_{k + 1} - w_{k} \right\|\  \geq \varepsilon\) idź
+  do 2,
 \item
-  Koniec.
+  koniec,
 \end{enumerate}
 
 gdzie:
@@ -164,11 +166,11 @@ Kłopotliwym zagadnieniem może wydawać się wyliczenie gradientu \(\nabla f(w)
 
 gdy:
 
-\[J\left( z \right) = J(a\left( z \right))\]
+\[J\left( z \right) = J(a\left( z \right)), \tag{5}\]
 
 to:
 
-\[\frac{dJ}{dz} = \frac{dJ}{da} \frac{da}{dz}\]
+\[\frac{dJ}{dz} = \frac{dJ}{da} \frac{da}{dz}. \tag{6}\]
 
 Posługując się nimi, możemy wyjść od wzoru funkcji kosztu \(J(w)\) i na tej podstawie aktualizować wartość wag ostatniej warstwy. Co więcej, możemy przy pomocy nowo wyliczonych wag, wyliczyć nowe wartości wag warstwy przedostatniej i tak niejako licząc warstwa po warstwie, aktualizować wszystkie wagi sieci neuronowej.
 
@@ -186,20 +188,21 @@ wstecznej.}
 
 Dla pojedynczego przykładu ze zbioru treningowego:
 
-\[J\left( w \right) = y\log{a(w)^{\lbrack 2\rbrack} + \left( 1 - y \right)\log{(1 - \ a(w)^{\lbrack 2\rbrack})}}\]
+\[J\left( w \right) = y\log{a(w)^{\lbrack 2\rbrack} + \left( 1 - y \right)\log{(1 - \ a(w)^{\lbrack 2\rbrack})}}, \tag{7}\]
 
 oraz przyjmując \(sigmoid\) za funkcję aktywacji:
 
-\[\rho = \frac{e^{z}}{e^{z}\  + \ 1},\]
+\[\rho = \frac{e^{z}}{e^{z}\  + \ 1}, \tag{8}\]
 
 wtedy:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \(\frac{dJ}{da^{\left\lbrack 2 \right\rbrack}} = - \frac{y}{a^{\lbrack 2\rbrack}} + \frac{1 - y}{1 - a^{\lbrack 2\rbrack}},\)
+    \(\frac{dJ}{da^{\left\lbrack 2 \right\rbrack}} = - \frac{y}{a^{\lbrack 2\rbrack}} + \frac{1 - y}{1 - a^{\lbrack 2\rbrack}},\) 
 \item
-    \(\frac{da^{\left\lbrack 2 \right\rbrack}}{dz^{\lbrack 2\rbrack}} = \frac{d\rho^{\lbrack 2\rbrack}}{dz} = \frac{e^{z^{\left\lbrack 2 \right\rbrack}}}{\left( 1\  + {\ e}^{z^{\left\lbrack 2 \right\rbrack}} \right)^{2}} = \frac{e^{-z^{\left\lbrack 2 \right\rbrack}}}{\left( 1\  + {\ e}^{-z^{\left\lbrack 2 \right\rbrack}} \right)^{2}} = \frac{1}{1\  + {\ e}^{- z^{\lbrack 2\rbrack}}} \frac{1\  + \ \left( e^{- z^{\left\lbrack 2 \right\rbrack}} \right)\ \  - \ 1}{\left( 1\  + {\ e}^{- z^{\left\lbrack 2 \right\rbrack}} \right)} = \frac{1}{1\  + {\ e}^{- z^{\left\lbrack 2 \right\rbrack}}} (1 - \frac{1}{\left( 1\  + {\ e}^{- z^{\left\lbrack 2 \right\rbrack}} \right)}) = a^{\lbrack 2\rbrack}(1 - a^{\left\lbrack 2 \right\rbrack})\),
+    \(\frac{da^{\left\lbrack 2 \right\rbrack}}{dz^{\lbrack 2\rbrack}} = \frac{d\rho^{\lbrack 2\rbrack}}{dz} = \frac{e^{z^{\left\lbrack 2 \right\rbrack}}}{\left( 1\  + {\ e}^{z^{\left\lbrack 2 \right\rbrack}} \right)^{2}} = \frac{e^{-z^{\left\lbrack 2 \right\rbrack}}}{\left( 1\  + {\ e}^{-z^{\left\lbrack 2 \right\rbrack}} \right)^{2}} = \frac{1}{1\  + {\ e}^{- z^{\lbrack 2\rbrack}}} \frac{1\  + \ \left( e^{- z^{\left\lbrack 2 \right\rbrack}} \right)\ \  - \ 1}{\left( 1\  + {\ e}^{-
+    z^{\left\lbrack 2 \right\rbrack}} \right)} = \frac{1}{1\  + {\ e}^{- z^{\left\lbrack 2 \right\rbrack}}} (1 - \frac{1}{\left( 1\  + {\ e}^{- z^{\left\lbrack 2 \right\rbrack}} \right)}) = a^{\lbrack 2\rbrack}(1 - a^{\left\lbrack 2 \right\rbrack})\),
 \item
   \(\frac{dJ}{dz^{\left\lbrack 2 \right\rbrack}} = \frac{dJ}{da^{\left\lbrack 2 \right\rbrack}} \frac{da^{\left\lbrack 2 \right\rbrack}}
   {dz^{\left\lbrack 2 \right\rbrack}} = \left\lbrack - \frac{y}{a^{\left\lbrack 2 \right\rbrack}} + \frac{1 - y}{1 - a^{\left\lbrack 2 \right\rbrack}}
@@ -217,9 +220,9 @@ w przód) możemy zaktualizować \(w^{\lbrack 2\rbrack}\) i
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{3}
 \item
-  \(\frac{dJ}{dw^{\lbrack 2\rbrack}} = \frac{dJ}{dz^{\left\lbrack 2 \right\rbrack}} \frac{dz^{\left\lbrack 2 \right\rbrack}}{dw^{\left\lbrack 2 \right\rbrack}} = {(a}^{\left\lbrack 2 \right\rbrack} - y)a^{\lbrack 1\rbrack}\),
+    \(\frac{dJ}{dw^{\lbrack 2\rbrack}} = \frac{dJ}{dz^{\left\lbrack 2 \right\rbrack}} \frac{dz^{\left\lbrack 2 \right\rbrack}}{dw^{\left\lbrack 2 \right\rbrack}} = {(a}^{\left\lbrack 2 \right\rbrack} - y)a^{\lbrack 1\rbrack}\),
 \item
-  \(\frac{dJ}{db^{\lbrack 2\rbrack}} = \ \frac{dJ}{dz^{\left\lbrack 2 \right\rbrack}} \frac{dz^{\left\lbrack 2 \right\rbrack}}{db^{\left\lbrack 2 \right\rbrack}} = \ {(a}^{\left\lbrack 2 \right\rbrack} - y)\).
+    \(\frac{dJ}{db^{\lbrack 2\rbrack}} = \ \frac{dJ}{dz^{\left\lbrack 2 \right\rbrack}} \frac{dz^{\left\lbrack 2 \right\rbrack}}{db^{\left\lbrack 2 \right\rbrack}} = \ {(a}^{\left\lbrack 2 \right\rbrack} - y)\).
 \end{enumerate}
 
 Powyższe obliczenia pokazują, w jaki sposób obliczyć nową wartość wag między funkcją kosztu a ostatnią warstwą sieci. Kolejne kroki pokażą, w jaki sposób obliczyć nową wartość wag pomiędzy dwiema warstwami (można te kroki uogólniać na dowolną liczbę warstw).
@@ -228,9 +231,9 @@ Powyższe obliczenia pokazują, w jaki sposób obliczyć nową wartość wag mi�
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{5}
 \item
-  \(\frac{dJ}{da^{\lbrack 1\rbrack}} = \frac{dJ}{dz^{\lbrack 2\rbrack}} \frac{dz^{\left\lbrack 2 \right\rbrack}}{da^{\left\lbrack 1 \right\rbrack}} = {(a}^{\left\lbrack 2 \right\rbrack} - y) w^{\lbrack 2\rbrack},\)
+    \(\frac{dJ}{da^{\lbrack 1\rbrack}} = \frac{dJ}{dz^{\lbrack 2\rbrack}} \frac{dz^{\left\lbrack 2 \right\rbrack}}{da^{\left\lbrack 1 \right\rbrack}} = {(a}^{\left\lbrack 2 \right\rbrack} - y) w^{\lbrack 2\rbrack},\)
 \item
-  \(\frac{dJ}{dz^{\left\lbrack 1 \right\rbrack}} = \frac{dJ}{da^{\left\lbrack 1 \right\rbrack}} \frac{da^{\left\lbrack 1 \right\rbrack}}{dz^{\left\lbrack 1 \right\rbrack}} = {w^{\left\lbrack 2 \right\rbrack}(a}^{\left\lbrack 2 \right\rbrack} - y){a}^{\left\lbrack 1 \right\rbrack}(1 - a^{\left\lbrack 1 \right\rbrack}).\)
+    \(\frac{dJ}{dz^{\left\lbrack 1 \right\rbrack}} = \frac{dJ}{da^{\left\lbrack 1 \right\rbrack}} \frac{da^{\left\lbrack 1 \right\rbrack}}{dz^{\left\lbrack 1 \right\rbrack}} = {w^{\left\lbrack 2 \right\rbrack}(a}^{\left\lbrack 2 \right\rbrack} - y){a}^{\left\lbrack 1 \right\rbrack}(1 - a^{\left\lbrack 1 \right\rbrack}).\)
 \end{enumerate}
 
 (\(\frac{da^{\left\lbrack 1 \right\rbrack}}{dz^{\left\lbrack 1 \right\rbrack}}\)

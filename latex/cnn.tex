@@ -5,7 +5,7 @@
 W przypadku zagadnień z dziedziny analizy obrazu, same sieci gęste robią się niepraktyczne. Teoretycznie możliwe jest przetworzenie obrazu w taki sposób, że każdy piksel traktowany jest jako jeden węzeł sieci,
 ale już przy obrazkach o wymiarach 100x100x3 (100 na 100 pikseli, 3 kanały RGB) daje to 30000 węzłów na warstwie pierwszej. Nawet gdyby warstwa druga
 miała być dwa razy mniejsza tj. 15000 węzłów macierz \(w^{\lbrack 1\rbrack}\) miałaby wymiar (30000, 15000). 
-Przy założeniu, że rozmiar liczby typu double to 64 bity, to sama taka pojedyncza macierz miałaby rozmiar \(64\ \left\lbrack b \right\rbrack \times 30000 \times 15000 \times \frac{1}{8\ }\ \times \frac{1}{1024\ } \times \frac{1}{1024\ }\  \approx \ 3433\ \lbrack MB\rbrack\). Poza problemami z pamięcią,
+Przy założeniu, że rozmiar liczby typu double to 64 bity, to sama taka pojedyncza macierz miałaby rozmiar \(64\) \lbrack b\rbrack \(\times 30000 \times 15000 \times \frac{1}{8\ }\ \times \frac{1}{1024\ } \times \frac{1}{1024\ }\  \approx \ 3433\ \)\lbrack MB\rbrack. Poza problemami z pamięcią,
 leży wziąć pod uwagę wysoki koszt obliczeniowy operacji na tak dużych macierzach, a przecież rozdzielczość współczesnych obrazów jest wielokrotnie wyższa. By poradzić sobie z tym problemem, należało wprowadzić inny rodzaj architektury sieci neuronowej -- konwolucyjną sieć neuronową (ang. \textit{convolutional neural network}, w skrócie \textit{CNN}).
 
 \section{Opis elementów składających się na konwolucyjną sieć neuronową}
@@ -13,7 +13,7 @@ leży wziąć pod uwagę wysoki koszt obliczeniowy operacji na tak dużych macie
 
 \subsection{Filtry i splot w konwolucyjnej sieci neuronowej}
 
-By ograniczyć liczbę węzłów, definiuje się tzw. filtry. Są to macierze kwadratowe, wypełnione wagami \(w\) których wartość jest ustalana w procesie propagacji wstecznej. Macierze te są układane w warstwy a ilość tych warstw determinowana jest przez ilość kanałów obrazu wejściowego lub poprzedniej warstwy sieci konwolucyjnej.
+By ograniczyć liczbę węzłów, definiuje się tzw. filtry. Są to macierze kwadratowe, wypełnione wagami \(w\) których wartość jest ustalana w procesie propagacji wstecznej. Macierze te są układane w warstwy a liczba tych warstw determinowana jest przez liczba kanałów obrazu wejściowego lub poprzedniej warstwy sieci konwolucyjnej.
 
 By uzyskać wynik, stosuje się na obrazie dyskretną operację splotu z filtrem lub filtrami. Taka operacja wykonywana jest z zadanym \emph{krokiem} i \emph{dopełnieniem}. Przykładową operację splotu macierzy i filtra prezentuje rysunek \ref{fig:splot}.
 
@@ -27,7 +27,7 @@ Operację wykonaną pomiędzy pojedynczą warstwą wejściową a odpowiadającym
 
 niech: \(k = \left\lfloor \frac{n + 2p}{s} \right\rfloor\), \(k\ \in Z\)
 
-\[\sum_{q = 0}^{n_{w}}{\sum_{p = 0}^{k}{\sum_{i = 0}^{n_{g} - 1}{\sum_{j = 0}^{n_{g} - 1}{\rho\lbrack f_{q}\left( ps + i,ps + j \right) g_{q}\left( i,j \right) + b\rbrack}}}},\]
+\[\sum_{q = 0}^{n_{w}}{\sum_{r = 0}^{k}{\sum_{l = 0}^{k}\sum_{i = 0}^{n_{g} - 1}{\sum_{j = 0}^{n_{g} - 1}{\rho\lbrack f_{q}\left( rs + i,ls + j \right) g_{q}\left( i,j \right) + b\rbrack}}}}, \tag{9}\]
 
 gdzie:
 
@@ -66,12 +66,12 @@ propagację w przód \(z^{\lbrack l\rbrack} = w^{\lbrack l\rbrack}a^{\lbrack l -
 
 Uzyskane tym sposobem macierze wynikowe oraz wagowe są wielokrotnie mniejsze, kosztem tego, że te same wagi są ustalane przy pomocy różnych części obrazu. Można za to wprowadzić wiele różnych zestawów filtrów. Każdy z nich może nauczyć się wykrywać inne zależności w obrazie np. jeden może odpowiadać za wykrywanie krawędzi w pionie, inny w poziomie. W tym wypadku każdy z tych filtrów miałby wymiary 2\(\times\)2\(\times\)3. Stosując wiele różnych filtrów na raz uzyskujemy wielowymiarowy wynik
 a wymiar trójwymiarowej macierzy wynikowej wynosi wtedy:
-\[n_{x} \times n_{y} \times n_{z}\]
-Gdzie \(n_{x}\) = ­­\(n_{y}\)=
+\[n_{x} \times n_{y} \times n_{z}, \tag{10}\]
+gdzie \(n_{x}\) = ­­\(n_{y}\)=
 \(\left\lfloor \frac{n + 2p - n_{f}}{s} \right\rfloor + 1\), \(n,\ p,\ s\)
 są zgodne z opisem wyżej, \(n_{f}\ \)to wymiar macierzy kwadratowej
 filtra a \(n_{z}\) -- to liczba użytych filtrów wielkości
-\(n_{f} \times n_{f} \times n_{c}\), gdzie \(n_{c}\) to ilość kanałów poprzedniej warstwy.
+\(n_{f} \times n_{f} \times n_{c}\), gdzie \(n_{c}\) to liczba kanałów poprzedniej warstwy.
 
 Należy jednocześnie nadmienić, że filtry nie muszą być stosowane tylko na danych wejściowych. Wynik konwolucji może i często jest, przekazywany do głębszych warstw, gdzie uczone są filtry pracujące na wynikach warstw poprzednich. O wizualizacji tego, czego się te filtry nauczyły, będzie dalej w tej pracy.
 
@@ -81,7 +81,7 @@ Warstwy łączące (ang. \textit{pooling layers}) są często wykorzystywane w c
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=1]{resources/cnn/maxpool.pdf}}
-\caption{Zasada działania \textit{maxpool} dla macierzy \(4x4\) przy użycia filtra \(2x2\), bez dopełnienia i z krokiem \(s = 2\).}
+\caption{Zasada działania \textit{maxpool} dla macierzy \(4 \times 4\) przy użycia filtra \(2 \times 2\), bez dopełnienia i z krokiem \(s = 2\).}
 \label{fig:maxpool}
 \end{figure}
 
@@ -145,7 +145,7 @@ mniejsze porcje (w tym przypadku 256 elementów), na których przeliczana
 jest propagacja w przód i w tył naraz. Następnie, na sieci wynikowej
 uczona jest następna porcja, aż do wyczerpania elementów ze zbioru
 uczącego. Taki jeden obieg nazywamy \textit{epochem}. Podczas treningu tej sieci
-wykonam 5 takich \textit{epochów},
+wykonam 5 takich \textit{epochów}.
 
 W celu uzyskania lepszej sprawności w przewidywaniach sieci,
 zastosowałem w implementacji, nie opisane do tej pory praktyki
@@ -168,8 +168,7 @@ następnie przy pomocy \textit{Conv2D} definiuję warstwę konwolucyjną, normal
 aktywuję przy pomocy tangensa hiperbolicznego. Następnie stosuję warstwę \textit{MaxPooling2D}, analogiczne warstwy 
 \textit{Conv2D} oraz \textit{BatchNormalization} i całość wprowadzam do warstw gęstej sieci (warstwy \textit{Dense}), stosując uprzednio dwa razy \textit{Dropout}.
 
-\label{lst:lenet5keras}
-\begin{lstlisting}[language=Python, caption={Model sieci LeNet-5 w Keras.}, captionpos=b]
+\begin{lstlisting}[language=Python, caption={Model sieci LeNet-5 w Keras.}, label={lst:lenet5keras}, captionpos=b]
 #loading the dataset
 train_labels, test_labels, train_images, test_images, 
               train_images_orig, test_images_orig = loadTrainingData();
@@ -228,6 +227,7 @@ Trening trwał niecałe 4 minuty i uzyskał skuteczność powyżej 99\%, co jest
 \label{fig:lenet5-response}
 \end{figure}
 
+\label{lenet-wiz}
 \subsection{Wizualizacja neuronów warstw konwolucyjnych sieci LeNet-5.}
 Mając do dyspozycji wytrenowany model, można przystąpić do próby wizualizacji tego, czego nauczyła się sieć. Przy modelu tak płytkim jak LeNet-5 uzyskane odpowiedzi powinny być mniej imponujące wizualnie, ale przez to łatwiejsze w interpretacji.
 
@@ -254,8 +254,7 @@ Wniosek jest taki, że tym wypadku najprostsze rozwiązanie nie jest najlepsze. 
 Mapy cech czy inaczej mapy aktywacji, wizualizują rezultat zastosowania filtrów na danych wejściowych -- np. obrazu wejściowego czy innej mapy cech. Przykładowo, dla danego obrazu można wyrysować jakie, konkretnie jego cechy zostały wyszczególnione przez warstwę sieci CNN. 
 By uzyskać mapę cech dla danego obrazu, należy zmodyfikować model w taki sposób, by jego warstwą wyjściową była ta warstwa konwolucyjna, której cechy chcemy uzyskać. Przykładowe mapy cech pokazuje rysunek \ref{fig:lenet5-mapy-aktywacji-l1} i \ref{fig:lenet5-mapy-aktywacji-l2}.
 
-\label{lst:lenet5keras-mapy}
-\begin{lstlisting}[language=Python, caption={Uzyskiwanie mapy aktywacji dla danego modelu i obrazu w Keras.}, captionpos=b]
+\begin{lstlisting}[language=Python, caption={Uzyskiwanie mapy aktywacji dla danego modelu i obrazu w Keras.}, label={lst:lenet5keras-mapy}, captionpos=b]
 img = np.expand_dims(img, axis=0)
 vmodel = Model(inputs=model.inputs, outputs=model.layers[layer_no].output)
 feature_maps = vmodel.predict(img)

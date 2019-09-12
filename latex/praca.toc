@@ -51,13 +51,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}\textit {Neural Style Transfer} przy pomocy sieci VGG}{37}{section.4.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Konwolucyjna sie\IeC {\'c} incepcja}{41}{chapter.5}% 
+\contentsline {chapter}{\numberline {5}Konwolucyjna sie\IeC {\'c} Incepcja}{41}{chapter.5}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Architektura sieci incepcja}{41}{section.5.1}% 
+\contentsline {section}{\numberline {5.1}Architektura sieci Incepcja}{41}{section.5.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.1}Wst\IeC {\k e}p}{41}{subsection.5.1.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.2}Blok sieci incepcja}{41}{subsection.5.1.2}% 
+\contentsline {subsection}{\numberline {5.1.2}Blok sieci Incepcja}{41}{subsection.5.1.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1.3}Schemat sieci}{42}{subsection.5.1.3}% 
 \defcounter {refsection}{0}\relax 
