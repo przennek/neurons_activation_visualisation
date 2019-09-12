@@ -1,16 +1,16 @@
 [0] Config.pm:304> INFO - This is Biber 2.12
 [0] Config.pm:307> INFO - Logfile is 'praca.blg'
-[38] biber-darwin:315> INFO - === Fri Sep 13, 2019, 00:20:54
-[64] Biber.pm:371> INFO - Reading 'praca.bcf'
-[162] Biber.pm:889> INFO - Found 14 citekeys in bib section 0
-[176] Biber.pm:4093> INFO - Processing section 0
-[188] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliografia.bib' for section 0
-[190] bibtex.pm:1523> INFO - LaTeX decoding ...
-[210] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliografia.bib'
-[211] Utils.pm:193> WARN - Duplicate entry key: 'lenetpaper' in file 'bibliografia.bib', skipping ...
-[292] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[292] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[293] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'pl-PL'
-[309] bbl.pm:636> INFO - Writing 'praca.bbl' with encoding 'UTF-8'
-[315] bbl.pm:739> INFO - Output to praca.bbl
-[315] Biber.pm:110> INFO - WARNINGS: 1
+[41] biber-darwin:315> INFO - === Fri Sep 13, 2019, 00:29:56
+[70] Biber.pm:371> INFO - Reading 'praca.bcf'
+[170] Biber.pm:889> INFO - Found 14 citekeys in bib section 0
+[184] Biber.pm:4093> INFO - Processing section 0
+[202] Biber.pm:4254> INFO - Looking for bibtex format file 'bibliografia.bib' for section 0
+[204] bibtex.pm:1523> INFO - LaTeX decoding ...
+[230] bibtex.pm:1340> INFO - Found BibTeX data source 'bibliografia.bib'
+[231] Utils.pm:193> WARN - Duplicate entry key: 'lenetpaper' in file 'bibliografia.bib', skipping ...
+[319] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[320] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[320] Biber.pm:3921> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'pl-PL'
+[336] bbl.pm:636> INFO - Writing 'praca.bbl' with encoding 'UTF-8'
+[341] bbl.pm:739> INFO - Output to praca.bbl
+[342] Biber.pm:110> INFO - WARNINGS: 1
