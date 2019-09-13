@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.19)  13 SEP 2019 10:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.19)  13 SEP 2019 13:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1758,9 +1758,6 @@ nception/deepdream/skocznia4.png (PNG copy)> <./resources/inception/deepdream/2
 ]
 Rozdzia\l  6.
 
-LaTeX Warning: Reference `lenet-wiz' on page 51 undefined on input line 12.
-
-
 Underfull \vbox (badness 2903) has occurred while \output is active []
 
  [51])
@@ -1783,20 +1780,16 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
 Package rerunfilecheck Info: File `praca.out' has not changed.
 (rerunfilecheck)             Checksum: A38DD63FB93C2437AE0286ADA90CE3BB;2803.
-
-
-LaTeX Warning: There were undefined references.
-
 Package logreq Info: Writing requests to 'praca.run.xml'.
 \openout1 = `praca.run.xml'.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 18152 strings out of 494060
- 301222 string characters out of 6163035
+ 18151 strings out of 494060
+ 301220 string characters out of 6163035
  907087 words of memory out of 5000000
- 21206 multiletter control sequences out of 15000+600000
+ 21205 multiletter control sequences out of 15000+600000
  66448 words of font info for 70 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  45i,12n,73p,972b,2270s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1819,10 +1812,10 @@ ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type
 es/utmr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/urw/times/ut
 mr8a.pfb></usr/local/texlive/2019basic/texmf-dist/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on praca.pdf (54 pages, 54133173 bytes).
+Output written on praca.pdf (54 pages, 54132657 bytes).
 PDF statistics:
- 1121 PDF objects out of 1200 (max. 8388607)
- 882 compressed objects within 9 object streams
+ 1122 PDF objects out of 1200 (max. 8388607)
+ 883 compressed objects within 9 object streams
  278 named destinations out of 1000 (max. 500000)
  696 words of extra memory for PDF output out of 10000 (max. 10000000)
 
