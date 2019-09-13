@@ -27,7 +27,7 @@ Podobnie jak w przypadku VGG, w celu modyfikacji dwóch pierwszych wymiarów war
 
 \begin{figure}[ht]
 \centerline{\includegraphics[scale=1]{resources/Inception_block.pdf}}
-\caption{Schemat bloku z których składa się sieć Incepcja.}
+\caption{Schemat podstawowego (powielanego) bloku sieci Incepcja.}
 \label{fig:inception-block}
 \end{figure}
 
@@ -67,11 +67,11 @@ Z racji wielkości nie sposób zamieścić wszystkich informacji na temat sieci 
 \label{ddopis}
 \textit{DeepDream} to  program komputerowy stworzony przez Aleksandra Mordvintseva. Został opublikowany  w 2015 roku i opisany w formie posta na blogu \cite{deepdream}.
 
-Co do zasady działania, zarówno \textit{Deepdream}, jak i wizualizacje neuronów są modyfikacją programu zaprezentowanego w podrozdziale \ref{vgg-mean-activation}. Podobnie jak w wyżej wymienionym programie, używając wcześniej wytrenowanej sieci neuronowej modyfikujemy, obraz by zmaksymalizować aktywację neuronów danej sieci konwolucyjnej.
+Co do zasady działania, zarówno \textit{Deepdream}, jak i wizualizacje neuronów są modyfikacją programu zaprezentowanego w podrozdziale \ref{vgg-mean-activation}. Podobnie jak w wyżej wymienionym programie, używając wcześniej wytrenowanej sieci neuronowej modyfikujemy obraz, by zmaksymalizować aktywację neuronów danej sieci konwolucyjnej.
 
 Poza oczywistą zamianą VGG na GoogleLeNet, \textit{DeepDream} stosuje znany już z podrozdziału
 \ref{vgg-nst} sposób obliczania aktywacji kilku neuronów naraz, przy użyciu paramteru stopnia 
-użycia danej warstwy \(\lambda\). Obliczając aktywację dla kilku warstw naraz uzyskuje się bogatsze w treść efekty wizualne. Podobnie jak w przypadku wizualizacji uzyskanych na VGG, w celu uzyskania obrazu, będę
+użycia danej warstwy (\(\lambda\) -- patrz wzór (14)). Obliczając aktywację dla kilku warstw naraz uzyskuje się bogatsze w treść efekty wizualne. Podobnie jak w przypadku wizualizacji uzyskanych na VGG, w celu uzyskania obrazu, będę
 modyfikować wcześniej spreparowany, wylosowany obraz-szum. W swoim poście oryginalny autor posłużył się kolorowym obrazem (RGB). Ciekawe efekty uzyskano również przy pomocy modyfikacji już istniejących zdjęć. Tak samo jak poprzednio, obraz jest wieloktronie skalowany podczas treningu, ale z racji swoich rozmiarów sieć GoogleLeNet jest w stanie uchwycić struktury nieuchwtyne dla VGG, co umożliwia generowanie 
 nieco psychodelicznych obrazów.
 
@@ -122,7 +122,7 @@ Liczba kombinacji między warstwami czy filtrami niestety nie pozwoli na zamiesz
 \end{figure}
 
 \subsection{Wizualizacje uzyskane przy pomocy \textit{DeepDream}}
-Zgodnie z opisem z podrozdziału \ref{ddopis}, prezentowane wizualizacje zostały otrzymane poprzez modyfikację skryptu wizualizującego VGG. W procesie modyfikacji obrazu biorą 4 warstwy konwolucyjne (mixed od 2 do 4). Największy wpływ na funkcję kosztu mają 2 ostatnie warstwy. By uzyskać bardziej widoczny efekt, należy modyfikować oryginalny obraz przez większą liczbę iteracji, jest to jednak kosztowne obliczeniowo.
+Zgodnie z opisem z podrozdziału \ref{ddopis}, prezentowane wizualizacje zostały otrzymane poprzez modyfikację skryptu wizualizującego VGG. W procesie modyfikacji obrazu biorą udział 4 warstwy konwolucyjne (mixed od 2 do 4). Największy wpływ na funkcję kosztu mają 2 ostatnie warstwy. By uzyskać bardziej widoczny efekt, należy modyfikować oryginalny obraz przez większą liczbę iteracji, jest to jednak kosztowne obliczeniowo.
 
 Uzyskane efekty zostały zaprezentowane na rysunku \ref{fig:deepdream}.
 

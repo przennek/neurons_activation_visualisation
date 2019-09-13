@@ -25,7 +25,7 @@ By uzyskać wynik, stosuje się na obrazie dyskretną operację splotu z filtrem
 
 Operację wykonaną pomiędzy pojedynczą warstwą wejściową a odpowiadającym jej filtrem można zapisać:
 
-niech: \(k = \left\lfloor \frac{n + 2p}{s} \right\rfloor\), \(k\ \in Z\)
+niech: \(k = \left\lfloor \frac{n + 2p}{s} \right\rfloor\), \(k\ \in Z\), proponuję następujący wzór:
 
 \[\sum_{q = 0}^{n_{w}}{\sum_{r = 0}^{k}{\sum_{l = 0}^{k}\sum_{i = 0}^{n_{g} - 1}{\sum_{j = 0}^{n_{g} - 1}{\rho\lbrack f_{q}\left( rs + i,ls + j \right) g_{q}\left( i,j \right) + b\rbrack}}}}, \tag{9}\]
 
@@ -227,7 +227,7 @@ Trening trwał niecałe 4 minuty i uzyskał skuteczność powyżej 99\%, co jest
 \label{fig:lenet5-response}
 \end{figure}
 
-\label{lenet-wiz}
+\label{}
 \subsection{Wizualizacja neuronów warstw konwolucyjnych sieci LeNet-5.}
 Mając do dyspozycji wytrenowany model, można przystąpić do próby wizualizacji tego, czego nauczyła się sieć. Przy modelu tak płytkim jak LeNet-5 uzyskane odpowiedzi powinny być mniej imponujące wizualnie, ale przez to łatwiejsze w interpretacji.
 
