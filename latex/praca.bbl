@@ -33,6 +33,7 @@
       \strng{authorbibnamehash}{bdb4d740fc9548d1c32a62103c30169d}
       \strng{authornamehash}{bdb4d740fc9548d1c32a62103c30169d}
       \strng{authorfullhash}{bdb4d740fc9548d1c32a62103c30169d}
+      \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
@@ -46,22 +47,72 @@
       \endverb
       \keyw{deeplearning}
     \endentry
-    \entry{wikicrs}{online}{}
+    \entry{deeplearningbook}{book}{}
+      \name{author}{3}{}{%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{bibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authornamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
       \field{sortinit}{2}
       \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Angielski artykuł na Wikipedii na temat funkcji cross entropy loss.}
-      \verb{urlraw}
-      \verb https://en.wikipedia.org/wiki/Cross_entropy
-      \endverb
-      \verb{url}
-      \verb https://en.wikipedia.org/wiki/Cross_entropy
-      \endverb
-      \keyw{wikicrs}
+      \field{note}{\url{http://www.deeplearningbook.org}}
+      \field{title}{Deep Learning}
+      \field{year}{2016}
     \endentry
-    \entry{gd}{online}{}
+    \entry{andrewyt}{online}{}
+      \name{author}{1}{}{%
+        {{hash=bdb4d740fc9548d1c32a62103c30169d}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{fullhash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{bibnamehash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{authorbibnamehash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{authornamehash}{bdb4d740fc9548d1c32a62103c30169d}
+      \strng{authorfullhash}{bdb4d740fc9548d1c32a62103c30169d}
+      \field{extraname}{2}
       \field{sortinit}{3}
       \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Wykład na temat funkcji cross entropy loss.}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=SHEPb1JHw5o
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=SHEPb1JHw5o
+      \endverb
+      \keyw{andrewyt}
+    \endentry
+    \entry{gd}{online}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labeltitlesource}{title}
       \field{title}{Polski artykuł na Wikipedii o metodzie gradientu prostego.}
       \verb{urlraw}
@@ -91,8 +142,8 @@
       \strng{authorbibnamehash}{a09df9f123146b8e2c7f1134c9496932}
       \strng{authornamehash}{a09df9f123146b8e2c7f1134c9496932}
       \strng{authorfullhash}{a09df9f123146b8e2c7f1134c9496932}
-      \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Adam: A Method for Stochastic Optimization.}
@@ -129,8 +180,8 @@
       \strng{authornamehash}{efcd7df77681651155e8e7a4553de729}
       \strng{authorfullhash}{efcd7df77681651155e8e7a4553de729}
       \field{extraname}{1}
-      \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Gradient-Based Learning Applied to Document Recognition.}
@@ -167,8 +218,8 @@
       \strng{authornamehash}{efcd7df77681651155e8e7a4553de729}
       \strng{authorfullhash}{efcd7df77681651155e8e7a4553de729}
       \field{extraname}{2}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Baza danych zawierająca ręcznie pisane cyfry MNIST}
@@ -199,8 +250,8 @@
       \strng{authorbibnamehash}{25d2f3c4577a6632d37f0126cc781232}
       \strng{authornamehash}{25d2f3c4577a6632d37f0126cc781232}
       \strng{authorfullhash}{25d2f3c4577a6632d37f0126cc781232}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Very deep convolutional network for large-scale image recognition}
@@ -211,6 +262,33 @@
       \verb https://arxiv.org/pdf/1409.1556.pdf
       \endverb
       \keyw{vgg,cnn}
+    \endentry
+    \entry{kerasvgg}{online}{}
+      \name{author}{1}{}{%
+        {{hash=5836fc1fa037e340c8b5591da3207608}{%
+           family={Chollet},
+           familyi={C\bibinitperiod},
+           given={Francois},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{5836fc1fa037e340c8b5591da3207608}
+      \strng{fullhash}{5836fc1fa037e340c8b5591da3207608}
+      \strng{bibnamehash}{5836fc1fa037e340c8b5591da3207608}
+      \strng{authorbibnamehash}{5836fc1fa037e340c8b5591da3207608}
+      \strng{authornamehash}{5836fc1fa037e340c8b5591da3207608}
+      \strng{authorfullhash}{5836fc1fa037e340c8b5591da3207608}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Wizualizacja działania sieci VGG-16 w Keras.}
+      \verb{urlraw}
+      \verb https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html
+      \endverb
+      \verb{url}
+      \verb https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html
+      \endverb
+      \keyw{kerasvgg}
     \endentry
     \entry{imagenet}{online}{}
       \name{author}{1}{}{%
@@ -224,8 +302,8 @@
       \strng{authorbibnamehash}{410865ce1d82b2c16206105302898c80}
       \strng{authornamehash}{410865ce1d82b2c16206105302898c80}
       \strng{authorfullhash}{410865ce1d82b2c16206105302898c80}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Zbiór danych imagenet.}
@@ -261,8 +339,8 @@
       \strng{authorbibnamehash}{467d36c2c62b4f85d9a0e313c593bf43}
       \strng{authornamehash}{467d36c2c62b4f85d9a0e313c593bf43}
       \strng{authorfullhash}{467d36c2c62b4f85d9a0e313c593bf43}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A Neural Algorithm of Artistic Style}

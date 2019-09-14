@@ -1996,26 +1996,28 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">deeplearningai</bcf:citekey>
-    <bcf:citekey order="2">wikicrs</bcf:citekey>
-    <bcf:citekey order="3">gd</bcf:citekey>
-    <bcf:citekey order="4">adampaper</bcf:citekey>
-    <bcf:citekey order="5">lenetpaper</bcf:citekey>
-    <bcf:citekey order="6">mnist</bcf:citekey>
-    <bcf:citekey order="7">vggpaper</bcf:citekey>
-    <bcf:citekey order="8">imagenet</bcf:citekey>
-    <bcf:citekey order="9">nstpaper</bcf:citekey>
-    <bcf:citekey order="10">nstpaper</bcf:citekey>
-    <bcf:citekey order="11">thekeep</bcf:citekey>
-    <bcf:citekey order="12">thekeep</bcf:citekey>
-    <bcf:citekey order="13">inceptionpaper</bcf:citekey>
-    <bcf:citekey order="14">resnetpaper</bcf:citekey>
-    <bcf:citekey order="15">resnetpaper</bcf:citekey>
-    <bcf:citekey order="16">inceptionpaper</bcf:citekey>
-    <bcf:citekey order="17">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="2">deeplearningbook</bcf:citekey>
+    <bcf:citekey order="3">andrewyt</bcf:citekey>
+    <bcf:citekey order="4">gd</bcf:citekey>
+    <bcf:citekey order="5">adampaper</bcf:citekey>
+    <bcf:citekey order="6">lenetpaper</bcf:citekey>
+    <bcf:citekey order="7">mnist</bcf:citekey>
+    <bcf:citekey order="8">vggpaper</bcf:citekey>
+    <bcf:citekey order="9">kerasvgg</bcf:citekey>
+    <bcf:citekey order="10">imagenet</bcf:citekey>
+    <bcf:citekey order="11">nstpaper</bcf:citekey>
+    <bcf:citekey order="12">nstpaper</bcf:citekey>
+    <bcf:citekey order="13">thekeep</bcf:citekey>
+    <bcf:citekey order="14">thekeep</bcf:citekey>
+    <bcf:citekey order="15">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="16">resnetpaper</bcf:citekey>
+    <bcf:citekey order="17">resnetpaper</bcf:citekey>
     <bcf:citekey order="18">inceptionpaper</bcf:citekey>
     <bcf:citekey order="19">inceptionpaper</bcf:citekey>
-    <bcf:citekey order="20">deepdream</bcf:citekey>
-    <bcf:citekey order="21">lucidrepo</bcf:citekey>
+    <bcf:citekey order="20">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="21">inceptionpaper</bcf:citekey>
+    <bcf:citekey order="22">deepdream</bcf:citekey>
+    <bcf:citekey order="23">lucidrepo</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

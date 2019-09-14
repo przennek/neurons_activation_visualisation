@@ -7,11 +7,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.1}Algorytmy ucz\IeC {\k a}ce si\IeC {\k e}}{7}{section.2.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}G\IeC {\k e}sta sie\IeC {\'c} neuronowa}{7}{section.2.2}% 
+\contentsline {section}{\numberline {2.2}G\IeC {\k e}sta sie\IeC {\'c} neuronowa}{8}{section.2.2}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.3}Neuron g\IeC {\k e}stej sieci neuronowej}{8}{section.2.3}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Propagacja w prz\IeC {\'o}d}{9}{section.2.4}% 
+\contentsline {section}{\numberline {2.4}Propagacja w prz\IeC {\'o}d}{8}{section.2.4}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.5}Funkcja kosztu}{11}{section.2.5}% 
 \defcounter {refsection}{0}\relax 

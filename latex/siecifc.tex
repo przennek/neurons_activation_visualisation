@@ -13,7 +13,7 @@ Praca traktuje o zagadnieniach z dziedziny uczenia z nauczycielem (ang. \textit{
 Uzyskany wynik jest początkowo losowy i zostaje użyty do obliczenia wartości funkcji kosztu, opisanych w rozdziale \ref{sec:costfunction}.
 Na podstawie funkcji kosztu, wagi sieci zostaną skorygowane w procesie propagacji wstecznej.
 
-Wszystkie informacje na temat sieci neuronowych podane w tym i następnych rozdziałach są zaczerpnięte z materiałów półrocznego kursu deeplearning.ai \cite{deeplearningai} autorstwa dr Andrew Ng.
+Wszystkie informacje na temat sieci neuronowych podane w tym i następnych rozdziałach są zaczerpnięte z materiałów półrocznego kursu deeplearning.ai \cite{deeplearningai} autorstwa dr Andrew Ng. Jest on niestety materiałem płatnym, choć wykłady z niego zostały umieszczone na serwisie \textit{youtube}. Dodatkowym źródłem informacji była dla mnie publikacja MIT pod tytułem \textit{Deep learning} \cite{deeplearningbook}.
 
 \section{Gęsta sieć neuronowa}
 
@@ -104,7 +104,7 @@ Istnieje wiele różnych funkcji kosztu. Opiszę tutaj tylko funkcję \textit{cr
 
 \[J(w) = - \frac{1}{m}\ \sum_{i = 1}^{m}{\lbrack y_{i}\log{\acute{y}_{i}(w) + \left( 1 - y_{i} \right)\log{(1 - \ \acute{y}_{i}(w))}}\rbrack}, \tag{4}\]
 
-źródło: artykuł na anglojęzycznej Wikipedii \cite{wikicrs},
+źródło: publicznie dostępny wykład dr Andrew Ng \cite{andrewyt},
 
 gdzie:
 
@@ -160,7 +160,7 @@ gdzie:
   wraz ze zbliżaniem się do minimum funkcji \(J(w)\).
 \end{itemize}
 
-Krok pierwszy, czyli wybranie punktu startowego jest rozwiązany przy pomocy losowej inicjalizacji wag \(w\). Często stosuje się tu różne heurystyki dostosowane do użytej funkcji aktywacji (dla \(\tanh\) jest to przykładowo inicjalizacja \(Xaviera\).
+Krok pierwszy, czyli wybranie punktu startowego jest rozwiązany przy pomocy losowej inicjalizacji wag \(w\). Często stosuje się tu różne heurystyki dostosowane do użytej funkcji aktywacji (dla \(\tanh\) jest to przykładowo \textit{inicjalizacja Xaviera}).
 
 Kłopotliwym zagadnieniem może wydawać się wyliczenie gradientu \(\nabla f(w)\). Nie posiadając formalnej definicji hipotezy, tylko jej aproksymację w postaci sieci neuronowej musimy, posłużyć się funkcją kosztu \(J(w)\) i zależnością:
 
