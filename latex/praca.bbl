@@ -281,7 +281,7 @@
       \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Wizualizacja działania sieci VGG-16 w Keras.}
+      \field{title}{Wizualizacja działania sieci VGG-16 przy pomocy Keras.}
       \verb{urlraw}
       \verb https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html
       \endverb

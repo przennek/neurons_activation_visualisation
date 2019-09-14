@@ -10,22 +10,22 @@ wagi sieci neuronowych tak by każdy mógł dokonywać na nich swoich eksperymen
 Oprócz twórczego aspektu, takie eksperymentowanie naprowadza nas na kolejne, lepsze architektury konwolucyjnych sieci neurnowych. O ile w przypadku analizy języka naturalnego, już dziś posiadamy odpowiednią ilość danych w stosunku do wydajności tam stosowanych architektur, tak w przypadku analizy obrazu przy użyciu sieci neuronowych wciąż jest ogromne pole do zagospodarowania dla innowacji.
 
 \section{Szczegóły techniczne dotyczące treningu sieci}
-Podczas pisania tej pracy posługiwałem się dwiema konfiguracjami sprzętowymi. Laptopem oraz komputerem klasy PC.
+Podczas pisania tej pracy posługiwałem się dwiema konfiguracjami sprzętowymi -- laptopem oraz komputerem klasy PC.
 
-Do treningu sieci \textit{LeNet5} oraz wytworzenia jej map cech w zupełności wystarczył laptop z czterordzeniowym procesorem.
-Intel Core i7 (4770HQ) posiada 8 wirtualnych wątków. Jest to całkiem wydajny procesor czwartej generacji. 
-Przy jego pomocy, trening sieci \textit{LeNet5} na danych ze zbioru \textit{MINIST} trwał sumarycznie nie dłużej niż 4 minuty. 16 GB pamięci RAM w zupełności pozwoliło mi na zignorowanie problemów związanych z doładowywaniem danych do treningu. Zamiast doładowywać je w trakcie uczenia, mogłem po prostu wczytać cały zbiór do pamięci. 
+Do treningu sieci \textit{LeNet-5} oraz wytworzenia jej map cech w zupełności wystarczył laptop z czterordzeniowym procesorem
+Intel Core i7 (4770HQ), który posiada 8 wirtualnych wątków. Jest to całkiem wydajny procesor czwartej generacji. 
+Przy jego pomocy, trening sieci \textit{LeNet-5} na danych ze zbioru \textit{MINIST} trwał sumarycznie nie dłużej niż 4 minuty. 16 GB pamięci RAM w zupełności pozwoliło mi na zignorowanie problemów związanych z doładowywaniem danych do treningu. Zamiast doładowywać je w trakcie uczenia, mogłem po prostu wczytać cały zbiór do pamięci. 
 
-Pierwsze sygnały, że należy zmodyfikować proces treningu zaczęły się podczas uzyskiwania wizualizacji za pomocą VGG-19.
+Pierwsze sygnały, że należy zmodyfikować proces treningu pojawiły się podczas uzyskiwania wizualizacji za pomocą VGG-19.
 Uzyskanie obrazu skalowanego z wymiarów \(64 \times 64\) na \(512 \times 512\), dla głębszych warstw sieci, zaczęło zajmować powyżej 10 minut.
-Dlatego część obrazów, zwłaszcza z początkowych warstw, została wygenerowana przy pomocy wyżej opisanego laptopa, a część przy pomocy mojego prywatnego komputera klasy PC. Przyspieszyło to proces treningu około ośmiokrotnie, choć dużą rolę odgrywał tu czas inicjacji samego treningu i gdybym lepiej dostosował kod mógłbym uzyskać o wiele lepszy wynik.
+Dlatego część obrazów, zwłaszcza z początkowych warstw, została wygenerowana przy pomocy wyżej opisanego laptopa, a część przy pomocy mojego prywatnego komputera klasy PC. Przyspieszyło to proces treningu około ośmiokrotnie, choć dużą rolę odgrywał tu czas inicjacji samego treningu i gdybym lepiej dostosował kod, mógłbym uzyskać o wiele lepszy wynik.
 
 Użyty komputer to maszyna z procesorem szóstej generacji -- Intel i5-6600K, posiadającym 4 wątki przypadające na 4 rdzenie. Jednak gdy uciekałem się do pracy na tym komputerze, większą rolę odgrywała karta graficzna, bo to na niej trenowane były modele. Użyta została karta od firmy Nvidia. GeForce GTX 1070 znacznie skróciła czas wykonywania \textit{Neural Style Transfer} i \textit{DeepDream}, choć w obu przypadkach, moim zdaniem trudno estymować czasy treningu, bo koniec treningu był wyznaczany za pomocą
-manualnej oceny efektów wizualnych -- im dłużej ,,trenowałem obraz'' tym lepiej wyglądał. Zamieszczony \textit{Neural Style Transfer} był uczony przez około jedną godzinę, a \textit{DeepDream} przez 10-20 minut.
+manualnej oceny efektów wizualnych -- im dłużej ,,trenowałem obraz'', tym lepiej wyglądał. Zamieszczony \textit{Neural Style Transfer} był uczony przez około jedną godzinę, a \textit{DeepDream} przez 10-20 minut.
 
 W przypadkach wykorzystania komputera PC ilość pamięci RAM nie odgrywała większej roli, ponieważ obliczenia, które wykonywał nie wymagały wczytywania wymagających dużych ilości pamięci zbiorów danych.
 
-Oczywiście bez wcześniejszego wczytania wytrenowanych wag sieci VGG i Incepcja nie udałoby mi się uzyskać takich efektów, w tak krótkim czasie. Najbardziej kosztowne obliczenia związane z treningiem sieci konwolucyjnych zostały już wykonane przez osoby trzecie, które umieściły modele w sieci.
+Oczywiście, bez wcześniejszego wczytania wytrenowanych wag sieci VGG i Incepcja, nie udałoby mi się uzyskać takich efektów w tak krótkim czasie. Najbardziej kosztowne obliczenia związane z treningiem sieci konwolucyjnych zostały już wykonane przez osoby trzecie, które umieściły modele w sieci.
 
 \section{Wnioski}
 W podrozdziale \ref{lenet-wiz} udało się zwizualizować macierze wag oraz mapy cech sieci LeNet5. Wizualizacje macierzy wag nie dostarczyły dużego wglądu w to, w jaki sposób sieć konwolucyjna rozpoznaje przedmioty, ale za pomocą analogii do klasycznej analizy obrazu, budują intuicję na temat samej architektury sieci. Mapy cech są prostą metodą wizualizacji. Są też źródłem wiedzy o tym, w jaki sposób sieć coraz bardziej generalizuje cechy rozpoznywanych klas, w miarę gdy przesuwamy się
